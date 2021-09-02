@@ -756,7 +756,7 @@
 
 // 可调参数
 var BACKGROUND_COLOR = "black";   // 背景颜色
-var POINT_NUM = 200;                        // 星星数目
+var POINT_NUM = 250;                        // 星星数目
 var POINT_COLOR = "white";                  // 点的颜色
 var LINE_LENGTH = 10000;                    // 点之间连线长度(的平方)
 
@@ -871,9 +871,9 @@ function drawLine(p1, p2, deg) {
             } else return;
         }
         var t = (1.05 - dis2 / LINE_LENGTH) * 0.2 * deg;
-        ctx.strokeStyle = "rgba(255,255,255," + t + ")";
+        ctx.strokeStyle = "rgba(255, 255, 255," + t + ")";
         ctx.beginPath();
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = 2.5;
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(p2.x, p2.y);
         ctx.closePath();
