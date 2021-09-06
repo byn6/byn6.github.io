@@ -1,738 +1,1429 @@
 <!DOCTYPE html>
+
+
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  
 
-<link rel="stylesheet" href="/css/main.css">
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="只是草民一介." />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> Thd_bd</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/google-photos.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Thd_bd" type="application/atom+xml">
+</head>
+  </html>
+</html>
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/3.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">Thd_bd</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+        <img
+          src="/images/flower.png"
+          class="cover-logo"
+          alt="Thd_bd"
+        />
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"byn6.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['真正重要的东西，只用眼睛是看不见的', '夜醒众人漫漫夜，宝船乘风破浪声', 'Xcellerate your efforts！'],
+        startDelay: 0,
+        typeSpeed: 85,
+        loop: true,
+        backSpeed: 60,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
   </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
+  
 
-  <meta name="description" content="只是草民一介.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Thd_bd">
-<meta property="og:url" content="https://byn6.github.io/index.html">
-<meta property="og:site_name" content="Thd_bd">
-<meta property="og:description" content="只是草民一介.">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="听话的便当">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://byn6.github.io/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
 </script>
 
-  <title>Thd_bd</title>
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
   
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-HTML实现网页侧边栏"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/31/HTML%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E4%BE%A7%E8%BE%B9%E6%A0%8F/"
+    >网页侧边栏的实现</a> 
+</h2>
+ 
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Thd_bd</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">随性随心与随笔.</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
+      
     </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://byn6.github.io/2021/08/31/HTML%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E4%BE%A7%E8%BE%B9%E6%A0%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/favicon.ico">
-      <meta itemprop="name" content="听话的便当">
-      <meta itemprop="description" content="只是草民一介.">
+     
+    <div class="article-meta">
+      <a href="/2021/08/31/HTML%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E4%BE%A7%E8%BE%B9%E6%A0%8F/" class="article-date">
+  <time datetime="2021-08-31T10:07:03.000Z" itemprop="datePublished">2021-08-31</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.4k</span>
+        </span>
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Thd_bd">
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">6 分钟</span>
+        </span>
     </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/31/HTML%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E4%BE%A7%E8%BE%B9%E6%A0%8F/" class="post-title-link" itemprop="url">网页侧边栏的实现</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-31 18:07:03" itemprop="dateCreated datePublished" datetime="2021-08-31T18:07:03+08:00">2021-08-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-01 18:25:11" itemprop="dateModified" datetime="2021-09-01T18:25:11+08:00">2021-09-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+</div>
+ 
+    </div>
       
-          <p>既然是侧边栏，那么肯定分“左”和“右”了。</p>
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>既然是侧边栏，那么肯定分“左”和“右”了。</p>
 <p>下文将介绍两种侧边栏：</p>
 <hr>
 <h1 id="右侧边栏"><a href="#右侧边栏" class="headerlink" title="右侧边栏"></a>右侧边栏</h1><h2 id="示例-https-thdbd-github-io-222"><a href="#示例-https-thdbd-github-io-222" class="headerlink" title="示例 https://thdbd.github.io/222"></a>示例 <a target="_blank" rel="noopener" href="https://thdbd.github.io/222">https://thdbd.github.io/222</a></h2><p>首先分析一下动作和组成——</p>
 <p>按下按钮，右侧边栏弹出（原始状态为隐藏，所以 width=0），出现标签，关闭按钮；</p>
 <p>即弹出右侧边栏的点击事件能够改变右侧边栏 width 的值；</p>
-<p>而弹出过程中需要加入延迟时间，否则就会直接显示；</p>
-<p>全过程中引入了：</p>
-<p>&amp;times ; 交叉符；</p>
-<p>&amp;#9776 ; 三横线符；</p>
-<p>cursor:pointer; 光标触碰效果。</p>
-<h2 id="HTML部分"><a href="#HTML部分" class="headerlink" title="HTML部分"></a>HTML部分</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--侧栏界面设计--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;1&quot;</span> <span class="attr">class</span>=<span class="string">&quot;sidenav&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0)&quot;</span> <span class="attr">class</span>=<span class="string">&quot;closebtn&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;closeNav()&quot;</span>&gt;</span><span class="symbol">&amp;times;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>阿巴阿巴<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>阿巴阿巴<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>阿巴阿巴<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>阿巴阿巴<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Java-Script部分"><a href="#Java-Script部分" class="headerlink" title="Java Script部分"></a>Java Script部分</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/ecmascript&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*改变原始宽度（0）*/</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">openNav</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;1&quot;</span>).style.width = <span class="string">&quot;250px&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*恢复原始宽度0*/</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">closeNav</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;1&quot;</span>).style.width = <span class="string">&quot;0&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="CSS-CSS3部分"><a href="#CSS-CSS3部分" class="headerlink" title="CSS/CSS3部分"></a>CSS/CSS3部分</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@charset</span> <span class="string">&quot;utf-8&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS Document */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&quot;Lato&quot;</span>, sans-serif;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*侧边栏描绘*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidenav</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>; <span class="comment">/*原始宽度为0*/</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#111</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">transition</span>: <span class="number">0.5s</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">padding-top</span>: <span class="number">60px</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*侧边栏选项描绘*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidenav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">8px</span> <span class="number">8px</span> <span class="number">8px</span> <span class="number">32px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">25px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#818181</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">transition</span>: <span class="number">0.3s</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*侧边栏标签和关闭按钮光标的效果*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidenav</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.offcanvas</span> <span class="selector-tag">a</span><span class="selector-pseudo">:focus</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f1f1f1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*侧边栏和关闭按钮的位置*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidenav</span> <span class="selector-class">.closebtn</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">right</span>: <span class="number">25px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">36px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*当文档高度小于450px时，改变侧栏的padding属性和字体大小*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-height</span>: <span class="number">450px</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.sidenav</span> &#123;<span class="attribute">padding-top</span>: <span class="number">15px</span>;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.sidenav</span> <span class="selector-tag">a</span> &#123;<span class="attribute">font-size</span>: <span class="number">18px</span>;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>transition: 0.5s; 延迟0.5秒弹出右侧边栏；</p>
-<p>使用 @media 查询，可以针对不同的媒体类型定义不同的样式；</p>
-<p>@media可以针对不同的屏幕尺寸设置不同的样式，特别是如果你需要设置设计响应式的页面，@media 是非常有用的；</p>
-<p>当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。</p>
-<hr>
-<h1 id="左侧边栏"><a href="#左侧边栏" class="headerlink" title="左侧边栏"></a>左侧边栏</h1><h2 id="示例-https-thdbd-github-io-111"><a href="#示例-https-thdbd-github-io-111" class="headerlink" title="示例 https://thdbd.github.io/111"></a>示例 <a target="_blank" rel="noopener" href="https://thdbd.github.io/111">https://thdbd.github.io/111</a></h2><p>分析动作和组成——</p>
-<p>按下按钮，右侧边栏弹出（原始状态为隐藏，所以width=0），主体向右移动，背景颜色透明度改变，出现标签，关闭按钮，主体向左移动；</p>
-<h2 id="HTML部分-1"><a href="#HTML部分-1" class="headerlink" title="HTML部分"></a>HTML部分</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--侧栏界面设计--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;1&quot;</span> <span class="attr">class</span>=<span class="string">&quot;sidenav&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0)&quot;</span> <span class="attr">class</span>=<span class="string">&quot;closebtn&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;closeNav()&quot;</span>&gt;</span><span class="symbol">&amp;times;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>阿巴阿巴<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>阿巴阿巴<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>阿巴阿巴<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>阿巴阿巴<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Java-Script部分-1"><a href="#Java-Script部分-1" class="headerlink" title="Java Script部分"></a>Java Script部分</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*打开侧栏，修改侧栏宽度，主体左跨度、背景透明度*/</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">openNav</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">&quot;1&quot;</span>).style.width = <span class="string">&quot;250px&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&quot;2&quot;</span>).style.marginLeft = <span class="string">&quot;250px&quot;</span>;</span><br><span class="line"></span><br><span class="line">      <span class="built_in">document</span>.body.style.backgroundColor = <span class="string">&quot;rgba(0,0,0,0.4)&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*关闭侧栏，恢复原始侧栏宽度，主体左跨度、背景透明度*/</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">closeNav</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&quot;1&quot;</span>).style.width = <span class="string">&quot;0&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&quot;2&quot;</span>).style.marginLeft= <span class="string">&quot;0&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.body.style.backgroundColor = <span class="string">&quot;white&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>通过JS改变左侧边栏 width 值、主体 marginLeft 的值、背景的透明度backgroundColor，来控制左侧边栏宽度，主体左跨度、背景透明度和右边侧栏显示和隐藏效果。</p>
-<h2 id="CSS-CSS3部分-1"><a href="#CSS-CSS3部分-1" class="headerlink" title="CSS/CSS3部分"></a>CSS/CSS3部分</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@charset</span> <span class="string">&quot;utf-8&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS Document */</span></span><br><span class="line"> </span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&quot;Lato&quot;</span>, sans-serif;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">transition</span>: background-color .<span class="number">5s</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*侧边栏选择器*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidenav</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>; <span class="comment">/*原始宽度*/</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*z-index、top、left共同控制侧栏的悬浮（上方1，下方-1）*/</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#111</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">transition</span>: <span class="number">0.5s</span>; <span class="comment">/*侧栏延迟0.5s显示*/</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">padding-top</span>: <span class="number">60px</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*侧边栏标签选择器*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidenav</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">8px</span> <span class="number">8px</span> <span class="number">8px</span> <span class="number">32px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">25px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#818181</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">transition</span>: <span class="number">0.3s</span>; <span class="comment">/*标签延迟0.3s显示*/</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*侧栏标签和关闭按钮光标的效果*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidenav</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.offcanvas</span> <span class="selector-tag">a</span><span class="selector-pseudo">:focus</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f1f1f1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*侧栏和关闭按钮的位置选择器*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidenav</span> <span class="selector-class">.closebtn</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">right</span>: <span class="number">25px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">36px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">50px</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*主体内容*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">transition</span>: margin-left .<span class="number">5s</span>;<span class="comment">/*主体内容延迟0.5s整体y右移动*/</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">16px</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/*当文档高度小于450px时，改变侧栏的padding属性和字体大小*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-height</span>: <span class="number">450px</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.sidenav</span> &#123;<span class="attribute">padding-top</span>: <span class="number">15px</span>;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.sidenav</span> <span class="selector-tag">a</span> &#123;<span class="attribute">font-size</span>: <span class="number">18px</span>;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>左侧边栏选择器中 position、z-index、top、left共同控制侧栏的悬浮（上方1，下方-1）； </p>
-<p>transition: background-color .5s; 背景透明度变化的延迟效果 ；</p>
-<p>transition: 0.5s; 左侧边栏延迟显示效果 ；</p>
-<p>transition: 0.3s; 标签延迟显示效果 ；</p>
-<p>transition: margin-left .5s; 主体内容延迟整体右移动；</p>
-<p>使用 @media 查询，可以针对不同的媒体类型定义不同的样式；</p>
-<p>@media可以针对不同的屏幕尺寸设置不同的样式，特别是如果你需要设置设计响应式的页面，@media 是非常有用的；</p>
-<p>当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。</p>
-
+<p>而弹出过程中需要加入延迟时间，否则就会直接显示；</p> 
+      <a class="article-more-link" href="/2021/08/31/HTML%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E4%BE%A7%E8%BE%B9%E6%A0%8F/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
       
     </div>
-
     
+
+    <!-- copyright -->
     
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Script/" rel="tag">Java Script</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://byn6.github.io/2021/08/31/%E6%B5%8B%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/favicon.ico">
-      <meta itemprop="name" content="听话的便当">
-      <meta itemprop="description" content="只是草民一介.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Thd_bd">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/31/%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Hello Hexo</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-31 18:04:05" itemprop="dateCreated datePublished" datetime="2021-08-31T18:04:05+08:00">2021-08-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-01 18:23:05" itemprop="dateModified" datetime="2021-09-01T18:23:05+08:00">2021-09-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo官网</a></p>
-<p><a target="_blank" rel="noopener" href="https://thdbd666666.wordpress.com/2021/08/29/%e4%bd%bf%e7%94%a8github-pages%e9%83%a8%e7%bd%b2hexo%e5%88%b6%e4%bd%9c%e7%bd%91%e7%ab%99/">Hexo的安装与部署</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/search?q=hexo+theme">Hexo主题</a></p>
-<p><a target="_blank" rel="noopener" href="https://easyhexo.com/">Hexo延伸使用</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://byn6.github.io/2021/08/31/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/favicon.ico">
-      <meta itemprop="name" content="听话的便当">
-      <meta itemprop="description" content="只是草民一介.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Thd_bd">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/31/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-31 16:40:38" itemprop="dateCreated datePublished" datetime="2021-08-31T16:40:38+08:00">2021-08-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-01 18:25:56" itemprop="dateModified" datetime="2021-09-01T18:25:56+08:00">2021-09-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="听话的便当"
-      src="/images/favicon.ico">
-  <p class="site-author-name" itemprop="name">听话的便当</p>
-  <div class="site-description" itemprop="description">只是草民一介.</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/thdbd" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;thdbd" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:wzk88217@gmail.com" title="E-Mail → mailto:wzk88217@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://twitter.com/thd_bd" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;thd_bd" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.youtube.com/channel/UC8VtfMulaeIq8MKpRACMJdA" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UC8VtfMulaeIq8MKpRACMJdA" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/435364951" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;435364951" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Bilibili</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">听话的便当</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
     </footer>
   </div>
 
+   
+    
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+</article>
 
-<script src="/js/utils.js"></script>
+    
+    <article
+  id="post-测试"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/31/%E6%B5%8B%E8%AF%95/"
+    >Hello Hexo</a> 
+</h2>
+ 
 
-<script src="/js/motion.js"></script>
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/31/%E6%B5%8B%E8%AF%95/" class="article-date">
+  <time datetime="2021-08-31T10:04:05.000Z" itemprop="datePublished">2021-08-31</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">18</span>
+        </span>
+    </span>
 
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://thdbd666666.wordpress.com/2021/08/29/%e4%bd%bf%e7%94%a8github-pages%e9%83%a8%e7%bd%b2hexo%e5%88%b6%e4%bd%9c%e7%bd%91%e7%ab%99/">Hexo的安装与部署</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/search?q=hexo+theme">Hexo主题</a></p>
+<p><a target="_blank" rel="noopener" href="https://easyhexo.com/">Hexo延伸使用</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
 
-<script src="/js/schemes/pisces.js"></script>
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
 
+    </footer>
+  </div>
 
-<script src="/js/next-boot.js"></script>
+   
+    
+  
+</article>
 
+    
+    <article
+  id="post-使用github-pages部署hexo制作网站"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/29/%E4%BD%BF%E7%94%A8github-pages%E9%83%A8%E7%BD%B2hexo%E5%88%B6%E4%BD%9C%E7%BD%91%E7%AB%99/"
+    >使用GitHub Pages部署Hexo制作网站</a> 
+</h2>
+ 
 
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/29/%E4%BD%BF%E7%94%A8github-pages%E9%83%A8%E7%BD%B2hexo%E5%88%B6%E4%BD%9C%E7%BD%91%E7%AB%99/" class="article-date">
+  <time datetime="2021-08-29T02:18:27.000Z" itemprop="datePublished">2021-08-29</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.4k</span>
+        </span>
+    </span>
 
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>首先可以看一个示例网站（还是上N节我说过的GitHub Pages那个示例站点）</p>
+<p><a href="https://byn6.github.io/">https://byn6.github.io/</a></p> 
+      <a class="article-more-link" href="/2021/08/29/%E4%BD%BF%E7%94%A8github-pages%E9%83%A8%E7%BD%B2hexo%E5%88%B6%E4%BD%9C%E7%BD%91%E7%AB%99/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
 
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-使用markdown对文章进行标记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/22/%E4%BD%BF%E7%94%A8markdown%E5%AF%B9%E6%96%87%E7%AB%A0%E8%BF%9B%E8%A1%8C%E6%A0%87%E8%AE%B0/"
+    >使用Markdown对文章进行标记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/22/%E4%BD%BF%E7%94%A8markdown%E5%AF%B9%E6%96%87%E7%AB%A0%E8%BF%9B%E8%A1%8C%E6%A0%87%E8%AE%B0/" class="article-date">
+  <time datetime="2021-08-22T10:00:51.000Z" itemprop="datePublished">2021-08-22</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">7</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><img src="https://thdbd666666.files.wordpress.com/2021/08/b1ca2901-361d-492a-9f8f-b984f6681e68.jpg?w=1024"></p>
+<h4 id="https-thdbd-gitbook-io-thdbd-article-3"><a href="#https-thdbd-gitbook-io-thdbd-article-3" class="headerlink" title="https://thdbd.gitbook.io/thdbd/article/3"></a><a target="_blank" rel="noopener" href="https://thdbd.gitbook.io/thdbd/article/3">https://thdbd.gitbook.io/thdbd/article/3</a></h4> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-java实现链接转换"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/22/java%E5%AE%9E%E7%8E%B0%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2/"
+    >Java实现链接转换</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/22/java%E5%AE%9E%E7%8E%B0%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2/" class="article-date">
+  <time datetime="2021-08-21T17:22:43.000Z" itemprop="datePublished">2021-08-22</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">14</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><img src="https://thdbd666666.files.wordpress.com/2021/08/39596025-abe5-449d-8c64-f02ecf688449.jpg?w=1024"></p>
+<h4 id="https-thdbd-gitbook-io-thdbd-article-2"><a href="#https-thdbd-gitbook-io-thdbd-article-2" class="headerlink" title="https://thdbd.gitbook.io/thdbd/article/2"></a><a target="_blank" rel="noopener" href="https://thdbd.gitbook.io/thdbd/article/2">https://thdbd.gitbook.io/thdbd/article/2</a></h4><p>懒得再移过来了···</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-搭建你的gitbook（不使用node-js）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/21/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84gitbook%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8node-js%EF%BC%89/"
+    >搭建你的Gitbook（不使用Node.js）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/21/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84gitbook%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8node-js%EF%BC%89/" class="article-date">
+  <time datetime="2021-08-21T14:51:14.000Z" itemprop="datePublished">2021-08-21</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">628</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">2 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>一日更两篇！！&lt;(ˉ^ˉ)&gt;</p>
+<h5 id="·-了解Gitbook"><a href="#·-了解Gitbook" class="headerlink" title="· 了解Gitbook"></a>· 了解Gitbook</h5><p>Gitbook是一个…类似于“石墨文档”（或腾讯文档）的…功能（这里可以类比GitHub Pages，详见上一篇）</p>
+<p>我的Gitbook：thdbd.gitbook.io（注意：是gitbook而不是github）</p> 
+      <a class="article-more-link" href="/2021/08/21/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84gitbook%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8node-js%EF%BC%89/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-如何部署github-pages？"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/21/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2github-pages%EF%BC%9F/"
+    >如何部署GitHub Pages？</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/21/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2github-pages%EF%BC%9F/" class="article-date">
+  <time datetime="2021-08-21T13:00:45.000Z" itemprop="datePublished">2021-08-21</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">813</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">2 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>如果你想拥有一个网站——</p>
+<p>必不可少的两样东西是：域名（网址）和空间（存放网站数据的主机）.</p>
+<p>只需要<strong>“简单四步”</strong>就可以——</p> 
+      <a class="article-more-link" href="/2021/08/21/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2github-pages%EF%BC%9F/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-如何下载niconico上的视频？"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/19/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDniconico%E4%B8%8A%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%9F/"
+    >如何下载Niconico上的视频？</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/19/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDniconico%E4%B8%8A%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%9F/" class="article-date">
+  <time datetime="2021-08-19T11:21:25.000Z" itemprop="datePublished">2021-08-19</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">484</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>很久没写过文章了感觉网站都要长毛了。。</p>
+<p>今天继续整篇实用性很“强”的教程！</p>
+<h4 id="什么是Niconico？"><a href="#什么是Niconico？" class="headerlink" title="什么是Niconico？"></a><strong>什么是Niconico？</strong></h4> 
+      <a class="article-more-link" href="/2021/08/19/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDniconico%E4%B8%8A%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%9F/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-clash-for-windows-的用法（小白级）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/29/clash-for-windows-%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/"
+    >clash for Windows 的用法（小白级）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/29/clash-for-windows-%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/" class="article-date">
+  <time datetime="2021-07-29T05:38:53.000Z" itemprop="datePublished">2021-07-29</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">256</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>看本篇之前，可以先了解<a target="_blank" rel="noopener" href="https://thdbd666666.wordpress.com/2021/07/11/android-clash%e7%9a%84%e7%94%a8%e6%b3%95%ef%bc%88%e5%b0%8f%e7%99%bd%e7%ba%a7%ef%bc%89/">clash for Android 的用法</a>.</p>
+<p>教程只有两步.</p> 
+      <a class="article-more-link" href="/2021/07/29/clash-for-windows-%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clash/" rel="tag">clash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-一些网站的收集（此篇常更新）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/26/%E4%B8%80%E4%BA%9B%E7%BD%91%E7%AB%99%E7%9A%84%E6%94%B6%E9%9B%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/"
+    >一些网站的收集（此篇常更新）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/26/%E4%B8%80%E4%BA%9B%E7%BD%91%E7%AB%99%E7%9A%84%E6%94%B6%E9%9B%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/" class="article-date">
+  <time datetime="2021-07-26T12:23:28.000Z" itemprop="datePublished">2021-07-26</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">326</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>本来这是做成一个页面的 后来一想 个人的东西太少 反倒有种“反客为主”的感觉</p>
+<p>恩 发成文章比较好</p> 
+      <a class="article-more-link" href="/2021/07/26/%E4%B8%80%E4%BA%9B%E7%BD%91%E7%AB%99%E7%9A%84%E6%94%B6%E9%9B%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E6%9B%B4%E6%96%B0/" rel="tag">常更新</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-telegram-内置代理（此篇常更新）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/26/telegram-%E5%86%85%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/"
+    >Telegram 内置代理（9.6更新）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/26/telegram-%E5%86%85%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/" class="article-date">
+  <time datetime="2021-07-26T11:24:39.000Z" itemprop="datePublished">2021-07-26</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">376</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">2 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h5 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h5><ol>
+<li> 打开Telegram并选中一个对话（前提是你已经登录上了Telegram）</li>
+<li> 发送下面的链接 发出去在转圈也没关系</li>
+<li> 点击发送的链接 按照弹窗操作</li>
+</ol> 
+      <a class="article-more-link" href="/2021/07/26/telegram-%E5%86%85%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Telegram/" rel="tag">Telegram</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E6%9B%B4%E6%96%B0/" rel="tag">常更新</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B5%84%E6%BA%90/" rel="tag">资源</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+    <article
+  id="post-怎样获取bandcamp上的所有音乐？"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/07/22/%E6%80%8E%E6%A0%B7%E8%8E%B7%E5%8F%96bandcamp%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E9%9F%B3%E4%B9%90%EF%BC%9F/"
+    >怎样获取Bandcamp上的所有音乐？</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/22/%E6%80%8E%E6%A0%B7%E8%8E%B7%E5%8F%96bandcamp%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E9%9F%B3%E4%B9%90%EF%BC%9F/" class="article-date">
+  <time datetime="2021-07-22T06:16:26.000Z" itemprop="datePublished">2021-07-22</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>今天 来一篇能白嫖很多专辑和歌曲的教程 ( • ̀ω•́ )✧</p>
+<hr>
+<p><strong>Bandcamp是啥？</strong></p>
+<p>**<a target="_blank" rel="noopener" href="https://bandcamp.com/">Bandcamp</a>**是一家美国在线音乐公司， 由前Oddpost联合创始人Ethan Diamond与程序员Shawn Grunberger、Joe Holt和Neal Tucker于2008年创立，总部位于加利福尼亚。</p>
+<p>Bandcamp是一个全球音乐社区，在这里，粉丝可以发现音乐，并支持创作音乐的艺术家。</p> 
+      <a class="article-more-link" href="/2021/07/22/%E6%80%8E%E6%A0%B7%E8%8E%B7%E5%8F%96bandcamp%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E9%9F%B3%E4%B9%90%EF%BC%9F/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+  
+</article>
+
+    
+  </article>
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
-
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
   
+</section>
+</div>
 
-</body>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2005-2021
+        <i class="ri-heart-fill heart_icon"></i> 听话的便当
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/0025443573_41.jpg" alt="Thd_bd"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>Thanks♪(･ω･)ﾉ 都是微信</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/zfb.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wx.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
 <script>
-//==========================================
-// File:    star.js
-// Title:   几何星空连线背景
-// Author   李少杰
-//==========================================
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
 
-// 可调参数
-var BACKGROUND_COLOR = "black";   // 背景颜色
-var POINT_NUM = 250;                        // 星星数目
-var POINT_COLOR = "white";                  // 点的颜色
-var LINE_LENGTH = 10000;                    // 点之间连线长度(的平方)
-
-// 创建背景画布
-var cvs = document.createElement("canvas");
-cvs.width = window.innerWidth;
-cvs.height = window.innerHeight;
-cvs.style.cssText = "\
-    position:fixed;\
-    top:0px;\
-    left:0px;\
-    z-index:-1;\
-    opacity:1.0;\
-    ";
-document.body.appendChild(cvs);
-
-var ctx = cvs.getContext("2d");
-
-var startTime = new Date().getTime();
-
-//随机数函数
-function randomInt(min, max) {
-    return Math.floor((max - min + 1) * Math.random() + min);
-}
-
-function randomFloat(min, max) {
-    return (max - min) * Math.random() + min;
-}
-
-//构造点类
-function Point() {
-    this.x = randomFloat(0, cvs.width);
-    this.y = randomFloat(0, cvs.height);
-
-    var speed = randomFloat(0.3, 1.4);
-    var angle = randomFloat(0, 2 * Math.PI);
-
-    this.dx = Math.sin(angle) * speed;
-    this.dy = Math.cos(angle) * speed;
-
-    this.r = 1.2;
-
-    this.color = POINT_COLOR;
-}
-
-Point.prototype.move = function () {
-    this.x += this.dx;
-    if (this.x < 0) {
-        this.x = 0;
-        this.dx = -this.dx;
-    } else if (this.x > cvs.width) {
-        this.x = cvs.width;
-        this.dx = -this.dx;
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
     }
-    this.y += this.dy;
-    if (this.y < 0) {
-        this.y = 0;
-        this.dy = -this.dy;
-    } else if (this.y > cvs.height) {
-        this.y = cvs.height;
-        this.dy = -this.dy;
-    }
-}
+    viewer_init()
+</script> 
+<!-- MathJax -->
 
-Point.prototype.draw = function () {
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.closePath();
-    ctx.fill();
-}
+<!-- Katex -->
 
-var points = [];
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
 
-function initPoints(num) {
-    for (var i = 0; i < num; ++i) {
-        points.push(new Point());
-    }
-}
+<!-- ClickBoom1 -->
 
-var p0 = new Point(); //鼠标
-p0.dx = p0.dy = 0;
-var degree = 2.5;
-document.onmousemove = function (ev) {
-    p0.x = ev.clientX;
-    p0.y = ev.clientY;
-}
-document.onmousedown = function (ev) {
-    degree = 5.0;
-    p0.x = ev.clientX;
-    p0.y = ev.clientY;
-}
-document.onmouseup = function (ev) {
-    degree = 2.5;
-    p0.x = ev.clientX;
-    p0.y = ev.clientY;
-}
-window.onmouseout = function () {
-    p0.x = null;
-    p0.y = null;
-}
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
 
-function drawLine(p1, p2, deg) {
-    var dx = p1.x - p2.x;
-    var dy = p1.y - p2.y;
-    var dis2 = dx * dx + dy * dy;
-    if (dis2 < 2 * LINE_LENGTH) {
-        if (dis2 > LINE_LENGTH) {
-            if (p1 === p0) {
-                p2.x += dx * 0.03;
-                p2.y += dy * 0.03;
-            } else return;
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
         }
-        var t = (1.05 - dis2 / LINE_LENGTH) * 0.2 * deg;
-        ctx.strokeStyle = "rgba(255, 255, 255," + t + ")";
-        ctx.beginPath();
-        ctx.lineWidth = 2.5;
-        ctx.moveTo(p1.x, p1.y);
-        ctx.lineTo(p2.x, p2.y);
-        ctx.closePath();
-        ctx.stroke();
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
     }
-    return;
-}
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
 
-//绘制每一帧
-function drawFrame() {
-    cvs.width = window.innerWidth;
-    cvs.height = window.innerHeight;
-    ctx.fillStyle = BACKGROUND_COLOR;
-    ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-    var arr = (p0.x == null ? points : [p0].concat(points));
-    for (var i = 0; i < arr.length; ++i) {
-        for (var j = i + 1; j < arr.length; ++j) {
-            drawLine(arr[i], arr[j], 1.0);
-        }
-        arr[i].draw();
-        arr[i].move();
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=1853776327&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
     }
+</style>
+    
+    
 
-    window.requestAnimationFrame(drawFrame);
-}
-
-initPoints(POINT_NUM);
-drawFrame();
-</script>
-<script src="https://cdn.jsdelivr.net/gh/ygbhf/clicklove/clicklove.js">
-</script>
+  </div>
+</body>
+<!-- 悬挂的喵 -->
+<script src="https://raw.githubusercontent.com/thdbd/thdbd.github.io/main/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/thdbd/thdbd.github.io/main/js/szgotop.js"></script>
+<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/thdbd/thdbd.github.io/main/css/szgotop.css" />
 </html>

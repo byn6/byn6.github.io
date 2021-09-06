@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Thd_bd</title>
+  
+  <subtitle>随性随心与随笔.</subtitle>
+  <link href="https://byn6.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://byn6.github.io/"/>
+  <updated>2021-09-06T10:54:43.145Z</updated>
+  <id>https://byn6.github.io/</id>
+  
+  <author>
+    <name>听话的便当</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网页侧边栏的实现</title>
+    <link href="https://byn6.github.io/2021/08/31/HTML%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E4%BE%A7%E8%BE%B9%E6%A0%8F/"/>
+    <id>https://byn6.github.io/2021/08/31/HTML%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E4%BE%A7%E8%BE%B9%E6%A0%8F/</id>
+    <published>2021-08-31T10:07:03.000Z</published>
+    <updated>2021-09-06T10:54:43.145Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;既然是侧边栏，那么肯定分“左”和“右”了。&lt;/p&gt;
+&lt;p&gt;下文将介绍两种侧边栏：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;右侧边栏&quot;&gt;&lt;a href=&quot;#右侧边栏&quot; class=&quot;headerlink&quot; title=&quot;右侧边栏&quot;&gt;&lt;/a&gt;右侧边栏&lt;/h1&gt;&lt;h2 id=&quot;示例-https-thdbd-github-io-222&quot;&gt;&lt;a href=&quot;#示例-https-thdbd-github-io-222&quot; class=&quot;headerlink&quot; title=&quot;示例 https://thdbd.github.io/222&quot;&gt;&lt;/a&gt;示例 &lt;a href=&quot;https://thdbd.github.io/222&quot;&gt;https://thdbd.github.io/222&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;首先分析一下动作和组成——&lt;/p&gt;
+&lt;p&gt;按下按钮，右侧边栏弹出（原始状态为隐藏，所以 width=0），出现标签，关闭按钮；&lt;/p&gt;
+&lt;p&gt;即弹出右侧边栏的点击事件能够改变右侧边栏 width 的值；&lt;/p&gt;
+&lt;p&gt;而弹出过程中需要加入延迟时间，否则就会直接显示；&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="HTML" scheme="https://byn6.github.io/tags/HTML/"/>
+    
+    <category term="Java Script" scheme="https://byn6.github.io/tags/Java-Script/"/>
+    
+    <category term="CSS" scheme="https://byn6.github.io/tags/CSS/"/>
+    
+    <category term="前端" scheme="https://byn6.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello Hexo</title>
+    <link href="https://byn6.github.io/2021/08/31/%E6%B5%8B%E8%AF%95/"/>
+    <id>https://byn6.github.io/2021/08/31/%E6%B5%8B%E8%AF%95/</id>
+    <published>2021-08-31T10:04:05.000Z</published>
+    <updated>2021-09-01T10:23:05.915Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://hexo.io/zh-cn/&quot;&gt;Hexo官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="测试" scheme="https://byn6.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="Hexo" scheme="https://byn6.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用GitHub Pages部署Hexo制作网站</title>
+    <link href="https://byn6.github.io/2021/08/29/%E4%BD%BF%E7%94%A8github-pages%E9%83%A8%E7%BD%B2hexo%E5%88%B6%E4%BD%9C%E7%BD%91%E7%AB%99/"/>
+    <id>https://byn6.github.io/2021/08/29/%E4%BD%BF%E7%94%A8github-pages%E9%83%A8%E7%BD%B2hexo%E5%88%B6%E4%BD%9C%E7%BD%91%E7%AB%99/</id>
+    <published>2021-08-29T02:18:27.000Z</published>
+    <updated>2021-09-06T11:55:50.894Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;首先可以看一个示例网站（还是上N节我说过的GitHub Pages那个示例站点）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://byn6.github.io/&quot;&gt;https://byn6.github.io/&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Windows" scheme="https://byn6.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Markdown对文章进行标记</title>
+    <link href="https://byn6.github.io/2021/08/22/%E4%BD%BF%E7%94%A8markdown%E5%AF%B9%E6%96%87%E7%AB%A0%E8%BF%9B%E8%A1%8C%E6%A0%87%E8%AE%B0/"/>
+    <id>https://byn6.github.io/2021/08/22/%E4%BD%BF%E7%94%A8markdown%E5%AF%B9%E6%96%87%E7%AB%A0%E8%BF%9B%E8%A1%8C%E6%A0%87%E8%AE%B0/</id>
+    <published>2021-08-22T10:00:51.000Z</published>
+    <updated>2021-09-06T10:36:49.893Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://thdbd666666.files.wordpress.com/2021/08/b1ca2901-361d-492a-9f8f-b984f6681e68.jpg?w=1024&quot;&gt;&lt;/p&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java实现链接转换</title>
+    <link href="https://byn6.github.io/2021/08/22/java%E5%AE%9E%E7%8E%B0%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2/"/>
+    <id>https://byn6.github.io/2021/08/22/java%E5%AE%9E%E7%8E%B0%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2/</id>
+    <published>2021-08-21T17:22:43.000Z</published>
+    <updated>2021-09-06T10:54:52.699Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://thdbd666666.files.wordpress.com/2021/08/39596025-abe5-449d-8c64-f02ecf688449.jpg?w=1024&quot;&gt;&lt;/p&gt;
+&lt;h4</summary>
+        
+      
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建你的Gitbook（不使用Node.js）</title>
+    <link href="https://byn6.github.io/2021/08/21/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84gitbook%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8node-js%EF%BC%89/"/>
+    <id>https://byn6.github.io/2021/08/21/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84gitbook%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8node-js%EF%BC%89/</id>
+    <published>2021-08-21T14:51:14.000Z</published>
+    <updated>2021-09-06T11:54:34.452Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一日更两篇！！&amp;lt;(ˉ^ˉ)&amp;gt;&lt;/p&gt;
+&lt;h5 id=&quot;·-了解Gitbook&quot;&gt;&lt;a href=&quot;#·-了解Gitbook&quot; class=&quot;headerlink&quot; title=&quot;· 了解Gitbook&quot;&gt;&lt;/a&gt;· 了解Gitbook&lt;/h5&gt;&lt;p&gt;Gitbook是一个…类似于“石墨文档”（或腾讯文档）的…功能（这里可以类比GitHub Pages，详见上一篇）&lt;/p&gt;
+&lt;p&gt;我的Gitbook：thdbd.gitbook.io（注意：是gitbook而不是github）&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="网站" scheme="https://byn6.github.io/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何部署GitHub Pages？</title>
+    <link href="https://byn6.github.io/2021/08/21/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2github-pages%EF%BC%9F/"/>
+    <id>https://byn6.github.io/2021/08/21/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2github-pages%EF%BC%9F/</id>
+    <published>2021-08-21T13:00:45.000Z</published>
+    <updated>2021-09-06T11:54:48.945Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;如果你想拥有一个网站——&lt;/p&gt;
+&lt;p&gt;必不可少的两样东西是：域名（网址）和空间（存放网站数据的主机）.&lt;/p&gt;
+&lt;p&gt;只需要&lt;strong&gt;“简单四步”&lt;/strong&gt;就可以——&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="网站" scheme="https://byn6.github.io/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何下载Niconico上的视频？</title>
+    <link href="https://byn6.github.io/2021/08/19/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDniconico%E4%B8%8A%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%9F/"/>
+    <id>https://byn6.github.io/2021/08/19/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDniconico%E4%B8%8A%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%9F/</id>
+    <published>2021-08-19T11:21:25.000Z</published>
+    <updated>2021-09-06T11:55:08.018Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;很久没写过文章了感觉网站都要长毛了。。&lt;/p&gt;
+&lt;p&gt;今天继续整篇实用性很“强”的教程！&lt;/p&gt;
+&lt;h4 id=&quot;什么是Niconico？&quot;&gt;&lt;a href=&quot;#什么是Niconico？&quot; class=&quot;headerlink&quot; title=&quot;什么是Niconico？&quot;&gt;&lt;/a&gt;&lt;strong&gt;什么是Niconico？&lt;/strong&gt;&lt;/h4&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>clash for Windows 的用法（小白级）</title>
+    <link href="https://byn6.github.io/2021/07/29/clash-for-windows-%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/"/>
+    <id>https://byn6.github.io/2021/07/29/clash-for-windows-%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/</id>
+    <published>2021-07-29T05:38:53.000Z</published>
+    <updated>2021-09-06T11:53:46.549Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;看本篇之前，可以先了解&lt;a href=&quot;https://thdbd666666.wordpress.com/2021/07/11/android-clash%e7%9a%84%e7%94%a8%e6%b3%95%ef%bc%88%e5%b0%8f%e7%99%bd%e7%ba%a7%ef%bc%89/&quot;&gt;clash for Android 的用法&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;教程只有两步.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="clash" scheme="https://byn6.github.io/tags/clash/"/>
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Windows" scheme="https://byn6.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一些网站的收集（此篇常更新）</title>
+    <link href="https://byn6.github.io/2021/07/26/%E4%B8%80%E4%BA%9B%E7%BD%91%E7%AB%99%E7%9A%84%E6%94%B6%E9%9B%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>https://byn6.github.io/2021/07/26/%E4%B8%80%E4%BA%9B%E7%BD%91%E7%AB%99%E7%9A%84%E6%94%B6%E9%9B%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/</id>
+    <published>2021-07-26T12:23:28.000Z</published>
+    <updated>2021-09-06T11:56:11.951Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本来这是做成一个页面的 后来一想 个人的东西太少 反倒有种“反客为主”的感觉&lt;/p&gt;
+&lt;p&gt;恩 发成文章比较好&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="常更新" scheme="https://byn6.github.io/tags/%E5%B8%B8%E6%9B%B4%E6%96%B0/"/>
+    
+    <category term="分享" scheme="https://byn6.github.io/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Telegram 内置代理（9.6更新）</title>
+    <link href="https://byn6.github.io/2021/07/26/telegram-%E5%86%85%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>https://byn6.github.io/2021/07/26/telegram-%E5%86%85%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/</id>
+    <published>2021-07-26T11:24:39.000Z</published>
+    <updated>2021-09-06T11:54:22.838Z</updated>
+    
+    
+    <summary type="html">&lt;h5 id=&quot;用法：&quot;&gt;&lt;a href=&quot;#用法：&quot; class=&quot;headerlink&quot; title=&quot;用法：&quot;&gt;&lt;/a&gt;用法：&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt; 打开Telegram并选中一个对话（前提是你已经登录上了Telegram）&lt;/li&gt;
+&lt;li&gt; 发送下面的链接 发出去在转圈也没关系&lt;/li&gt;
+&lt;li&gt; 点击发送的链接 按照弹窗操作&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    
+    <category term="资源" scheme="https://byn6.github.io/tags/%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="常更新" scheme="https://byn6.github.io/tags/%E5%B8%B8%E6%9B%B4%E6%96%B0/"/>
+    
+    <category term="Telegram" scheme="https://byn6.github.io/tags/Telegram/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎样获取Bandcamp上的所有音乐？</title>
+    <link href="https://byn6.github.io/2021/07/22/%E6%80%8E%E6%A0%B7%E8%8E%B7%E5%8F%96bandcamp%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E9%9F%B3%E4%B9%90%EF%BC%9F/"/>
+    <id>https://byn6.github.io/2021/07/22/%E6%80%8E%E6%A0%B7%E8%8E%B7%E5%8F%96bandcamp%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E9%9F%B3%E4%B9%90%EF%BC%9F/</id>
+    <published>2021-07-22T06:16:26.000Z</published>
+    <updated>2021-09-06T11:56:00.948Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天 来一篇能白嫖很多专辑和歌曲的教程 ( • ̀ω•́ )✧&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Bandcamp是啥？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**&lt;a href=&quot;https://bandcamp.com/&quot;&gt;Bandcamp&lt;/a&gt;**是一家美国在线音乐公司， 由前Oddpost联合创始人Ethan Diamond与程序员Shawn Grunberger、Joe Holt和Neal Tucker于2008年创立，总部位于加利福尼亚。&lt;/p&gt;
+&lt;p&gt;Bandcamp是一个全球音乐社区，在这里，粉丝可以发现音乐，并支持创作音乐的艺术家。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="音乐" scheme="https://byn6.github.io/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何做一个可以回复指令的TG机器人？</title>
+    <link href="https://byn6.github.io/2021/07/20/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%9B%9E%E5%A4%8D%E6%8C%87%E4%BB%A4%E7%9A%84tg%E6%9C%BA%E5%99%A8%E4%BA%BA%EF%BC%9F/"/>
+    <id>https://byn6.github.io/2021/07/20/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%9B%9E%E5%A4%8D%E6%8C%87%E4%BB%A4%E7%9A%84tg%E6%9C%BA%E5%99%A8%E4%BA%BA%EF%BC%9F/</id>
+    <published>2021-07-20T05:20:24.000Z</published>
+    <updated>2021-09-06T11:55:45.764Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天 便当教你如何&lt;strong&gt;快速自制&lt;/strong&gt;一个简单的可以回复指令的TG机器人&lt;/p&gt;
+&lt;p&gt;我们需要：&lt;/p&gt;
+&lt;p&gt;1，一个Telegram&lt;/p&gt;
+&lt;p&gt;2，一个谷歌浏览器（&lt;strong&gt;登陆&lt;/strong&gt;过的）（&lt;strong&gt;强烈建议电脑端！！&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;3，一个稳定的VPN（搞着搞着掉线了就不好整了）&lt;/p&gt;
+&lt;p&gt;接下来 我会以一个电脑端用户的视角进行讲解（结尾打脸）&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Telegram" scheme="https://byn6.github.io/tags/Telegram/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何做一个TG私聊机器人？</title>
+    <link href="https://byn6.github.io/2021/07/19/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AAtg%E7%A7%81%E8%81%8A%E6%9C%BA%E5%99%A8%E4%BA%BA%EF%BC%9F/"/>
+    <id>https://byn6.github.io/2021/07/19/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AAtg%E7%A7%81%E8%81%8A%E6%9C%BA%E5%99%A8%E4%BA%BA%EF%BC%9F/</id>
+    <published>2021-07-19T13:55:08.000Z</published>
+    <updated>2021-09-06T11:55:36.513Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;开始之前 我们需要的东西有：&lt;/p&gt;
+&lt;p&gt;1，一个Telegram（&lt;a href=&quot;https://telegram.org/&quot;&gt;点击即可&lt;/a&gt;官网下载 &lt;strong&gt;要翻墙&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;2，一双不太灵巧的手&lt;/p&gt;
+&lt;p&gt;3，一个能理解中文的大脑&lt;/p&gt;
+&lt;p&gt;好的 我们开始吧！&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Telegram" scheme="https://byn6.github.io/tags/Telegram/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多类型订阅（9.6更新）</title>
+    <link href="https://byn6.github.io/2021/07/11/clash-%E9%85%8D%E7%BD%AE/"/>
+    <id>https://byn6.github.io/2021/07/11/clash-%E9%85%8D%E7%BD%AE/</id>
+    <published>2021-07-11T13:14:10.000Z</published>
+    <updated>2021-09-06T11:53:37.837Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;配置文件：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://wangzhuoke.lanzoui.com/iynaArafp5c&quot;&gt;蓝奏云地址&lt;/a&gt; 密码：66&lt;/strong&gt;（大部分都失效了）&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;注意：https型的为clash订阅，ss或ssr型的为SSR订阅，vmess或vless或trojan型的为V2Ray&lt;/p&gt;
+&lt;h2 id=&quot;URL地址：（前面有实心点的基本上失效）&quot;&gt;&lt;a href=&quot;#URL地址：（前面有实心点的基本上失效）&quot; class=&quot;headerlink&quot; title=&quot;URL地址：（前面有实心点的基本上失效）&quot;&gt;&lt;/a&gt;&lt;strong&gt;URL地址：&lt;/strong&gt;（前面有实心点的基本上失效）&lt;/h2&gt;</summary>
+    
+    
+    
+    
+    <category term="clash" scheme="https://byn6.github.io/tags/clash/"/>
+    
+    <category term="资源" scheme="https://byn6.github.io/tags/%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="常更新" scheme="https://byn6.github.io/tags/%E5%B8%B8%E6%9B%B4%E6%96%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>clash for Android 的用法（小白级）</title>
+    <link href="https://byn6.github.io/2021/07/11/android-clash%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/"/>
+    <id>https://byn6.github.io/2021/07/11/android-clash%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/</id>
+    <published>2021-07-11T12:10:29.000Z</published>
+    <updated>2021-09-06T11:53:59.664Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;clash是一款很强大的&lt;strong&gt;翻墙软件&lt;/strong&gt;（当然，你也可以选择V2RayNG或者SSR）&lt;/p&gt;
+&lt;p&gt;首先，这是&lt;strong&gt;Android&lt;/strong&gt;端&lt;strong&gt;clash&lt;/strong&gt;的&lt;a href=&quot;https://github.com/Kr328/ClashForAndroid&quot;&gt;&lt;strong&gt;GitHub下载地址&lt;/strong&gt;&lt;/a&gt;，可以按照自己的Android系统选择&lt;strong&gt;合适&lt;/strong&gt;的版本。&lt;/p&gt;
+&lt;p&gt;下载完之后，进入软件，我们可以看到如下页面（一级页面）：&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="clash" scheme="https://byn6.github.io/tags/clash/"/>
+    
+    <category term="安卓" scheme="https://byn6.github.io/tags/%E5%AE%89%E5%8D%93/"/>
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Note 1.   原谅和忘记</title>
+    <link href="https://byn6.github.io/2021/07/10/note-1/"/>
+    <id>https://byn6.github.io/2021/07/10/note-1/</id>
+    <published>2021-07-10T15:04:03.000Z</published>
+    <updated>2021-09-06T11:54:13.870Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;“我能识别感觉吗？&lt;br&gt;我能感觉到它们的存在吗？&lt;br&gt;一切都变得麻木了吗？&lt;br&gt;代替绝望？&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="记录" scheme="https://byn6.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World!</title>
+    <link href="https://byn6.github.io/2021/07/10/%E5%97%A8%EF%BC%81/"/>
+    <id>https://byn6.github.io/2021/07/10/%E5%97%A8%EF%BC%81/</id>
+    <published>2021-07-10T11:52:43.000Z</published>
+    <updated>2021-09-06T10:38:26.688Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;能看见此文章说明网站正在正常运行&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;欢迎&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;每一个人的到来&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;——&lt;/em&gt;&lt;/strong&gt;&lt;em&gt;&lt;stro</summary>
+        
+      
+    
+    
+    
+    
+    <category term="测试" scheme="https://byn6.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+</feed>
