@@ -231,7 +231,7 @@
 <p>Git的安装则是傻瓜式安装即可，虽然步骤多，但是按照默认的来就行；</p>
 <p>好的，现在已经全部准备完毕。</p>
 <h3 id="建立阶段"><a href="#建立阶段" class="headerlink" title="建立阶段"></a>建立阶段</h3><p>为了验证我们的Node.js和Git是否安装完毕，可以在CMD（win+R，输入“cmd”即可打开）中输入两条命令查看：</p>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line">git <span class="keyword">version</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">git version</span><br></pre></td></tr></table></figure>
 
 <p>如果出现以下的反馈（版本号可能不一样），则证明安装成功；</p>
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/kca71x0vx9l7408.png?w=993"></p>
@@ -239,17 +239,17 @@
 <p>我们进入到这个文件夹——</p>
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/k5dinhk0bvemq1ljt_9.png?w=993"></p>
 <p>接下来输入指令：</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install hexo-<span class="keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 
 <p>（这里我已经安装过了，就不重复安装了；安装过程中记得保持网络不要断了；）</p>
 <p>然后输入：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/2hh_h72rh9ccpg93.png?w=993"></p>
 <p>可以发现，它已经安装了一大堆东西了。</p>
 <h3 id="写作阶段"><a href="#写作阶段" class="headerlink" title="写作阶段"></a>写作阶段</h3><p>使用Hexo框架，可以用Markdown进行文章的写作——</p>
 <p>输入指令：</p>
-<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>“文章标题”</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new “文章标题”</span><br></pre></td></tr></table></figure>
 
 <p>这样就创建了一篇新文章——</p>
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/srvob9g5k8oo99.png?w=505"></p>
@@ -261,7 +261,7 @@
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/3b37icmc2g40gv2c3sdg.png?w=1024"></p>
 <p>这篇是我使用Markdown打出的一篇文章，那么它预览起来是什么样的呢？——</p>
 <p>输入指令：</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/ycgroij6p5kumbqfy.png?w=993"></p>
 <p>发现：生成了一个网站（<a href="http://localhost:4000），此时复制后浏览器打开即可——">http://localhost:4000），此时复制后浏览器打开即可——</a></p>
@@ -297,18 +297,18 @@
 <p>完成这些之后，我们可以再次用“hexo s”这个指令查看预览，发现已经更新主题了。</p>
 <h3 id="部署阶段"><a href="#部署阶段" class="headerlink" title="部署阶段"></a>部署阶段</h3><p>整了这么多，你的网站也终究只在你的本地运行，那么怎么部署到GitHub Pages上呢——</p>
 <p>首先，我们需要用指令下载一个插件，用于连接GitHub账户和Hexo：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
 <p>安装之后，如果想确认是否安装成功，可以输入这个指令：</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">npm</span> list hexo-deployer-git </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm list hexo-deployer-git </span><br></pre></td></tr></table></figure>
 
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/hllnoo91pxw9if27p1.png?w=993"></p>
 <p>出现了版本号，说明成功了；</p>
 <p>接下来，输入指令——</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g -d</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 
 <p>如果失败，则输入以下指令，之后再输入上面的指令：</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">config</span> <span class="comment">--global credential.helper wincred</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper wincred</span><br></pre></td></tr></table></figure>
 
 <p>此时可能会有弹窗显示让你输入什么API，这个时候选择浏览器打开，之后登录按照要求填写你的GitHub账号密码；</p>
 <p>之后，刷新一下你登录账号后的GitHub，会显示出现了一个新的分支（在上文，我的分支branch的名字是master）；此时，如果没有其他分支的话，应该是有两个分支——main和master；</p>
@@ -323,8 +323,8 @@
 <p>Bye~</p>
 ]]></content>
       <tags>
-        <tag>教程</tag>
         <tag>Windows</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -545,8 +545,8 @@
 ]]></content>
       <tags>
         <tag>clash</tag>
-        <tag>教程</tag>
         <tag>Windows</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -716,7 +716,7 @@
 </ol>
 <span id="more"></span>
 
-<h5 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h5><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">35.220.195.55</span>&amp;port=<span class="number">2089</span>&amp;secret=eef<span class="number">248</span>acfe<span class="number">7</span>cee<span class="number">69</span>c<span class="number">4</span>e<span class="number">98</span>ea<span class="number">996860</span>e<span class="number">592</span>b<span class="number">73332</span>e<span class="number">616</span>d<span class="number">617</span>a<span class="number">6</span>f<span class="number">6</span>e<span class="number">6177732</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=qd.bgp.nkeo.top&amp;port=<span class="number">45003</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=ahyd.<span class="number">002</span>.nkeo.top&amp;port=<span class="number">45425</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=gy.a<span class="number">2</span>.nkeo.top&amp;port=<span class="number">45494</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=qd.bgp.nkeo.top&amp;port=<span class="number">45206</span>&amp;user=nHpzbmYjDj&amp;pass=nYjHVkascT</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">52.78.8.43</span>&amp;port=<span class="number">52092</span>&amp;user=Hs_Galaxy&amp;pass=hagalaxyqwq</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">6</span>.yyds<span class="number">123</span>.com&amp;port=<span class="number">34878</span>&amp;user=<span class="number">2</span>EePECDGI<span class="number">8</span>&amp;pass=<span class="number">8</span>gQ<span class="number">73</span>PjXKZ</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">54.169.143.245</span>&amp;port=<span class="number">30304</span>&amp;user=uQvAovVIxQ&amp;pass=hls<span class="number">19</span>qDlCj</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=dddd.sz<span class="number">2</span>hkg.xlddns.xyz&amp;port=<span class="number">19515</span>&amp;user=mgnb<span class="number">66</span>&amp;pass=mgnb<span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">65.21.147.77</span>&amp;port=<span class="number">443</span>&amp;secret=<span class="number">7</span>gAAAAAAAAAAAAAAAAAAAABkbC<span class="number">5</span>nb<span class="number">29</span>nbGUuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">120.232.43.224</span>&amp;port=<span class="number">23333</span>&amp;secret=<span class="number">7</span>i<span class="number">0</span>dkNbpL<span class="number">4</span>TDgswZJqNbiwR<span class="number">3</span>d<span class="number">3</span>cuYmFpZHUuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=gy.nkeo.top&amp;port=<span class="number">55116</span>&amp;secret=<span class="number">7</span>gtVj<span class="number">5</span>Ll<span class="number">8</span>uYkgSNouTOd<span class="number">0</span>mhhenVyZS<span class="number">5</span>taWNyb<span class="number">3</span>NvZnQuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">18.141.181.61</span>&amp;port=<span class="number">9990</span>&amp;secret=<span class="number">7</span>rPb<span class="number">7</span>qXy<span class="number">0</span>zoqkKq_e<span class="number">2</span>ztlR<span class="number">5</span>henVyZS<span class="number">5</span>taWNyb<span class="number">3</span>NvZnQuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">65.21.147.77</span>&amp;port=<span class="number">443</span>&amp;secret=EE<span class="number">00000000000000000000000000000000646</span>c<span class="number">2</span>e<span class="number">676</span>f<span class="number">6</span>f<span class="number">676</span>c<span class="number">652</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=agogics-Koncinio.nicname.com.gmail.com.Microsoft--com.tk&amp;port=<span class="number">443</span>&amp;secret=<span class="number">3</span>TK<span class="number">5</span>IN_<span class="number">7</span>UWQwKOL<span class="number">2</span>uHjU<span class="number">6</span>sE</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">45.142.157.157</span>&amp;port=<span class="number">666</span>&amp;secret=eef<span class="number">4</span>d<span class="number">82661</span>dff<span class="number">1</span>e<span class="number">066</span>a<span class="number">9965</span>abc<span class="number">8</span>f<span class="number">0</span>a<span class="number">6</span>a<span class="number">857777772</span>e<span class="number">636</span>c<span class="number">6</span>f<span class="number">7564666</span>c<span class="number">6172652</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">18.141.181.61</span>&amp;port=<span class="number">9990</span>&amp;secret=eeb<span class="number">3</span>dbeea<span class="number">5</span>f<span class="number">2</span>d<span class="number">33</span>a<span class="number">2</span>a<span class="number">90</span>aabf<span class="number">7</span>b<span class="number">6</span>ced<span class="number">951</span>e<span class="number">617</span>a<span class="number">7572652</span>e<span class="number">6</span>d<span class="number">6963726</span>f<span class="number">736</span>f<span class="number">66742</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=agogics-Koncinio.nicname.com.gmail.com.Microsoft--com.tk&amp;port=<span class="number">443</span>&amp;secret=dd<span class="number">32</span>b<span class="number">920</span>dffb<span class="number">51643028</span>e<span class="number">2</span>f<span class="number">6</span>b<span class="number">878</span>d<span class="number">4</span>eac<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h5 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://t.me/proxy?server=35.220.195.55&amp;port=2089&amp;secret=eef248acfe7cee69c4e98ea996860e592b73332e616d617a6f6e6177732e636f6d</span><br><span class="line"></span><br><span class="line">https://t.me/socks?server=qd.bgp.nkeo.top&amp;port=45003&amp;user=tw2vfdXJEk&amp;pass=KQ7WwnVP99</span><br><span class="line"></span><br><span class="line">https://t.me/socks?server=ahyd.002.nkeo.top&amp;port=45425&amp;user=tw2vfdXJEk&amp;pass=KQ7WwnVP99</span><br><span class="line"></span><br><span class="line">https://t.me/socks?server=gy.a2.nkeo.top&amp;port=45494&amp;user=tw2vfdXJEk&amp;pass=KQ7WwnVP99</span><br><span class="line"></span><br><span class="line">https://t.me/socks?server=qd.bgp.nkeo.top&amp;port=45206&amp;user=nHpzbmYjDj&amp;pass=nYjHVkascT</span><br><span class="line"></span><br><span class="line">https://t.me/socks?server=52.78.8.43&amp;port=52092&amp;user=Hs_Galaxy&amp;pass=hagalaxyqwq</span><br><span class="line"></span><br><span class="line">https://t.me/socks?server=6.yyds123.com&amp;port=34878&amp;user=2EePECDGI8&amp;pass=8gQ73PjXKZ</span><br><span class="line"></span><br><span class="line">https://t.me/socks?server=54.169.143.245&amp;port=30304&amp;user=uQvAovVIxQ&amp;pass=hls19qDlCj</span><br><span class="line"></span><br><span class="line">https://t.me/socks?server=dddd.sz2hkg.xlddns.xyz&amp;port=19515&amp;user=mgnb66&amp;pass=mgnb666</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=65.21.147.77&amp;port=443&amp;secret=7gAAAAAAAAAAAAAAAAAAAABkbC5nb29nbGUuY29t</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=120.232.43.224&amp;port=23333&amp;secret=7i0dkNbpL4TDgswZJqNbiwR3d3cuYmFpZHUuY29t</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=gy.nkeo.top&amp;port=55116&amp;secret=7gtVj5Ll8uYkgSNouTOd0mhhenVyZS5taWNyb3NvZnQuY29t</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=18.141.181.61&amp;port=9990&amp;secret=7rPb7qXy0zoqkKq_e2ztlR5henVyZS5taWNyb3NvZnQuY29t</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=65.21.147.77&amp;port=443&amp;secret=EE00000000000000000000000000000000646c2e676f6f676c652e636f6d</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=agogics-Koncinio.nicname.com.gmail.com.Microsoft--com.tk&amp;port=443&amp;secret=3TK5IN_7UWQwKOL2uHjU6sE</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=45.142.157.157&amp;port=666&amp;secret=eef4d82661dff1e066a9965abc8f0a6a857777772e636c6f7564666c6172652e636f6d</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=18.141.181.61&amp;port=9990&amp;secret=eeb3dbeea5f2d33a2a90aabf7b6ced951e617a7572652e6d6963726f736f66742e636f6d</span><br><span class="line"></span><br><span class="line">https://t.me/proxy?server=agogics-Koncinio.nicname.com.gmail.com.Microsoft--com.tk&amp;port=443&amp;secret=dd32b920dffb51643028e2f6b878d4eac1</span><br></pre></td></tr></table></figure>
 
 <p>只发<strong>可用</strong>与<strong>高速</strong>(最上面的几个是绝对能用的)</p>
 <p><a href="https://thdbd666666.wordpress.com/2021/07/11/clash-%e9%85%8d%e7%bd%ae/">点此查看clash配置</a></p>
@@ -1032,8 +1032,8 @@
 ]]></content>
       <tags>
         <tag>clash</tag>
-        <tag>安卓</tag>
         <tag>教程</tag>
+        <tag>安卓</tag>
       </tags>
   </entry>
   <entry>

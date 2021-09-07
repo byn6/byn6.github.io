@@ -155,7 +155,7 @@ ga('send', 'pageview');
 <p>Git的安装则是傻瓜式安装即可，虽然步骤多，但是按照默认的来就行；</p>
 <p>好的，现在已经全部准备完毕。</p>
 <h3 id="建立阶段"><a href="#建立阶段" class="headerlink" title="建立阶段"></a>建立阶段</h3><p>为了验证我们的Node.js和Git是否安装完毕，可以在CMD（win+R，输入“cmd”即可打开）中输入两条命令查看：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line">git <span class="keyword">version</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">git version</span><br></pre></td></tr></table></figure>
 
 <p>如果出现以下的反馈（版本号可能不一样），则证明安装成功；</p>
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/kca71x0vx9l7408.png?w=993"></p>
@@ -163,17 +163,17 @@ ga('send', 'pageview');
 <p>我们进入到这个文件夹——</p>
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/k5dinhk0bvemq1ljt_9.png?w=993"></p>
 <p>接下来输入指令：</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-<span class="keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 
 <p>（这里我已经安装过了，就不重复安装了；安装过程中记得保持网络不要断了；）</p>
 <p>然后输入：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/2hh_h72rh9ccpg93.png?w=993"></p>
 <p>可以发现，它已经安装了一大堆东西了。</p>
 <h3 id="写作阶段"><a href="#写作阶段" class="headerlink" title="写作阶段"></a>写作阶段</h3><p>使用Hexo框架，可以用Markdown进行文章的写作——</p>
 <p>输入指令：</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>“文章标题”</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new “文章标题”</span><br></pre></td></tr></table></figure>
 
 <p>这样就创建了一篇新文章——</p>
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/srvob9g5k8oo99.png?w=505"></p>
@@ -185,7 +185,7 @@ ga('send', 'pageview');
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/3b37icmc2g40gv2c3sdg.png?w=1024"></p>
 <p>这篇是我使用Markdown打出的一篇文章，那么它预览起来是什么样的呢？——</p>
 <p>输入指令：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/ycgroij6p5kumbqfy.png?w=993"></p>
 <p>发现：生成了一个网站（<a href="http://localhost:4000），此时复制后浏览器打开即可——">http://localhost:4000），此时复制后浏览器打开即可——</a></p>
@@ -221,18 +221,18 @@ ga('send', 'pageview');
 <p>完成这些之后，我们可以再次用“hexo s”这个指令查看预览，发现已经更新主题了。</p>
 <h3 id="部署阶段"><a href="#部署阶段" class="headerlink" title="部署阶段"></a>部署阶段</h3><p>整了这么多，你的网站也终究只在你的本地运行，那么怎么部署到GitHub Pages上呢——</p>
 <p>首先，我们需要用指令下载一个插件，用于连接GitHub账户和Hexo：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
 <p>安装之后，如果想确认是否安装成功，可以输入这个指令：</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> list hexo-deployer-git </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list hexo-deployer-git </span><br></pre></td></tr></table></figure>
 
 <p><img src="https://thdbd666666.files.wordpress.com/2021/08/hllnoo91pxw9if27p1.png?w=993"></p>
 <p>出现了版本号，说明成功了；</p>
 <p>接下来，输入指令——</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g -d</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 
 <p>如果失败，则输入以下指令，之后再输入上面的指令：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">config</span> <span class="comment">--global credential.helper wincred</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper wincred</span><br></pre></td></tr></table></figure>
 
 <p>此时可能会有弹窗显示让你输入什么API，这个时候选择浏览器打开，之后登录按照要求填写你的GitHub账号密码；</p>
 <p>之后，刷新一下你登录账号后的GitHub，会显示出现了一个新的分支（在上文，我的分支branch的名字是master）；此时，如果没有其他分支的话，应该是有两个分支——main和master；</p>
