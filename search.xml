@@ -53,12 +53,14 @@
 <h3>第二步 获取session</h3>
 
 <p>随后，我们打开这个页面 <a href="https://replit.com/@mrwangzhe/gensession">https://replit.com/@mrwangzhe/gensession</a> 获取要获取的第三个信息——session；</p>
-<p>打开之后会看见页面中间有个大绿色的开始按钮，点击；</p>
+<p>这个网站的功能是在线运行了官方提供Python，从而获取session；</p>
+<p>打开之后会看见页面中间有个很大的绿色开始按钮，点击；</p>
 <p>刚开始加载的比较慢，后来会加载到一个状态不动：</p>
 <p>这时候你要粘贴进去刚刚获取的<code>API_ID</code>；</p>
 <p><img src="/images/%E8%BE%93%E5%85%A5id.jpg" alt="3"></p>
 <p><img src="/images/success.jpg" alt="4"></p>
-<p>如图，此时如果全部输入正确的数字(我是故意输错的啊），就会收到一个session（在收藏夹里面！！）</p>
+<p>如图，此时如果全部输入正确的数字(我是故意输错的啊），</p>
+<p>就会收到一个session（在收藏夹里面会发现多出来了一串长长的消息！！）</p>
 <p>随后我们<a href="https://railway.app/new/template?template=https://github.com/Xtao-Labs/PagerMaid-Modify/tree/master&envs=session,api_key,api_hash&sessionDesc=Your+telethon+session+string.&api_keyDesc=api_id,+from+my.telegram.org&api_hashDesc=api_hash,+from+my.telegram.org&referralCode=xtaolabs">点击这个网址</a>，输入刚刚的三个信息（<code>API_ID</code>，<code>session</code>和<code>API_HASH</code>）</p>
 <p><img src="/images/loss.jpg" alt="5"></p>
 <p>啊，可以看到，我失败了，因为我的这个账号是个新号；</p>
