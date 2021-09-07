@@ -35,6 +35,9 @@
 <p>然后再输出直链与歌曲名（这部分自己可以调整，artist_name为歌手参数，可以在输出的时候加上。</p>
 <p>（所以我说<strong>有共鸣</strong>，跟前面的java有异曲同工之妙）</p>
 <p>最后，我稍微改了一下输出的地方，本来是输出“xxx已下载”，现在的输出为“xxx”+“音乐直链”。（src）</p>
+<p>哔哩哔哩演示：</p>
+<iframe src="//player.bilibili.com/player.html?aid=717870475&bvid=BV1oQ4y1C7QS&cid=403998016&page=1" scrolling="no" width="800" height="600" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 <h2>结果</h2>
 
 <p>直接上源码：</p>
