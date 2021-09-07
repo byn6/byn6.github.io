@@ -1,6 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>在Railway上部署PagerMaid-Modify</title>
+    <url>/2021/09/07/railway/</url>
+    <content><![CDATA[<h2>什么是PagerMaid-Modify？</h2>
+
+<p>PagerMaid-Modify是Telegram的一个可玩度极高的“插件型”功能，它能做的事情很多——</p>
+<ul>
+<li><p>开启自动已读（-ghost true）</p>
+</li>
+<li><p>图片OCR（-ocr）</p>
+</li>
+<li><p>翻译回复的消息（-translate）</p>
+</li>
+<li><p>转换文本为语音（-tts）</p>
+</li>
+<li><p>搜索回复的消息（-google）</p>
+</li>
+<li><p>将消息以动态的形式展示出来（-animate）</p>
+</li>
+<li><p>使用owo来美化消息（-owo）</p>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<p>详情见：<a href="https://thdbd.github.io/pagermaid">https://thdbd.github.io/pagermaid</a></p>
+<p>示例：</p>
+<iframe src="https://streamja.com/wkyJ1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=400 width=500> </iframe>
+
+
+<h2>如何部署PagerMaid-Modify</h2>
+
+<p>这里是<a href="https://github.com/Xtao-Labs/PagerMaid-Modify">PagerMaid-Modify的官方GitHub地址</a>；</p>
+<p><a href="https://github.com/Xtao-Labs/PagerMaid-Modify/wiki/Ubuntu-16.04-%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3">Ubuntu 16.04安装教程</a>；</p>
+<p><a href="https://github.com/Xtao-Labs/PagerMaid-Modify/blob/master/utils/docker.md">Docker安装教程</a>；</p>
+<p>以及<a href="https://t.me/PagerMaid_Modify/58">一键安装脚本</a>。（在Telegram里）</p>
+<p>但是，上面的步骤多多少少都比较复杂（或者要支出），</p>
+<p>所以，今天来说一下0开销的Railway部署方法。(官方也给出了这种方法)</p>
+<h3>第一步 在Telegram官网申请</h3>
+
+<p>要申请的东西有<code>API_ID</code>和<code>API_HASH</code>；</p>
+<p>我们打开网址：<a href="https://my.telegram.org/auth">https://my.telegram.org/auth</a> ；(Telegram的注销也是在此处)</p>
+<p>登录完成后可以看到下图的界面：</p>
+<p><img src="/images/%E6%88%90%E5%8A%9F.jpg" alt="1" title="点击第一个"></p>
+<p>点击API development tools</p>
+<p>填写一下名字什么的消息（随便都可以）</p>
+<p>（ps：账号需要注册三个月以上才能申请）</p>
+<p>最终得到下面这个页面：</p>
+<p><img src="/images/%E9%83%A8%E7%BD%B2.jpg" alt="2"></p>
+<p>我们复制一下<code>API_ID</code>和<code>API_HASH</code>，保存到某个地方；</p>
+<h3>第二步 获取session</h3>
+
+<p>随后，我们打开这个页面 <a href="https://replit.com/@mrwangzhe/gensession">https://replit.com/@mrwangzhe/gensession</a> 获取要获取的第三个信息——session；</p>
+<p>打开之后会看见页面中间有个大绿色的开始按钮，点击；</p>
+<p>刚开始加载的比较慢，后来会加载到一个状态不动：</p>
+<p>这时候你要粘贴进去刚刚获取的<code>API_ID</code>；</p>
+<p><img src="/images/%E8%BE%93%E5%85%A5id.jpg" alt="3"></p>
+<p><img src="/images/success.jpg" alt="4"></p>
+<p>如图，此时如果全部输入正确的数字(我是故意输错的啊），就会收到一个session（在收藏夹里面！！）</p>
+<p>随后我们<a href="https://railway.app/new/template?template=https://github.com/Xtao-Labs/PagerMaid-Modify/tree/master&envs=session,api_key,api_hash&sessionDesc=Your+telethon+session+string.&api_keyDesc=api_id,+from+my.telegram.org&api_hashDesc=api_hash,+from+my.telegram.org&referralCode=xtaolabs">点击这个网址</a>，输入刚刚的三个信息（<code>API_ID</code>，<code>session</code>和<code>API_HASH</code>）</p>
+<p><img src="/images/loss.jpg" alt="5"></p>
+<p>啊，可以看到，我失败了，因为我的这个账号是个新号；</p>
+<p>拿我们的老号试一下；</p>
+<p><img src="/images/%E6%9C%80%E7%BB%88.jpg" alt="6"></p>
+<p>成功了！此时我们输入<code>API_ID</code>，<code>session</code>和<code>API_HASH</code>，勾选那个private repo，</p>
+<p>随后会跳转到这个页面：</p>
+<p><img src="/images/pm.jpg" alt="7"></p>
+<p>好！我们现在已经成功了！到Telegram输入指令“-help”试一下吧！</p>
+<p>此外，每个月Railway免费给我们5美元使用（只用来运行PagerMaid-Modify撑死也花不完）；</p>
+<p>如果超出5美元，还有5美元保命：</p>
+<p><img src="/images/money.jpg" alt="8"></p>
+<p>（紫色的每个月不用会延续到下个月，但是用完就没了）</p>
+<p>这里是内置模块的功能介绍：<a href="https://thdbd.github.io/pagermaid">https://thdbd.github.io/pagermaid</a></p>
+<p>这里有其他更多好玩的模块：<a href="https://index.xtaolabs.com/">https://index.xtaolabs.com/</a></p>
+<p>如果另有疑问，请私聊<a href="t.me/thd_bd">听话的便当</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+        <tag>Telegram</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python批量转换网易云为直链</title>
+    <url>/2021/09/06/Python/</url>
+    <content><![CDATA[<p>今天，完成了两件“大”事——</p>
+<ul>
+<li><p>把WordPress上的所有文章搬到Hexo了；（WordPress目前只为音乐服务）</p>
+</li>
+<li><p>发现了可以取代之前java那篇的更好的网易云直链转换方法。</p>
+</li>
+</ul>
+<p>本篇来稍微谈一下第二件：</p>
+<hr>
+
+<h2>起因</h2>
+
+<p>晚饭后，我在用pot player听歌的时候，突然发现播放列表空了——</p>
+<span id="more"></span>
+
+<p>于是，像往常一样，我打开了java链接转换文件；</p>
+<p>但是不一会，列表又空了。</p>
+<p>我不禁感到自己的能力上的深深不足——转换的效率实在是太低了，</p>
+<p>一首歌——&gt;一个链接——&gt;转换链接——&gt;打开链接——&gt;下载音频，</p>
+<p>总共经过了五个步骤，最终也只得出来一首歌。</p>
+<p>因此，我便Google了“网易云Python”；</p>
+<h2>经过</h2>
+
+<p><strong>果不其然</strong>，我找到了不少网易云py的实例，</p>
+<p>但最终发现——要不然是少了什么环境，要不然就是没法使用；</p>
+<p>就在这时，我发现了一个能<strong>引起我共鸣</strong>的py：</p>
+<p>它的大概思路就是在一个页面（歌单或者歌手页）request一下所有的歌曲，</p>
+<p>(可能是吧 或者是ping?post?Python太复杂了我不了解)</p>
+<p>获取URL和歌曲名称之后截断ID部分，并重新组成网易云官方API提供的直链格式，</p>
+<p>然后再输出直链与歌曲名（这部分自己可以调整，artist_name为歌手参数，可以在输出的时候加上。</p>
+<p>（所以我说<strong>有共鸣</strong>，跟前面的java有异曲同工之妙）</p>
+<p>最后，我稍微改了一下输出的地方，本来是输出“xxx已下载”，现在的输出为“xxx”+“音乐直链”。（src）</p>
+<p>哔哩哔哩演示：</p>
+<iframe src="//player.bilibili.com/player.html?aid=717870475&bvid=BV1oQ4y1C7QS&cid=403998016&page=1" scrolling="no" width="800" height="600" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h2>结果</h2>
+
+<p>直接上源码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download_songs</span>(<span class="params">url=<span class="literal">None</span></span>):</span></span><br><span class="line">    <span class="keyword">if</span> url <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        url = <span class="string">&#x27;https://music.163.com/#/playlist?id=6704027713&#x27;</span>  </span><br><span class="line">    url = url.replace(<span class="string">&#x27;/#&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;https&#x27;</span>, <span class="string">&#x27;http&#x27;</span>)</span><br><span class="line">    out_link = <span class="string">&#x27;http://music.163.com/song/media/outer/url?id=&#x27;</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Chrome/68.0.3440.106&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;https://music.163.com/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;music.163.com&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 可以使用的参数如下</span></span><br><span class="line"></span><br><span class="line">    res = requests.get(url=url, headers=headers).text</span><br><span class="line">    tree = etree.HTML(res)</span><br><span class="line">    song_list = tree.xpath(<span class="string">&#x27;//ul[@class=&quot;f-hide&quot;]/li/a&#x27;</span>)</span><br><span class="line">    artist_name_tree = tree.xpath(<span class="string">&#x27;//h2[@id=&quot;artist-name&quot;]/text()&#x27;</span>)</span><br><span class="line">    artist_name = <span class="built_in">str</span>(artist_name_tree[<span class="number">0</span>]) <span class="keyword">if</span> artist_name_tree <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">    song_list_name_tree = tree.xpath(<span class="string">&#x27;//h2[contains(@class,&quot;f-ff2&quot;)]/text()&#x27;</span>)</span><br><span class="line">    song_list_name = <span class="built_in">str</span>(song_list_name_tree[<span class="number">0</span>]) <span class="keyword">if</span> song_list_name_tree <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">    folder = <span class="string">&#x27;./&#x27;</span> + artist_name <span class="keyword">if</span> artist_name <span class="keyword">else</span> <span class="string">&#x27;./&#x27;</span> + song_list_name</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(folder):</span><br><span class="line">        os.mkdir(folder)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 可以使用的变量如下</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i, s <span class="keyword">in</span> <span class="built_in">enumerate</span>(song_list):</span><br><span class="line">        href = <span class="built_in">str</span>(s.xpath(<span class="string">&#x27;./@href&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line">        song_id = href.split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">        src = out_link + song_id </span><br><span class="line">        title = <span class="built_in">str</span>(s.xpath(<span class="string">&#x27;./text()&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line">        filename = title + <span class="string">&#x27;\n&#x27;</span><span class="string">&#x27;音频直链地址：&#x27;</span> + src   <span class="comment"># 可以只保留src 这样输出的只有直链</span></span><br><span class="line">        filepath = folder + <span class="string">&#x27;/&#x27;</span> + filename</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;正在获取第&#123;&#125;首歌曲名及音频直链：&#123;&#125;\n\n&#x27;</span>.<span class="built_in">format</span>(i + <span class="number">1</span>, filename))</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = requests.get(src).content</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(data)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">    </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125;首歌曲已经获取完啦！&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(song_list)))</span><br><span class="line"></span><br><span class="line">     <span class="comment"># 原先下载歌词的功能，没有用但是最好别删</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download_lyric</span>(<span class="params">song_name, song_id</span>):</span></span><br><span class="line">    url = <span class="string">&#x27;http://music.163.com/api/song/lyric?id=&#123;&#125;&amp;lv=-1&amp;kv=-1&amp;tv=-1&#x27;</span>.<span class="built_in">format</span>(song_id)</span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;https://music.163.com/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;music.163.com&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    res = requests.get(url=url, headers=headers).text</span><br><span class="line">    json_obj = json.loads(res)</span><br><span class="line">    lyric = json_obj[<span class="string">&#x27;lrc&#x27;</span>][<span class="string">&#x27;lyric&#x27;</span>]</span><br><span class="line">    reg = re.<span class="built_in">compile</span>(<span class="string">r&#x27;\[.*\]&#x27;</span>)</span><br><span class="line">    lrc_text = re.sub(reg, <span class="string">&#x27;&#x27;</span>, lyric).strip()</span><br><span class="line">    <span class="built_in">print</span>(song_name, lrc_text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    music_list = <span class="string">&#x27;https://music.163.com/#/playlist?id=2199699508&#x27;</span>  <span class="comment"># 在此输入URL 歌单或歌手都可以</span></span><br><span class="line">    download_songs(music_list)</span><br></pre></td></tr></table></figure>
+<h2>发现</h2>
+
+<p>原本作者（非我）的想法应该是（我也不太清楚）获取网易云的二进制文件，加上<code>.mp3</code>以生成音频文件；</p>
+<p>但是（可能ta那个时代可以）获取的文件打开发现都是网易云反爬虫返回的“网络繁忙（错误）”文件；</p>
+<p>于是后来我去搜索了一下网易云（缓存）的加密方式——</p>
+<p>参考：<a href="https://www.xuenixiang.com/thread-2413-1-1.html">https://www.xuenixiang.com/thread-2413-1-1.html</a></p>
+<p>解密的大概做法：</p>
+<p>打开缓存目录——&gt;找到.uc的最大的文件——&gt;使用010Edit全选后处理为无符号 十六进制——&gt;二进制异或<strong>“A3”</strong></p>
+<p>然后改后缀mp3播放即可。</p>
+<p>（还是比较麻烦的，最终得到的也是使用爬虫一键得到的结果）</p>
+<p>嗯，同时也发现了一个Python来解密缓存文件：</p>
+<h2>延伸：缓存解密</h2>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Author: C0n5t4ntK</span></span><br><span class="line"><span class="comment"># Personal Blog: www.elapse.life</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># Decrypt file using nor 0xa3 for each byte</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span>(<span class="params">cache_path, export_path, password = <span class="number">0xa3</span></span>):</span></span><br><span class="line">    f_read = <span class="built_in">open</span>(cache_path, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">    f_write = <span class="built_in">open</span>(export_path, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> obj <span class="keyword">in</span> f_read:</span><br><span class="line">        <span class="keyword">for</span> byte <span class="keyword">in</span> obj:</span><br><span class="line">            new_byte = byte ^ password</span><br><span class="line">            f_write.write(<span class="built_in">bytes</span>([new_byte]))</span><br><span class="line">    f_read.close()</span><br><span class="line">    f_write.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mode 1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt_file</span>():</span></span><br><span class="line">    cache_path = <span class="built_in">input</span>(<span class="string">&#x27;Pls input the path of the file!\n&#x27;</span>)</span><br><span class="line">    export_path = <span class="built_in">input</span>(<span class="string">&#x27;Where do you want to export? Pls input the specific file\&#x27;s path,(including file name and extension). Or press ENTER to use the default directory.\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> export_path == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;You didn\&#x27;t write down the path to export, the default path is D:\\\\decrypt_Export_From_Netease_Music\\decrypted.mp3.&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>):</span><br><span class="line">            os.makedirs(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>)</span><br><span class="line">        export_path = <span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music\\decrypted.mp3&#x27;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Wait a second pls...&#x27;</span>)</span><br><span class="line">        time_start = time.time()</span><br><span class="line">        decrypt(cache_path, export_path)</span><br><span class="line">        time_end = time.time()</span><br><span class="line">        time_used = time_end - time_start</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;The path is wrong!&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Done! It took &#x27;</span> + <span class="string">&quot;&#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(time_used) + <span class="string">&#x27;s. Enjoy!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mode 2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt_files</span>():</span></span><br><span class="line">    cache_path = <span class="built_in">input</span>(<span class="string">&#x27;Pls input the path of cache directory!\n&#x27;</span>)</span><br><span class="line">    export_path = <span class="built_in">input</span>(<span class="string">&#x27;Where do you want to export? Input a directory path! Or press ENTER to use the default directory.\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> export_path == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;You didn\&#x27;t write down the path to export, the default path is D:\\\\decrypt_Export_From_Netease_Music.&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>):</span><br><span class="line">            os.makedirs(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>)</span><br><span class="line">        export_path = <span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Wait a second pls...&#x27;</span>)</span><br><span class="line">        time_start = time.time()</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(cache_path):</span><br><span class="line">            <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">                (filename, extension) = os.path.splitext(file)</span><br><span class="line">                <span class="keyword">if</span> (extension == <span class="string">&#x27;.uc&#x27;</span>):</span><br><span class="line">                    decrypt(cache_path + <span class="string">&#x27;\\&#x27;</span> + file, export_path + <span class="string">&#x27;\\&#x27;</span> + filename + <span class="string">&#x27;.mp3&#x27;</span>)</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&#x27;Already converted &#x27;</span> + <span class="built_in">str</span>(count) + <span class="string">&#x27; file(s)...&#x27;</span>)</span><br><span class="line">        time_end = time.time()</span><br><span class="line">        time_used = time_end - time_start</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Wrong path! Pls try again later.&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Done! It took &#x27;</span> + <span class="string">&quot;&#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(time_used) + <span class="string">&#x27;s. Enjoy!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mode 3</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt_recent_files</span>():</span></span><br><span class="line">    num = <span class="built_in">input</span>(<span class="string">&#x27;How many files do you want to convert? Input a number.\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        num = <span class="built_in">int</span>(num)</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;The number is invalid...&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    cache_path = <span class="built_in">input</span>(<span class="string">&#x27;Pls input the path of cache directory!\n&#x27;</span>)</span><br><span class="line">    export_path = <span class="built_in">input</span>(<span class="string">&#x27;Where do you want to export? Input a directory path! Or press ENTER to use the default directory.\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> export_path == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;You didn\&#x27;t write down the path to export, the default path is D:\\\\decrypt_Export_From_Netease_Music.&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>):</span><br><span class="line">            os.makedirs(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>)</span><br><span class="line">        export_path = <span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Wait a second pls...&#x27;</span>)</span><br><span class="line">        time_start = time.time()</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        files_list = []</span><br><span class="line">        files = os.listdir(cache_path)</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            (filename, extension) = os.path.splitext(file)</span><br><span class="line">            <span class="keyword">if</span> (extension == <span class="string">&#x27;.uc&#x27;</span>):</span><br><span class="line">                files_list.append(file)</span><br><span class="line">        files_list.sort(key=<span class="keyword">lambda</span> file: os.path.getmtime(cache_path + <span class="string">&#x27;\\&#x27;</span>+ file) <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(cache_path + <span class="string">&#x27;\\&#x27;</span>+ file) <span class="keyword">else</span> <span class="number">0</span>)</span><br><span class="line">        lens = <span class="built_in">len</span>(files_list)</span><br><span class="line">        <span class="keyword">if</span> num &lt;= lens:</span><br><span class="line">            <span class="keyword">for</span> file <span class="keyword">in</span> files_list[-<span class="number">1</span>:-(num + <span class="number">1</span>):-<span class="number">1</span>]:</span><br><span class="line">                (filename, extension) = os.path.splitext(file)</span><br><span class="line">                decrypt(cache_path + <span class="string">&#x27;\\&#x27;</span> + file, export_path + <span class="string">&#x27;\\&#x27;</span> + filename + <span class="string">&#x27;.mp3&#x27;</span>)</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;Already converted &#x27;</span> + <span class="built_in">str</span>(count) + <span class="string">&#x27; file(s)...&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;There\&#x27;re not enough files to convert, try to input smaller.&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        time_end = time.time()</span><br><span class="line">        time_used = time_end - time_start</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Sorry the path is wrong, pls try again later.&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Done! It took &#x27;</span> + <span class="string">&quot;&#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(time_used) + <span class="string">&#x27;s. Enjoy!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------------------------&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;This is a small python script(on windows) which can decrypt music files with \&quot;.uc\&quot; extension from Netease Cloud Music\&#x27;s cache.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;It has three simple modes, which are: convert single file, convert all files in a directory or convert the most recently used files. You can follow the coming hints.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------------------------&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Attention: You can find the cache directory in the settings of Netease Cloud Music.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;And the default directory is C:\\\\Users\\$your_username\\AppData\\Local\\Netease\\CloudMusic\\Cache\\Cache.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Type \&#x27;CTRL + C\&#x27; to stop.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;And sorry Netease Cloud Music didn\&#x27;t cache files by song\&#x27;s name, so I cannot name the files by the song.^_^&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------------------------&#x27;</span>)</span><br><span class="line">    choose = <span class="built_in">input</span>(<span class="string">&#x27;Please pick a number to choose a mode you want to use.\n1. Single file\n2. All files in directory\n3. Most recently used file\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> choose == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;You chose single file mode, of course.&#x27;</span>)</span><br><span class="line">        decrypt_file()</span><br><span class="line">    <span class="keyword">elif</span> choose == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Here\&#x27;s the directory mode.&#x27;</span>)</span><br><span class="line">        decrypt_files()</span><br><span class="line">    <span class="keyword">elif</span> choose == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Seems like you want to convert recent files.&#x27;</span>)</span><br><span class="line">        decrypt_recent_files()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Invalid number! Please try again later!&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://www.elapse.life/article/python-script-to-decrypt-netease-music-cache-file">https://www.elapse.life/article/python-script-to-decrypt-netease-music-cache-file</a></p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>网易云</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网页侧边栏的实现</title>
     <url>/2021/08/31/HTML%E5%AE%9E%E7%8E%B0%E7%BD%91%E9%A1%B5%E4%BE%A7%E8%BE%B9%E6%A0%8F/</url>
     <content><![CDATA[<p>既然是侧边栏，那么肯定分“左”和“右”了。</p>
@@ -61,47 +206,309 @@
       </tags>
   </entry>
   <entry>
-    <title>clash for Android 的用法（小白级）</title>
-    <url>/2021/07/11/android-clash%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/</url>
-    <content><![CDATA[<p>clash是一款很强大的<strong>翻墙软件</strong>（当然，你也可以选择V2RayNG或者SSR）</p>
-<p>首先，这是<strong>Android</strong>端<strong>clash</strong>的<a href="https://github.com/Kr328/ClashForAndroid"><strong>GitHub下载地址</strong></a>，可以按照自己的Android系统选择<strong>合适</strong>的版本。</p>
-<p>下载完之后，进入软件，我们可以看到如下页面（一级页面）：</p>
+    <title>使用GitHub Pages部署Hexo制作网站</title>
+    <url>/2021/08/29/%E4%BD%BF%E7%94%A8github-pages%E9%83%A8%E7%BD%B2hexo%E5%88%B6%E4%BD%9C%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p>首先可以看一个示例网站（还是上N节我说过的GitHub Pages那个示例站点）</p>
+<p><a href="https://byn6.github.io/">https://byn6.github.io/</a></p>
 <span id="more"></span>
 
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image.png?w=482"></p>
-<p>（当然初次打开看到的界面是亮色的 在设置/应用里面可以调整）</p>
-<p>这个时候 我们点击<strong>配置</strong>（二级页面）</p>
-<p>发现右上角有一个<strong>小加号</strong>，点击加号后，会有下面的页面（三级页面）：</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-1.png?w=482"></p>
-<p>接下来，我会先讲解<strong>URL</strong>（统一资源定位符）导入的方法：</p>
-<p>点击<strong>URL</strong>，出现下面的页面 ：</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-2.png?w=482"></p>
-<p>我们可以给刚刚嫖（买）到的订阅起一个好听的名字，例如：001</p>
-<p>随后在<strong>URL框</strong>粘贴进你刚刚复制的嫖（买）到的订阅链接</p>
-<p>然后点击右上角<strong>保存</strong>（如果失败，下方会有弹窗提示，说明这个URL无效，或者机场主关闭了新的订阅允许，此时你要再去找（换）一个新的URL）成功后，会回到<strong>配置</strong>（二级页面）页面，如下：</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-3.png?w=482"></p>
-<p>（我是导入了<strong>很多</strong>订阅之后才这么多的）</p>
-<p>我们点击刚刚添加或者能用的订阅，然后点击左上角返回到一级页面，点击<strong>已停止（点击启动）</strong>，如下，出现字节跳动说明成功连上啦！</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/e59bbee78987.png?w=461"></p>
+<p>差不多就长这样啊 我这是没怎么整主题之类的</p>
+<p>记得上N节我说过的GitHub Pages的用途之一，就有“使用Hexo框架搭建博客”，当时没有细讲是因为我觉得Gitbook其实就挺适合的了；不过比较一下UI什么的还是发现，Hexo还是美观得多（因为可以自选主题）；话不多说，开始——</p>
+<h3 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h3><p>首先需要下载——</p>
+<ul>
+<li>  Node.js</li>
+<li>  Git</li>
+</ul>
+<p>这里是官网——</p>
+<p>Node.js：<a href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></p>
+<p>Git：<a href="https://git-scm.com/">https://git-scm.com/</a></p>
+<p>这里是全套蓝奏云下载地址，整理好了——</p>
+<p><a href="https://wangzhuoke.lanzoui.com/ivDH5tb7waj">https://wangzhuoke.lanzoui.com/ivDH5tb7waj</a> 无密码</p>
+<p>其中，在Node.js安装过程中，会出现下面的窗口：</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/bvh7bf1qxo52qpzj5_q.png?w=499"></p>
+<p>要点第四个，添加到Path（环境变量）；</p>
+<p>Git的安装则是傻瓜式安装即可，虽然步骤多，但是按照默认的来就行；</p>
+<p>好的，现在已经全部准备完毕。</p>
+<h3 id="建立阶段"><a href="#建立阶段" class="headerlink" title="建立阶段"></a>建立阶段</h3><p>为了验证我们的Node.js和Git是否安装完毕，可以在CMD（win+R，输入“cmd”即可打开）中输入两条命令查看：</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line">git <span class="keyword">version</span></span><br></pre></td></tr></table></figure>
+
+<p>如果出现以下的反馈（版本号可能不一样），则证明安装成功；</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/kca71x0vx9l7408.png?w=993"></p>
+<p>接下来，创建一个文件夹（名字随便，位置随便，但是最好方便些，这里建议在桌面建立一个名为“hexo”的文件夹）；</p>
+<p>我们进入到这个文件夹——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/k5dinhk0bvemq1ljt_9.png?w=993"></p>
+<p>接下来输入指令：</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install hexo-<span class="keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
+
+<p>（这里我已经安装过了，就不重复安装了；安装过程中记得保持网络不要断了；）</p>
+<p>然后输入：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/2hh_h72rh9ccpg93.png?w=993"></p>
+<p>可以发现，它已经安装了一大堆东西了。</p>
+<h3 id="写作阶段"><a href="#写作阶段" class="headerlink" title="写作阶段"></a>写作阶段</h3><p>使用Hexo框架，可以用Markdown进行文章的写作——</p>
+<p>输入指令：</p>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>“文章标题”</span><br></pre></td></tr></table></figure>
+
+<p>这样就创建了一篇新文章——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/srvob9g5k8oo99.png?w=505"></p>
+<p>位置在source文件夹中的_posts文件夹中，名为“听话的便当”的Markdown文件；</p>
+<p>我们使用记事本打开看看——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/a8gcgcoj8gk31imkmgrg.png?w=651"></p>
+<p>可以发现它已经很贴心地帮我们写好开头了（当然“data”和“tags”删除也没有关系）；</p>
+<p>接下来我们就可以用Markdown来创作了——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/3b37icmc2g40gv2c3sdg.png?w=1024"></p>
+<p>这篇是我使用Markdown打出的一篇文章，那么它预览起来是什么样的呢？——</p>
+<p>输入指令：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/ycgroij6p5kumbqfy.png?w=993"></p>
+<p>发现：生成了一个网站（<a href="http://localhost:4000），此时复制后浏览器打开即可——">http://localhost:4000），此时复制后浏览器打开即可——</a></p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/e59bbee78987-2.png?w=1024"></p>
+<p>（ps：如果要关闭预览，在CMD里按Ctrl+C；）</p>
+<h4 id="美化阶段"><a href="#美化阶段" class="headerlink" title="美化阶段"></a>美化阶段</h4><p>那么接下来，就介绍一下Hexo强大的功能之一：主题；</p>
+<p>我们可以在GitHub上直接搜索“Hexo theme”，就能发现一大堆，具体看个人喜好；</p>
+<p>我们随便选择一个——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/4h_6h5gxrsy260w9g702.png?w=1024"></p>
+<p>打开“Releases”或者上方的“Code”，下载任意压缩格式的文件；</p>
+<p>然后打开hexo文件夹中的themes文件夹，并解压进去：</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/dpwxl5rsp6vjck4p.png?w=861"></p>
+<p>复制刚刚解压过的文件夹的全名称，之后返回根目录（hexo文件夹）；</p>
+<p>编辑根目录中的_config.yml文件——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/oz9rujm62fi_4fe4sp.png?w=861"></p>
+<p>这里需要改动一些地方：</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/okcl67554wieuipce1.png?w=450"></p>
+<p>这里是一些基本的，比如说你的网站名（第六行）；</p>
+<p>描述（第八行）；</p>
+<p>作者（第十行）；</p>
+<p>语言（第十一行）；</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/cf4ofg1klobxmmswh57.png?w=994"></p>
+<p>你的网站链接（注意：第十六行的URL一定要改成你将来要部署的网站！！！比如你要用GitHub Pages部署，就必须是那一节你部署过的网站链接！！！）；</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/g21fy403ycizqtyvjbwzq.png?w=1024"></p>
+<p>这里建议改成六的倍数（不只是吉利），这样的话会比较美观；</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/6kr97sgt4stih6inn.png?w=1024"></p>
+<p>第一百行的主题名称改为之前让你复制的那个文件夹的名称（记得空格）；</p>
+<p>第一百零五行“type”改为“git”；</p>
+<p>第一百零六行加上“repo”，然后加上链接——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/tkwxgnehh006du4k.png?w=1024"></p>
+<p>（注意：不是GitHub Pages的链接，是GitHub Pages的库的链接！！）</p>
+<p>第一百零七行加上“branch”，名字随便起一个；</p>
+<p>完成这些之后，我们可以再次用“hexo s”这个指令查看预览，发现已经更新主题了。</p>
+<h3 id="部署阶段"><a href="#部署阶段" class="headerlink" title="部署阶段"></a>部署阶段</h3><p>整了这么多，你的网站也终究只在你的本地运行，那么怎么部署到GitHub Pages上呢——</p>
+<p>首先，我们需要用指令下载一个插件，用于连接GitHub账户和Hexo：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+
+<p>安装之后，如果想确认是否安装成功，可以输入这个指令：</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">npm</span> list hexo-deployer-git </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/hllnoo91pxw9if27p1.png?w=993"></p>
+<p>出现了版本号，说明成功了；</p>
+<p>接下来，输入指令——</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g -d</span></span><br></pre></td></tr></table></figure>
+
+<p>如果失败，则输入以下指令，之后再输入上面的指令：</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">config</span> <span class="comment">--global credential.helper wincred</span></span><br></pre></td></tr></table></figure>
+
+<p>此时可能会有弹窗显示让你输入什么API，这个时候选择浏览器打开，之后登录按照要求填写你的GitHub账号密码；</p>
+<p>之后，刷新一下你登录账号后的GitHub，会显示出现了一个新的分支（在上文，我的分支branch的名字是master）；此时，如果没有其他分支的话，应该是有两个分支——main和master；</p>
+<p>在设置中，删除原先的main分支，并把master分支的名字改为main；</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/8qcwnxfkrvrj2x8gu6.png?w=1010"></p>
+<p>懂了吧？</p>
+<p>注意：此时Hexo根目录的_config文件里，最下面的branch也要改为main；</p>
+<p>之后，就可以轻松地用Hexo在本地书写，在GitHub Pages上显示啦！</p>
+<p>其他更多Hexo书写技巧，以及指令，请到<a href="https://hexo.io/">Hexo官网</a>查看</p>
 <hr>
-<p>接下来，介绍<strong>文件导入</strong>方法：</p>
-<p>我们点击<strong>文件（从文件导入）</strong>，会出现以下界面：</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-4.png?w=482"></p>
-<p>点击<strong>浏览文件</strong>，并点击<strong>配置文件</strong>右边的<strong>三个点</strong></p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-5.png?w=482"></p>
-<p>点击下面的<strong>导入</strong>，并搜索你刚刚下载的后缀为yaml或者yml的文件</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-6.png?w=482"></p>
-<p>长按后，点击打开并导入（这个界面会因为手机类型不同而不同）</p>
-<p>此时原本为0kib的<strong>配置文件</strong>显示数据大小</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-7.png?w=482"></p>
-<p>左上角返回，然后还是给配置起一个好听的名字，例如：002<strong>（记得保存）</strong></p>
-<p>之后就像URL导入最后的步骤一样啦！</p>
-<hr>
-<p>关于订阅URL和配置文件的获取可私聊我，或自行购买机场</p>
-<p>我的Telegram：<a href="https://t.me/bdbth">@thdbd</a></p>
+<p>我是 <strong>听话的便当</strong></p>
+<p>Bye~</p>
 ]]></content>
       <tags>
-        <tag>clash</tag>
-        <tag>安卓</tag>
+        <tag>教程</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Markdown对文章进行标记</title>
+    <url>/2021/08/22/%E4%BD%BF%E7%94%A8markdown%E5%AF%B9%E6%96%87%E7%AB%A0%E8%BF%9B%E8%A1%8C%E6%A0%87%E8%AE%B0/</url>
+    <content><![CDATA[<p><img src="https://thdbd666666.files.wordpress.com/2021/08/b1ca2901-361d-492a-9f8f-b984f6681e68.jpg?w=1024"></p>
+<h4 id="https-thdbd-gitbook-io-thdbd-article-3"><a href="#https-thdbd-gitbook-io-thdbd-article-3" class="headerlink" title="https://thdbd.gitbook.io/thdbd/article/3"></a><a href="https://thdbd.gitbook.io/thdbd/article/3">https://thdbd.gitbook.io/thdbd/article/3</a></h4>]]></content>
+  </entry>
+  <entry>
+    <title>Java实现链接转换</title>
+    <url>/2021/08/22/java%E5%AE%9E%E7%8E%B0%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2/</url>
+    <content><![CDATA[<p><img src="https://thdbd666666.files.wordpress.com/2021/08/39596025-abe5-449d-8c64-f02ecf688449.jpg?w=1024"></p>
+<h4 id="https-thdbd-gitbook-io-thdbd-article-2"><a href="#https-thdbd-gitbook-io-thdbd-article-2" class="headerlink" title="https://thdbd.gitbook.io/thdbd/article/2"></a><a href="https://thdbd.gitbook.io/thdbd/article/2">https://thdbd.gitbook.io/thdbd/article/2</a></h4><p>懒得再移过来了···</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建你的Gitbook（不使用Node.js）</title>
+    <url>/2021/08/21/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84gitbook%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8node-js%EF%BC%89/</url>
+    <content><![CDATA[<p>一日更两篇！！&lt;(ˉ^ˉ)&gt;</p>
+<h5 id="·-了解Gitbook"><a href="#·-了解Gitbook" class="headerlink" title="· 了解Gitbook"></a>· 了解Gitbook</h5><p>Gitbook是一个…类似于“石墨文档”（或腾讯文档）的…功能（这里可以类比GitHub Pages，详见上一篇）</p>
+<p>我的Gitbook：thdbd.gitbook.io（注意：是gitbook而不是github）</p>
+<span id="more"></span>
+
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-5.png?w=1024"></p>
+<p>简洁大方，还添加了轻小说 Ψ(￣∀￣)Ψ</p>
+<h5 id="·-搭建Gitbook"><a href="#·-搭建Gitbook" class="headerlink" title="· 搭建Gitbook"></a>· 搭建Gitbook</h5><p>方法有三种</p>
+<ol>
+<li> 使用Gitbook Web端进行部署（缺点：自由度不高）</li>
+<li> 使用Git+Node.js+GitHub进行部署（缺点：上服务器后可修改度不高）</li>
+<li> 使用Git+Node.js+个人服务器进行部署（缺点：得花钱）</li>
+</ol>
+<p>这里是第一种和第二，三种的区别</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/rlc1krmj1i3b7zhb7h3mr.png"><img src="https://thdbd666666.files.wordpress.com/2021/08/62zgx5g52w_c1q49l.png"></p>
+<p>所以我来说一下第一种（我觉得还是前者比较好看的）</p>
+<h6 id="Step-1：搭建-https-www-gitbook-com"><a href="#Step-1：搭建-https-www-gitbook-com" class="headerlink" title="Step 1：搭建 https://www.gitbook.com/"></a>Step 1：搭建 <a href="https://www.gitbook.com/">https://www.gitbook.com/</a></h6><p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-6.png?w=1024"></p>
+<p>选择Sign Up With GitHub（使用GitHub登录）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-7.png?w=1024"></p>
+<p>邮箱会收到noreply发来的链接，点击即可</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-8.png?w=1024"></p>
+<p>点击后跳转到这个页面</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-9.png?w=1024"></p>
+<p>填写你的手机号，然后填入验证码</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-10.png?w=1024"></p>
+<p>进到工作台了，然后创建一个新空间</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-11.png?w=1024"></p>
+<p>之后最好改一下名字，不然域名会非常长</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/settings-gitbook.png"><img src="https://thdbd666666.files.wordpress.com/2021/08/settings-gitbook-1.png"></p>
+<p>此时你就拥有了一个Gitbook站点</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-12.png?w=1024"></p>
+<p><strong>Step 2：设计</strong></p>
+<p>我们以一本书来举例，假如这本书叫《三只小猪》，总共有三大章，每三大章都有三小节，并且要标注相关衍生作品，完成这个设计方案。</p>
+<p>首先明确这本书的结构——题目，简介，正文，其他信息</p>
+<p>先完成简介的设计。通常来说，简介应该是一打开书就能看见的，所以放在第一位。</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-13.png?w=1024"></p>
+<p>如图，完成对标题的修改</p>
+<p>随后，我们来添加正文——要求是三大章，每章有三小节，此时我们可以新建一个组，名为“正文”。</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/5yxlqp9d5ul4n44b7waw.png?w=1024"></p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/qqe688aae59bbe20210821222126.png?w=591"></p>
+<p>（注意：当光标在页面下方时，会出现这个快捷添加的蓝色加号按钮）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/3xzoevmtgal2owcj9yijs.png?w=789"></p>
+<p>（注意：下方的SLUG为固定链接的意思）</p>
+<p>三大章完成了，接下来要进行的是九小节；</p>
+<p>我们点击 “第一章” 的右边三个点的位置，并在如图所示位置添加子页面。</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/pxmu5t97kh1wufg01yw.png?w=776"></p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/wmm8difieq44kc403_lm.png?w=391"></p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/dj403n35rl405402e78.png?w=338"></p>
+<p>（注意：不要忘记保存，点击绿色按钮Save [保存] 后会变成紫色按钮Merge [上传] ）</p>
+<p>然后，添加其他信息。</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/qqe688aae59bbe20210821223318.png?w=1024"></p>
+<p>（注意：记得不要添加到“正文”组了）</p>
+<p>最后，标注衍生作品；既然是衍生作，就不应该用页面表示，而应该为一个链接；</p>
+<p>添加 “动画”，“电影” 两个链接；</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/dirm82m2u7hq15g3plz1e.png?w=1024"></p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/gnr_9z6_t4_jkyhne6d.png?w=1024"></p>
+<p>完成！</p>
+<p>来看一下刚刚的项目——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-14.png?w=1024"></p>
+<p>十分精美啊！！</p>
+<h5 id="੭-ˊᵕˋ-੭-ଘ"><a href="#੭-ˊᵕˋ-੭-ଘ" class="headerlink" title="*(੭*ˊᵕˋ)੭*ଘ"></a>*(੭*ˊᵕˋ)੭*ଘ</h5><hr>
+<p>我是 <strong>听话的便当</strong></p>
+<h5 id="ヾ-￣▽￣-ByeBye"><a href="#ヾ-￣▽￣-ByeBye" class="headerlink" title="ヾ(￣▽￣)ByeBye"></a>ヾ(￣▽￣)Bye<del>Bye</del></h5>]]></content>
+      <tags>
+        <tag>教程</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何部署GitHub Pages？</title>
+    <url>/2021/08/21/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2github-pages%EF%BC%9F/</url>
+    <content><![CDATA[<p>如果你想拥有一个网站——</p>
+<p>必不可少的两样东西是：域名（网址）和空间（存放网站数据的主机）.</p>
+<p>只需要<strong>“简单四步”</strong>就可以——</p>
+<span id="more"></span>
+
+<p>1、购买域名；</p>
+<p>2、购买服务器；</p>
+<p>3、安装网站环境（虚拟主机的话不需要此步）；</p>
+<p>4、安装网站。</p>
+<p>但是实际上，真正要做好一个网站，远远不止这4步；</p>
+<p>更何况你可能会止步于空空如也的钱包或是没有深谋远虑的想法；</p>
+<p>这个时候如果一股脑花大价钱，最终却可能把行动付诸于东流。</p>
+<p>所以这篇文章将向你介绍<strong>GitHub Pages</strong>这一强大的功能，<strong>只需两步</strong>，就可完成。</p>
+<h4 id="什么是GitHub-Pages？"><a href="#什么是GitHub-Pages？" class="headerlink" title="什么是GitHub Pages？"></a><strong>什么是GitHub Pages？</strong></h4><p>GitHub Pages是GitHub提供的一个网页寄存服务，于2008年推出。可以用于存放静态网页，包括博客、项目文档甚至整本书。Jekyll软件可以用于将文档转换成静态网页，该软件提供了将网页上传到GitHub Pages的功能。一般GitHub Pages的网站使用github.io的子域名，但是用户也可以使用第三方域名。</p>
+<p>也就是说，当你部署完GitHub Pages后，会得到一个XXX.github.io的网站。这里举个例子</p>
+<p>我的GitHub Pages——thdbd.github.io</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-3.png?w=1024"></p>
+<p>除了域名之外跟其他网站没什么两样</p>
+<h4 id="如何部署GitHub-Pages"><a href="#如何部署GitHub-Pages" class="headerlink" title="如何部署GitHub Pages"></a>如何部署GitHub Pages</h4><h5 id="1-登录-注册一个GitHub账号-https-github-com"><a href="#1-登录-注册一个GitHub账号-https-github-com" class="headerlink" title="1.登录/注册一个GitHub账号 https://github.com/"></a>1.登录/注册一个GitHub账号 <a href="https://github.com/">https://github.com/</a></h5><p><img src="https://thdbd666666.files.wordpress.com/2021/08/404n4q7pct_vgpv20b2xw.png?w=643"></p>
+<p>第一行：输入邮箱；</p>
+<p>第二行：输入密码；</p>
+<p>第三行：输入用户名；（注意：这个用户名是什么，XXX.github.io 里的XXX就是什么。比如我的昵称为byn6，最终得到的就是byn6 .github.io ）（用户名为英文）</p>
+<p>第四行：是否允许广告（y为允许，n为不允许）；</p>
+<p>然后会让你人机验证啦，邮箱验证什么的；</p>
+<p>最终完成初始化——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/k658h_gnfi6ctq274iq.png?w=1024"></p>
+<p>（以上内容仅对非登录用户有用）</p>
+<h5 id="2-完成搭建-https-github-com-new"><a href="#2-完成搭建-https-github-com-new" class="headerlink" title="2.完成搭建 https://github.com/new"></a>2.完成搭建 <a href="https://github.com/new">https://github.com/new</a></h5><p><img src="https://thdbd666666.files.wordpress.com/2021/08/1m94j4b_05_400a073.png?w=354"></p>
+<p>点击绿色按钮新建一个库——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/l0xcpr4m6x7bet_lj3_0t0d.png?w=873"></p>
+<p>此处库的名字为 你的昵称.github.io；</p>
+<p>权限为Public（公共）。[ 注意：这个库的这个权限以后千万不能改为Private，否则会导致永久无法访问此网站 {除非删库重来} ]</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/5xbp4zxmdvd5ze95.png?w=1024"></p>
+<p>creating a new file为创建新的文件；</p>
+<p>uploading an existing file为上传文件；</p>
+<p>如果你手头有编写好的html文件的话就可以选择后者，如果没有也可以在GitHub上现编，这需要有一些html基础知识。</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/2lgwgauaz387o.png?w=1024"></p>
+<p>（注意：如果上传/编写的html文件中没有index.html，就会导致404。）</p>
+<p>于是我编写了一个index.html，在这之前我的网站是这样的——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/5e0_t7zkv2uk7a2qxvjc7a.png?w=1024"></p>
+<p>我们来上传一下——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/k_4xedu8bj61ukp44.png?w=1024"></p>
+<p>经过了一段时间之后，网站变成了——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/my940yn2uwpxdgyx41xu.png?w=1024"></p>
+<p>完成！</p>
+<p>在主页的基础上，你可以进行其他页面逻辑的联系；（其实不设置主页也是可以的）</p>
+<p>以后的文章我也会说明一些html，css，Java Script（网页三剑客）的相关内容；</p>
+<p>关于GitHub Pages，</p>
+<p>你也可以利用Hexo搭建为自己的博客；（使用Node.js） <a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
+<p>搭建为资源分发网站；（小型网盘）</p>
+<p>或是单纯的文件预览试调平台。</p>
+<hr>
+<p>我是 <strong>听话的便当</strong></p>
+<h5 id="ヾ-￣▽￣-ByeBye"><a href="#ヾ-￣▽￣-ByeBye" class="headerlink" title="ヾ(￣▽￣)ByeBye"></a>ヾ(￣▽￣)Bye<del>Bye</del></h5>]]></content>
+      <tags>
+        <tag>教程</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何下载Niconico上的视频？</title>
+    <url>/2021/08/19/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDniconico%E4%B8%8A%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%9F/</url>
+    <content><![CDATA[<p>很久没写过文章了感觉网站都要长毛了。。</p>
+<p>今天继续整篇实用性很“强”的教程！</p>
+<h4 id="什么是Niconico？"><a href="#什么是Niconico？" class="headerlink" title="什么是Niconico？"></a><strong>什么是Niconico？</strong></h4><span id="more"></span>
+
+<p>**<a href="https://www.nicovideo.jp/">Niconico动画</a>**（日语：ニコニコ動画；简称Niconico、N站、Nico等 ）是日本多玩国公司营运的在线弹幕视频分享网站。其中“Niconico”（ニコニコ）意为微笑，“动画”（動画）意为视频。Niconico动画与YouTube等视频共享网站相似，但Niconico动画提供观赏者可在视频上留言并以弹幕的形式出现在视频上的功能。<a href="https://zh.wikipedia.org/wiki/File:Nikoniko_honsya_ikebukuro.jpg"></a><a href="https://zh.wikipedia.org/wiki/File:Nikoniko_honsya_ikebukuro.jpg"></a>位于东京池袋的多用途场所Niconico本社（巴而可地下1－2层），注意并非网站运营意义上的本社</p>
+<p>随着业务的扩张，如沿用“Niconico”之名的Niconico直播及Niconico插画，许多相关的服务都已超出了视频共享服务的框架。在2015年8月，Niconico动画一般会员约有5000万人，付费会员约有250万人。提供用户可跨平台使用此服务。2007年该网站赢得好设计奖与日本御宅大赏，2008年又获得电子艺术大奖。 近年来Niconico动画的付费用户数有萎缩的现象，2019年2月13日，根据公开的财务资料，付费会员减少至188万人。</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image.png?w=1024"></p>
+<p>页面挺low的 ✧(≖ ◡ ≖✿)</p>
+<p>那么为什么要用Niconico呢？很简单，</p>
+<p>毕竟是岛国的东西嘛，多多少少有些国内没有的。≡ω≡</p>
+<h4 id="如何下载？"><a href="#如何下载？" class="headerlink" title="如何下载？"></a>如何下载？</h4><p>首先随便打开一个视频，</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-1.png?w=1024"></p>
+<p>这个时候右键点击视频画面；（记得选好画质，选的是什么下载的就是什么）</p>
+<p>会出现——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/cptqyihwdjmti1wf89q8.png?w=267"></p>
+<p>然后点击一下最下面的（hls &gt; http）</p>
+<p>变成——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/36h3premw0nb2e4ta2rb.png?w=274"></p>
+<p>然后点击第四行的“开放系统讯息”——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/iljpmb8lzrsu03o401duv.png?w=1024"></p>
+<p>变成这样</p>
+<p>可以看见出现了许多链接，一般来说复制最后一个比较好；（因为不会被禁止）</p>
+<p>然后打开链接——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-2.png?w=1024"></p>
+<p>直接下载就OK了！</p>
+<hr>
+<p>我是 <strong>听话的便当</strong>，</p>
+<p><strong>╰(*°▽°*)╯</strong></p>
+]]></content>
+      <tags>
         <tag>教程</tag>
       </tags>
   </entry>
@@ -140,102 +547,6 @@
         <tag>clash</tag>
         <tag>教程</tag>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多类型订阅（9.6更新）</title>
-    <url>/2021/07/11/clash-%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p><strong>配置文件：</strong></p>
-<p><strong><a href="https://wangzhuoke.lanzoui.com/iynaArafp5c">蓝奏云地址</a> 密码：66</strong>（大部分都失效了）</p>
-<hr>
-<p>注意：https型的为clash订阅，ss或ssr型的为SSR订阅，vmess或vless或trojan型的为V2Ray</p>
-<h2 id="URL地址：（前面有实心点的基本上失效）"><a href="#URL地址：（前面有实心点的基本上失效）" class="headerlink" title="URL地址：（前面有实心点的基本上失效）"></a><strong>URL地址：</strong>（前面有实心点的基本上失效）</h2><span id="more"></span>
-
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">https://drive.google.com/uc?export=download&amp;id=1NT0556ny7vc0Y7xZVlNklRb1Ia96zWFz</span></span><br><span class="line"></span><br><span class="line"><span class="string">https://ifl520.xyz//link/aVZLeFL1fB22bp36?clash=1</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206UENubkg2U1FTbmZvUzI3QDExOC4xMDcuMjQ0LjExMjo4MDkw#Pool_%f0%9f%87%ad%f0%9f%87%b0HK_5585</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206ZW5jdGRLeUpmU3U3NlZxem5Ld1R0NkFwQDIuNTguMjQxLjM6Mzc0NzM=#Pool_%f0%9f%87%b9%f0%9f%87%bc</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YVlOZUtETXpZUVl3NEtiVWJKQThXc3pxQDY0LjQ0LjQyLjE2MjozMTk0NA==#Pool_%f0%9f%87%ba%f0%9f%87%b8US_56</span></span><br><span class="line"></span><br><span class="line"><span class="string">vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh6jwn4ezQ05fMzAiLA0KICAiYWRkIjogIjEzOS4xNTUuMjIuMjI3IiwNCiAgInBvcnQiOiAiNDkxMTAiLA0KICAiaWQiOiAiZjc2NzViN2UtNTliZi00MzVjLWFjMDMtZGMyNDgyZjI3ZTVkIiwNCiAgImFpZCI6ICI2NCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIi8iLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==</span></span><br><span class="line"></span><br><span class="line"><span class="string">ssr://Y3UubmV3aG9zdC5jYzoxMDY5MTphdXRoX2FlczEyOF9zaGExOmFlcy0yNTYtY2ZiOmh0dHBfc2ltcGxlOmRFWnNTVWxULz9yZW1hcmtzPVVtVnNZWGxmOEotSHFQQ2ZoN05EVGkzd240ZXU4Si1IczBsT1h6ZzBPU0I4TWpZdU5ESk5ZZyZwcm90b3BhcmFtPU1URTNOVEk2UTJKUmFHeDQmb2Jmc3BhcmFtPUxuZDNkeTVpYVc1bkxtTnZiUSZncm91cD0</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21nQDEzOC4xOTkuMTYuMTM3OjQ0NTM5#Pool_+%7c30.00Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206Q1VuZFNabllzUEtjdTZLajhUSFZNQkhEQDIuNTguMjQxLjM6Mzk3NzI=#Pool_+%7c+7.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4QDQ1LjI0OC43Ni4xNzE6NDM4OTM=#Pool_+%7c14.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206Q1RLOEdYRlFnS1lRRXJyZ2hQSmZaNnRrQDE5OC44LjkyLjg0OjQ3MTIx#Pool_+%7c12.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">vmess://eyJhZGQiOiJqcDIudXV2Mi5jby51ayIsImFpZCI6MSwiaG9zdCI6ImpwMi51dXYyLmNvLnVrIiwiaWQiOiIxZjRjNGUzZC1lNDRkLTQwYzQtOWFmOC1lNzBkYzM0YmYwMDciLCJuZXQiOiJ3cyIsInBhdGgiOiIvVEdAbWZ0aXppIiwicG9ydCI6MTAxNiwicHMiOiJcdTY1RTVcdTY3MkMiLCJ0bHMiOiJ0bHMiLCJ0eXBlIjoiIiwidiI6Mn0=</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4@2.58.242.54:43893#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206dEJLQmY0cFZ6TkNGS2RiUGd2d3JOWHEz@2.58.242.54:42816#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4@2.58.242.54:43893#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206dEJLQmY0cFZ6TkNGS2RiUGd2d3JOWHEz@2.58.242.54:42816#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21n@2.58.242.54:44539#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206RldyWGN4UFpqSnhBTjg5eExncVkzQWNw@2.58.242.54:44236#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21n@2.58.242.54:44539#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206RldyWGN4UFpqSnhBTjg5eExncVkzQWNw@2.58.242.54:44236#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">http://www.xrayvip.cf/clash.xml</span></span><br><span class="line"></span><br><span class="line"><span class="string">http://www.xrayvip.cf/v2ray.txt</span> <span class="string">（V2Ray）</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4QDIuNTguMjQxLjQ1OjQzODkz#</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4#ss-hk</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29t@119.28.71.43:2048</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4?tfo=1#Shadowsocks%20Rust%20%E8%8A%82%E7%82%B9%E5%85%B1%E4%BA%AB</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>  <strong><a href="https://drive.google.com/uc?export=download&amp;id=1-LGud64tCfrYwUKiXK0Ll8uJfwZaoP2T">https://drive.google.com/uc?export=download&amp;id=1-LGud64tCfrYwUKiXK0Ll8uJfwZaoP2T</a></strong></li>
-<li>  <strong><a href="https://sub.id9.cc/sub%EF%BC%9Ftarget=clash&amp;url=http%3A%2F%2F120.92.132.166%3A8888%2Fdown%2Fs18ZGtTXcpya&amp;insert=false">https://sub.id9.cc/sub？target=clash&amp;url=http%3A%2F%2F120.92.132.166%3A8888%2Fdown%2Fs18ZGtTXcpya&amp;insert=false</a></strong></li>
-<li>  <strong><a href="https://raw.githubusercontent.com/zyzmzyz/free-nodes/master/Clash.yml">https://raw.githubusercontent.com/zyzmzyz/free-nodes/master/Clash.yml</a></strong></li>
-<li>  <strong><a href="https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml">https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml</a></strong></li>
-<li>  <strong><a href="https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml">https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml</a></strong></li>
-<li>  <strong><a href="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml">https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml</a></strong></li>
-<li>  <strong><a href="https://suo.yt/ciD6eR4">https://suo.yt/ciD6eR4</a></strong></li>
-<li>  <strong><a href="https://wrq8888.xyz/api/v1/client/subscribe?token=8db3d7c">https://wrq8888.xyz/api/v1/client/subscribe?token=8db3d7c</a></strong></li>
-<li>  <strong><a href="https://yigedingyue.com/api/v1/client/subscribe?token=53143ed1ed41dab0474a96dc027d3ffb">https://yigedingyue.com/api/v1/client/subscribe?token=53143ed1ed41dab0474a96dc027d3ffb</a></strong></li>
-<li>  <strong><a href="https://biteb.club/link/6RJ0uo4VTbD6xjAZ?clash=1">https://biteb.club/link/6RJ0uo4VTbD6xjAZ?clash=1</a></strong></li>
-<li>  <strong><a href="https://gayv.gay/api/v1/client/subscribe?token=2e6d2418c7d6f9c55886d0560b4a09de">https://gayv.gay/api/v1/client/subscribe?token=2e6d2418c7d6f9c55886d0560b4a09de</a></strong></li>
-<li>  <strong><a href="https://bit.ly/2U6zz1n">https://bit.ly/2U6zz1n</a></strong></li>
-<li>  <strong><a href="https://srayx.com/api/v1/client/subscribe?token=f272b2f9c927953fe1f83636ef6cb8db">https://srayx.com/api/v1/client/subscribe?token=f272b2f9c927953fe1f83636ef6cb8db</a></strong></li>
-<li>  <strong><a href="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml">https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml</a></strong></li>
-<li>  <strong><a href="https://suo.yt/OWdKnXp">https://suo.yt/OWdKnXp</a></strong></li>
-<li>  <strong><a href="https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml">https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml</a></strong></li>
-<li>  <strong><a href="https://suo.yt/Shm0Y0X">https://suo.yt/Shm0Y0X</a></strong></li>
-<li>  <strong><a href="https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml">https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml</a></strong></li>
-<li>  <strong><a href="https://suo.yt/HDe8WhU">https://suo.yt/HDe8WhU</a></strong></li>
-<li>  <strong><a href="https://newhua99.com/api/v1/client/subscribe?token=bfe9e64492e66202b2f726a2262ce599">https://newhua99.com/api/v1/client/subscribe?token=bfe9e64492e66202b2f726a2262ce599</a></strong></li>
-<li>  <strong><a href="https://drive.google.com/uc?export=download&amp;id=1Oi0xb22FIGt7DxNBMB5bKB9%5C_-aH5VcTg">https://drive.google.com/uc?export=download&amp;id=1Oi0xb22FIGt7DxNBMB5bKB9\_-aH5VcTg</a></strong></li>
-<li>  <strong><a href="https://drive.google.com/uc?export=download&amp;id=1kjCP7cKKQ7lU6amA5lSWoN-1PL8hc2Zp">https://drive.google.com/uc?export=download&amp;id=1kjCP7cKKQ7lU6amA5lSWoN-1PL8hc2Zp</a></strong></li>
-</ul>
-<p>不一定能用</p>
-<p>但希望能帮到你！</p>
-<blockquote>
-<p><strong><em>愿订阅与你同在。</em></strong></p>
-<p><strong><em>——Collected by 听话的便当</em></strong></p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>clash</tag>
-        <tag>资源</tag>
-        <tag>常更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java实现链接转换</title>
-    <url>/2021/08/22/java%E5%AE%9E%E7%8E%B0%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2/</url>
-    <content><![CDATA[<p><img src="https://thdbd666666.files.wordpress.com/2021/08/39596025-abe5-449d-8c64-f02ecf688449.jpg?w=1024"></p>
-<h4 id="https-thdbd-gitbook-io-thdbd-article-2"><a href="#https-thdbd-gitbook-io-thdbd-article-2" class="headerlink" title="https://thdbd.gitbook.io/thdbd/article/2"></a><a href="https://thdbd.gitbook.io/thdbd/article/2">https://thdbd.gitbook.io/thdbd/article/2</a></h4><p>懒得再移过来了···</p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Note 1.   原谅和忘记</title>
-    <url>/2021/07/10/note-1/</url>
-    <content><![CDATA[<p><strong>“我能识别感觉吗？<br>我能感觉到它们的存在吗？<br>一切都变得麻木了吗？<br>代替绝望？</strong></p>
-<span id="more"></span>
-
-<p><strong>我可以请求原谅<br>但我知道它永远不会到来<br>我可以等到你忘记<br>但是没有做过什么事情，</strong></p>
-<p><strong>当我脖子被挂起来时，也许你会原谅我。”</strong></p>
-<p><strong>罗尔斯表示，你自己在一个无知的面纱背后的原始位置。在这面纱的背后，你不知道和你自己的自然能力，或你在社会中的地位。你知道你的性别，种族，国籍或个人的喜好。</strong></p>
-<p><strong>认为，如果现在和过去都想要一个这样的概念，就可以产生巨大的影响。再一次讲故事的奴隶制的例子，如果奴隶主被迫通过无知的面纱来自己演戏，可能是自己的奴隶，那么自己的奴隶制可能就不再是合理的了。也许在没有战争需要解决的情况下，整个事情都会发生。被是。如果是。如果一个例子的例子，他们都将自己的一个例子作为自己的一个例子，也就是说可能是社会社会最不利的成员。在这种情况下，自由与平等可能会以哲学为例家的理想方式共存。</strong></p>
-<p><strong><em>From <a href="https://begottensuicide.bandcamp.com/album/forgive-and-forget-3">Bandcamp</a>.</em></strong></p>
-]]></content>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Telegram 内置代理（9.6更新）</title>
-    <url>/2021/07/26/telegram-%E5%86%85%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
-    <content><![CDATA[<h5 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h5><ol>
-<li> 打开Telegram并选中一个对话（前提是你已经登录上了Telegram）</li>
-<li> 发送下面的链接 发出去在转圈也没关系</li>
-<li> 点击发送的链接 按照弹窗操作</li>
-</ol>
-<span id="more"></span>
-
-<h5 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h5><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">35.220.195.55</span>&amp;port=<span class="number">2089</span>&amp;secret=eef<span class="number">248</span>acfe<span class="number">7</span>cee<span class="number">69</span>c<span class="number">4</span>e<span class="number">98</span>ea<span class="number">996860</span>e<span class="number">592</span>b<span class="number">73332</span>e<span class="number">616</span>d<span class="number">617</span>a<span class="number">6</span>f<span class="number">6</span>e<span class="number">6177732</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=qd.bgp.nkeo.top&amp;port=<span class="number">45003</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=ahyd.<span class="number">002</span>.nkeo.top&amp;port=<span class="number">45425</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=gy.a<span class="number">2</span>.nkeo.top&amp;port=<span class="number">45494</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=qd.bgp.nkeo.top&amp;port=<span class="number">45206</span>&amp;user=nHpzbmYjDj&amp;pass=nYjHVkascT</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">52.78.8.43</span>&amp;port=<span class="number">52092</span>&amp;user=Hs_Galaxy&amp;pass=hagalaxyqwq</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">6</span>.yyds<span class="number">123</span>.com&amp;port=<span class="number">34878</span>&amp;user=<span class="number">2</span>EePECDGI<span class="number">8</span>&amp;pass=<span class="number">8</span>gQ<span class="number">73</span>PjXKZ</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">54.169.143.245</span>&amp;port=<span class="number">30304</span>&amp;user=uQvAovVIxQ&amp;pass=hls<span class="number">19</span>qDlCj</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=dddd.sz<span class="number">2</span>hkg.xlddns.xyz&amp;port=<span class="number">19515</span>&amp;user=mgnb<span class="number">66</span>&amp;pass=mgnb<span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">65.21.147.77</span>&amp;port=<span class="number">443</span>&amp;secret=<span class="number">7</span>gAAAAAAAAAAAAAAAAAAAABkbC<span class="number">5</span>nb<span class="number">29</span>nbGUuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">120.232.43.224</span>&amp;port=<span class="number">23333</span>&amp;secret=<span class="number">7</span>i<span class="number">0</span>dkNbpL<span class="number">4</span>TDgswZJqNbiwR<span class="number">3</span>d<span class="number">3</span>cuYmFpZHUuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=gy.nkeo.top&amp;port=<span class="number">55116</span>&amp;secret=<span class="number">7</span>gtVj<span class="number">5</span>Ll<span class="number">8</span>uYkgSNouTOd<span class="number">0</span>mhhenVyZS<span class="number">5</span>taWNyb<span class="number">3</span>NvZnQuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">18.141.181.61</span>&amp;port=<span class="number">9990</span>&amp;secret=<span class="number">7</span>rPb<span class="number">7</span>qXy<span class="number">0</span>zoqkKq_e<span class="number">2</span>ztlR<span class="number">5</span>henVyZS<span class="number">5</span>taWNyb<span class="number">3</span>NvZnQuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">65.21.147.77</span>&amp;port=<span class="number">443</span>&amp;secret=EE<span class="number">00000000000000000000000000000000646</span>c<span class="number">2</span>e<span class="number">676</span>f<span class="number">6</span>f<span class="number">676</span>c<span class="number">652</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=agogics-Koncinio.nicname.com.gmail.com.Microsoft--com.tk&amp;port=<span class="number">443</span>&amp;secret=<span class="number">3</span>TK<span class="number">5</span>IN_<span class="number">7</span>UWQwKOL<span class="number">2</span>uHjU<span class="number">6</span>sE</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">45.142.157.157</span>&amp;port=<span class="number">666</span>&amp;secret=eef<span class="number">4</span>d<span class="number">82661</span>dff<span class="number">1</span>e<span class="number">066</span>a<span class="number">9965</span>abc<span class="number">8</span>f<span class="number">0</span>a<span class="number">6</span>a<span class="number">857777772</span>e<span class="number">636</span>c<span class="number">6</span>f<span class="number">7564666</span>c<span class="number">6172652</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">18.141.181.61</span>&amp;port=<span class="number">9990</span>&amp;secret=eeb<span class="number">3</span>dbeea<span class="number">5</span>f<span class="number">2</span>d<span class="number">33</span>a<span class="number">2</span>a<span class="number">90</span>aabf<span class="number">7</span>b<span class="number">6</span>ced<span class="number">951</span>e<span class="number">617</span>a<span class="number">7572652</span>e<span class="number">6</span>d<span class="number">6963726</span>f<span class="number">736</span>f<span class="number">66742</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=agogics-Koncinio.nicname.com.gmail.com.Microsoft--com.tk&amp;port=<span class="number">443</span>&amp;secret=dd<span class="number">32</span>b<span class="number">920</span>dffb<span class="number">51643028</span>e<span class="number">2</span>f<span class="number">6</span>b<span class="number">878</span>d<span class="number">4</span>eac<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>只发<strong>可用</strong>与<strong>高速</strong>(最上面的几个是绝对能用的)</p>
-<p><a href="https://thdbd666666.wordpress.com/2021/07/11/clash-%e9%85%8d%e7%bd%ae/">点此查看clash配置</a></p>
-<p><a href="https://thdbd666666.wordpress.com/proxy/">点此查看V2 SSR Trojian等配置</a></p>
-]]></content>
-      <tags>
-        <tag>资源</tag>
-        <tag>常更新</tag>
-        <tag>Telegram</tag>
       </tags>
   </entry>
   <entry>
@@ -396,179 +707,166 @@
       </tags>
   </entry>
   <entry>
-    <title>使用GitHub Pages部署Hexo制作网站</title>
-    <url>/2021/08/29/%E4%BD%BF%E7%94%A8github-pages%E9%83%A8%E7%BD%B2hexo%E5%88%B6%E4%BD%9C%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<p>首先可以看一个示例网站（还是上N节我说过的GitHub Pages那个示例站点）</p>
-<p><a href="https://byn6.github.io/">https://byn6.github.io/</a></p>
+    <title>Telegram 内置代理（9.6更新）</title>
+    <url>/2021/07/26/telegram-%E5%86%85%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%AD%A4%E7%AF%87%E5%B8%B8%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
+    <content><![CDATA[<h5 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h5><ol>
+<li> 打开Telegram并选中一个对话（前提是你已经登录上了Telegram）</li>
+<li> 发送下面的链接 发出去在转圈也没关系</li>
+<li> 点击发送的链接 按照弹窗操作</li>
+</ol>
 <span id="more"></span>
 
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/e59bbee78987.png?w=461"></p>
-<p>差不多就长这样啊 我这是没怎么整主题之类的</p>
-<p>记得上N节我说过的GitHub Pages的用途之一，就有“使用Hexo框架搭建博客”，当时没有细讲是因为我觉得Gitbook其实就挺适合的了；不过比较一下UI什么的还是发现，Hexo还是美观得多（因为可以自选主题）；话不多说，开始——</p>
-<h3 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h3><p>首先需要下载——</p>
-<ul>
-<li>  Node.js</li>
-<li>  Git</li>
-</ul>
-<p>这里是官网——</p>
-<p>Node.js：<a href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></p>
-<p>Git：<a href="https://git-scm.com/">https://git-scm.com/</a></p>
-<p>这里是全套蓝奏云下载地址，整理好了——</p>
-<p><a href="https://wangzhuoke.lanzoui.com/ivDH5tb7waj">https://wangzhuoke.lanzoui.com/ivDH5tb7waj</a> 无密码</p>
-<p>其中，在Node.js安装过程中，会出现下面的窗口：</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/bvh7bf1qxo52qpzj5_q.png?w=499"></p>
-<p>要点第四个，添加到Path（环境变量）；</p>
-<p>Git的安装则是傻瓜式安装即可，虽然步骤多，但是按照默认的来就行；</p>
-<p>好的，现在已经全部准备完毕。</p>
-<h3 id="建立阶段"><a href="#建立阶段" class="headerlink" title="建立阶段"></a>建立阶段</h3><p>为了验证我们的Node.js和Git是否安装完毕，可以在CMD（win+R，输入“cmd”即可打开）中输入两条命令查看：</p>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line">git <span class="keyword">version</span></span><br></pre></td></tr></table></figure>
+<h5 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h5><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">35.220.195.55</span>&amp;port=<span class="number">2089</span>&amp;secret=eef<span class="number">248</span>acfe<span class="number">7</span>cee<span class="number">69</span>c<span class="number">4</span>e<span class="number">98</span>ea<span class="number">996860</span>e<span class="number">592</span>b<span class="number">73332</span>e<span class="number">616</span>d<span class="number">617</span>a<span class="number">6</span>f<span class="number">6</span>e<span class="number">6177732</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=qd.bgp.nkeo.top&amp;port=<span class="number">45003</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=ahyd.<span class="number">002</span>.nkeo.top&amp;port=<span class="number">45425</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=gy.a<span class="number">2</span>.nkeo.top&amp;port=<span class="number">45494</span>&amp;user=tw<span class="number">2</span>vfdXJEk&amp;pass=KQ<span class="number">7</span>WwnVP<span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=qd.bgp.nkeo.top&amp;port=<span class="number">45206</span>&amp;user=nHpzbmYjDj&amp;pass=nYjHVkascT</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">52.78.8.43</span>&amp;port=<span class="number">52092</span>&amp;user=Hs_Galaxy&amp;pass=hagalaxyqwq</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">6</span>.yyds<span class="number">123</span>.com&amp;port=<span class="number">34878</span>&amp;user=<span class="number">2</span>EePECDGI<span class="number">8</span>&amp;pass=<span class="number">8</span>gQ<span class="number">73</span>PjXKZ</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=<span class="number">54.169.143.245</span>&amp;port=<span class="number">30304</span>&amp;user=uQvAovVIxQ&amp;pass=hls<span class="number">19</span>qDlCj</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/socks?server=dddd.sz<span class="number">2</span>hkg.xlddns.xyz&amp;port=<span class="number">19515</span>&amp;user=mgnb<span class="number">66</span>&amp;pass=mgnb<span class="number">666</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">65.21.147.77</span>&amp;port=<span class="number">443</span>&amp;secret=<span class="number">7</span>gAAAAAAAAAAAAAAAAAAAABkbC<span class="number">5</span>nb<span class="number">29</span>nbGUuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">120.232.43.224</span>&amp;port=<span class="number">23333</span>&amp;secret=<span class="number">7</span>i<span class="number">0</span>dkNbpL<span class="number">4</span>TDgswZJqNbiwR<span class="number">3</span>d<span class="number">3</span>cuYmFpZHUuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=gy.nkeo.top&amp;port=<span class="number">55116</span>&amp;secret=<span class="number">7</span>gtVj<span class="number">5</span>Ll<span class="number">8</span>uYkgSNouTOd<span class="number">0</span>mhhenVyZS<span class="number">5</span>taWNyb<span class="number">3</span>NvZnQuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">18.141.181.61</span>&amp;port=<span class="number">9990</span>&amp;secret=<span class="number">7</span>rPb<span class="number">7</span>qXy<span class="number">0</span>zoqkKq_e<span class="number">2</span>ztlR<span class="number">5</span>henVyZS<span class="number">5</span>taWNyb<span class="number">3</span>NvZnQuY<span class="number">29</span>t</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">65.21.147.77</span>&amp;port=<span class="number">443</span>&amp;secret=EE<span class="number">00000000000000000000000000000000646</span>c<span class="number">2</span>e<span class="number">676</span>f<span class="number">6</span>f<span class="number">676</span>c<span class="number">652</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=agogics-Koncinio.nicname.com.gmail.com.Microsoft--com.tk&amp;port=<span class="number">443</span>&amp;secret=<span class="number">3</span>TK<span class="number">5</span>IN_<span class="number">7</span>UWQwKOL<span class="number">2</span>uHjU<span class="number">6</span>sE</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">45.142.157.157</span>&amp;port=<span class="number">666</span>&amp;secret=eef<span class="number">4</span>d<span class="number">82661</span>dff<span class="number">1</span>e<span class="number">066</span>a<span class="number">9965</span>abc<span class="number">8</span>f<span class="number">0</span>a<span class="number">6</span>a<span class="number">857777772</span>e<span class="number">636</span>c<span class="number">6</span>f<span class="number">7564666</span>c<span class="number">6172652</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=<span class="number">18.141.181.61</span>&amp;port=<span class="number">9990</span>&amp;secret=eeb<span class="number">3</span>dbeea<span class="number">5</span>f<span class="number">2</span>d<span class="number">33</span>a<span class="number">2</span>a<span class="number">90</span>aabf<span class="number">7</span>b<span class="number">6</span>ced<span class="number">951</span>e<span class="number">617</span>a<span class="number">7572652</span>e<span class="number">6</span>d<span class="number">6963726</span>f<span class="number">736</span>f<span class="number">66742</span>e<span class="number">636</span>f<span class="number">6</span>d</span><br><span class="line"></span><br><span class="line"><span class="attribute">https</span>://t.me/proxy?server=agogics-Koncinio.nicname.com.gmail.com.Microsoft--com.tk&amp;port=<span class="number">443</span>&amp;secret=dd<span class="number">32</span>b<span class="number">920</span>dffb<span class="number">51643028</span>e<span class="number">2</span>f<span class="number">6</span>b<span class="number">878</span>d<span class="number">4</span>eac<span class="number">1</span></span><br></pre></td></tr></table></figure>
 
-<p>如果出现以下的反馈（版本号可能不一样），则证明安装成功；</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/kca71x0vx9l7408.png?w=993"></p>
-<p>接下来，创建一个文件夹（名字随便，位置随便，但是最好方便些，这里建议在桌面建立一个名为“hexo”的文件夹）；</p>
-<p>我们进入到这个文件夹——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/k5dinhk0bvemq1ljt_9.png?w=993"></p>
-<p>接下来输入指令：</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install hexo-<span class="keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
-
-<p>（这里我已经安装过了，就不重复安装了；安装过程中记得保持网络不要断了；）</p>
-<p>然后输入：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/2hh_h72rh9ccpg93.png?w=993"></p>
-<p>可以发现，它已经安装了一大堆东西了。</p>
-<h3 id="写作阶段"><a href="#写作阶段" class="headerlink" title="写作阶段"></a>写作阶段</h3><p>使用Hexo框架，可以用Markdown进行文章的写作——</p>
-<p>输入指令：</p>
-<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type"></span>“文章标题”</span><br></pre></td></tr></table></figure>
-
-<p>这样就创建了一篇新文章——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/srvob9g5k8oo99.png?w=505"></p>
-<p>位置在source文件夹中的_posts文件夹中，名为“听话的便当”的Markdown文件；</p>
-<p>我们使用记事本打开看看——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/a8gcgcoj8gk31imkmgrg.png?w=651"></p>
-<p>可以发现它已经很贴心地帮我们写好开头了（当然“data”和“tags”删除也没有关系）；</p>
-<p>接下来我们就可以用Markdown来创作了——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/3b37icmc2g40gv2c3sdg.png?w=1024"></p>
-<p>这篇是我使用Markdown打出的一篇文章，那么它预览起来是什么样的呢？——</p>
-<p>输入指令：</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/ycgroij6p5kumbqfy.png?w=993"></p>
-<p>发现：生成了一个网站（<a href="http://localhost:4000），此时复制后浏览器打开即可——">http://localhost:4000），此时复制后浏览器打开即可——</a></p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/e59bbee78987-2.png?w=1024"></p>
-<p>（ps：如果要关闭预览，在CMD里按Ctrl+C；）</p>
-<h4 id="美化阶段"><a href="#美化阶段" class="headerlink" title="美化阶段"></a>美化阶段</h4><p>那么接下来，就介绍一下Hexo强大的功能之一：主题；</p>
-<p>我们可以在GitHub上直接搜索“Hexo theme”，就能发现一大堆，具体看个人喜好；</p>
-<p>我们随便选择一个——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/4h_6h5gxrsy260w9g702.png?w=1024"></p>
-<p>打开“Releases”或者上方的“Code”，下载任意压缩格式的文件；</p>
-<p>然后打开hexo文件夹中的themes文件夹，并解压进去：</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/dpwxl5rsp6vjck4p.png?w=861"></p>
-<p>复制刚刚解压过的文件夹的全名称，之后返回根目录（hexo文件夹）；</p>
-<p>编辑根目录中的_config.yml文件——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/oz9rujm62fi_4fe4sp.png?w=861"></p>
-<p>这里需要改动一些地方：</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/okcl67554wieuipce1.png?w=450"></p>
-<p>这里是一些基本的，比如说你的网站名（第六行）；</p>
-<p>描述（第八行）；</p>
-<p>作者（第十行）；</p>
-<p>语言（第十一行）；</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/cf4ofg1klobxmmswh57.png?w=994"></p>
-<p>你的网站链接（注意：第十六行的URL一定要改成你将来要部署的网站！！！比如你要用GitHub Pages部署，就必须是那一节你部署过的网站链接！！！）；</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/g21fy403ycizqtyvjbwzq.png?w=1024"></p>
-<p>这里建议改成六的倍数（不只是吉利），这样的话会比较美观；</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/6kr97sgt4stih6inn.png?w=1024"></p>
-<p>第一百行的主题名称改为之前让你复制的那个文件夹的名称（记得空格）；</p>
-<p>第一百零五行“type”改为“git”；</p>
-<p>第一百零六行加上“repo”，然后加上链接——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/tkwxgnehh006du4k.png?w=1024"></p>
-<p>（注意：不是GitHub Pages的链接，是GitHub Pages的库的链接！！）</p>
-<p>第一百零七行加上“branch”，名字随便起一个；</p>
-<p>完成这些之后，我们可以再次用“hexo s”这个指令查看预览，发现已经更新主题了。</p>
-<h3 id="部署阶段"><a href="#部署阶段" class="headerlink" title="部署阶段"></a>部署阶段</h3><p>整了这么多，你的网站也终究只在你的本地运行，那么怎么部署到GitHub Pages上呢——</p>
-<p>首先，我们需要用指令下载一个插件，用于连接GitHub账户和Hexo：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
-
-<p>安装之后，如果想确认是否安装成功，可以输入这个指令：</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">npm</span> list hexo-deployer-git </span><br></pre></td></tr></table></figure>
-
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/hllnoo91pxw9if27p1.png?w=993"></p>
-<p>出现了版本号，说明成功了；</p>
-<p>接下来，输入指令——</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g -d</span></span><br></pre></td></tr></table></figure>
-
-<p>如果失败，则输入以下指令，之后再输入上面的指令：</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">config</span> <span class="comment">--global credential.helper wincred</span></span><br></pre></td></tr></table></figure>
-
-<p>此时可能会有弹窗显示让你输入什么API，这个时候选择浏览器打开，之后登录按照要求填写你的GitHub账号密码；</p>
-<p>之后，刷新一下你登录账号后的GitHub，会显示出现了一个新的分支（在上文，我的分支branch的名字是master）；此时，如果没有其他分支的话，应该是有两个分支——main和master；</p>
-<p>在设置中，删除原先的main分支，并把master分支的名字改为main；</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/8qcwnxfkrvrj2x8gu6.png?w=1010"></p>
-<p>懂了吧？</p>
-<p>注意：此时Hexo根目录的_config文件里，最下面的branch也要改为main；</p>
-<p>之后，就可以轻松地用Hexo在本地书写，在GitHub Pages上显示啦！</p>
-<p>其他更多Hexo书写技巧，以及指令，请到<a href="https://hexo.io/">Hexo官网</a>查看</p>
-<hr>
-<p>我是 <strong>听话的便当</strong></p>
-<p>Bye~</p>
+<p>只发<strong>可用</strong>与<strong>高速</strong>(最上面的几个是绝对能用的)</p>
+<p><a href="https://thdbd666666.wordpress.com/2021/07/11/clash-%e9%85%8d%e7%bd%ae/">点此查看clash配置</a></p>
+<p><a href="https://thdbd666666.wordpress.com/proxy/">点此查看V2 SSR Trojian等配置</a></p>
 ]]></content>
       <tags>
-        <tag>教程</tag>
-        <tag>Windows</tag>
+        <tag>资源</tag>
+        <tag>常更新</tag>
+        <tag>Telegram</tag>
       </tags>
   </entry>
   <entry>
-    <title>使用Markdown对文章进行标记</title>
-    <url>/2021/08/22/%E4%BD%BF%E7%94%A8markdown%E5%AF%B9%E6%96%87%E7%AB%A0%E8%BF%9B%E8%A1%8C%E6%A0%87%E8%AE%B0/</url>
-    <content><![CDATA[<p><img src="https://thdbd666666.files.wordpress.com/2021/08/b1ca2901-361d-492a-9f8f-b984f6681e68.jpg?w=1024"></p>
-<h4 id="https-thdbd-gitbook-io-thdbd-article-3"><a href="#https-thdbd-gitbook-io-thdbd-article-3" class="headerlink" title="https://thdbd.gitbook.io/thdbd/article/3"></a><a href="https://thdbd.gitbook.io/thdbd/article/3">https://thdbd.gitbook.io/thdbd/article/3</a></h4>]]></content>
-  </entry>
-  <entry>
-    <title>Hello World!</title>
-    <url>/2021/07/10/%E5%97%A8%EF%BC%81/</url>
-    <content><![CDATA[<p><strong>能看见此文章说明网站正在正常运行</strong></p>
-<p><strong>欢迎</strong></p>
-<p><strong>每一个人的到来</strong></p>
-<p><strong><em>——</em></strong><em><strong>听话的便当 2021.7.10</strong></em></p>
-]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何下载Niconico上的视频？</title>
-    <url>/2021/08/19/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDniconico%E4%B8%8A%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%9F/</url>
-    <content><![CDATA[<p>很久没写过文章了感觉网站都要长毛了。。</p>
-<p>今天继续整篇实用性很“强”的教程！</p>
-<h4 id="什么是Niconico？"><a href="#什么是Niconico？" class="headerlink" title="什么是Niconico？"></a><strong>什么是Niconico？</strong></h4><span id="more"></span>
-
-<p>**<a href="https://www.nicovideo.jp/">Niconico动画</a>**（日语：ニコニコ動画；简称Niconico、N站、Nico等 ）是日本多玩国公司营运的在线弹幕视频分享网站。其中“Niconico”（ニコニコ）意为微笑，“动画”（動画）意为视频。Niconico动画与YouTube等视频共享网站相似，但Niconico动画提供观赏者可在视频上留言并以弹幕的形式出现在视频上的功能。<a href="https://zh.wikipedia.org/wiki/File:Nikoniko_honsya_ikebukuro.jpg"></a><a href="https://zh.wikipedia.org/wiki/File:Nikoniko_honsya_ikebukuro.jpg"></a>位于东京池袋的多用途场所Niconico本社（巴而可地下1－2层），注意并非网站运营意义上的本社</p>
-<p>随着业务的扩张，如沿用“Niconico”之名的Niconico直播及Niconico插画，许多相关的服务都已超出了视频共享服务的框架。在2015年8月，Niconico动画一般会员约有5000万人，付费会员约有250万人。提供用户可跨平台使用此服务。2007年该网站赢得好设计奖与日本御宅大赏，2008年又获得电子艺术大奖。 近年来Niconico动画的付费用户数有萎缩的现象，2019年2月13日，根据公开的财务资料，付费会员减少至188万人。</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image.png?w=1024"></p>
-<p>页面挺low的 ✧(≖ ◡ ≖✿)</p>
-<p>那么为什么要用Niconico呢？很简单，</p>
-<p>毕竟是岛国的东西嘛，多多少少有些国内没有的。≡ω≡</p>
-<h4 id="如何下载？"><a href="#如何下载？" class="headerlink" title="如何下载？"></a>如何下载？</h4><p>首先随便打开一个视频，</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-1.png?w=1024"></p>
-<p>这个时候右键点击视频画面；（记得选好画质，选的是什么下载的就是什么）</p>
-<p>会出现——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/cptqyihwdjmti1wf89q8.png?w=267"></p>
-<p>然后点击一下最下面的（hls &gt; http）</p>
-<p>变成——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/36h3premw0nb2e4ta2rb.png?w=274"></p>
-<p>然后点击第四行的“开放系统讯息”——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/iljpmb8lzrsu03o401duv.png?w=1024"></p>
-<p>变成这样</p>
-<p>可以看见出现了许多链接，一般来说复制最后一个比较好；（因为不会被禁止）</p>
-<p>然后打开链接——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-2.png?w=1024"></p>
-<p>直接下载就OK了！</p>
+    <title>怎样获取Bandcamp上的所有音乐？</title>
+    <url>/2021/07/22/%E6%80%8E%E6%A0%B7%E8%8E%B7%E5%8F%96bandcamp%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E9%9F%B3%E4%B9%90%EF%BC%9F/</url>
+    <content><![CDATA[<p>今天 来一篇能白嫖很多专辑和歌曲的教程 ( • ̀ω•́ )✧</p>
 <hr>
+<p><strong>Bandcamp是啥？</strong></p>
+<p>**<a href="https://bandcamp.com/">Bandcamp</a>**是一家美国在线音乐公司， 由前Oddpost联合创始人Ethan Diamond与程序员Shawn Grunberger、Joe Holt和Neal Tucker于2008年创立，总部位于加利福尼亚。</p>
+<p>Bandcamp是一个全球音乐社区，在这里，粉丝可以发现音乐，并支持创作音乐的艺术家。</p>
+<span id="more"></span>
+
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/rb8m7hwqjwq65bcwec.png?w=1024"></p>
+<p>简洁美观的主页</p>
+<p><strong>Bandcamp有啥特点？</strong></p>
+<p>这是一个十分“小众”的音乐平台，但如果你恰恰是为小众而来，那么这样的小众又组合成了一个大众群体——Bandcamp。在这里，你并不能找到“周杰伦” “贾斯丁比伯”这样的名流歌手，但是你可以发现像“<a href="https://lofigirl.bandcamp.com/">lofi girl</a>” “<a href="https://geometriclullaby.bandcamp.com/">geometriclullaby</a>” 这样在大圈内不出名的著名小圈制作人；在这里，你也可以找到“<a href="https://troyesivan.bandcamp.com/">Troye Sivan</a>”这样有名歌手的早期作品</p>
+<p>同时，你也可以看到——</p>
+<p>Bandcamp在2010年7月获得了很多关注，当时Amanda Palmer、Low Places和Bedhed放弃了他们的唱片公司并开始在Bandcamp上销售专辑，使用Twitter进行推广。</p>
+<p>Bandcamp在2011年很受欢迎，当时有几位独立游戏开发者在Bandcamp上发布了他们的游戏配乐，包括“宝瓶”、“堡垒”、“幽闭圣地”、“机械迷城”、“泰拉瑞亚”、“植物大战僵尸”、“地狱边境”、“超级食肉男孩”、“去月球”、“Fez”、“我的世界”和“不眠之夜”。</p>
+<p>2014年12月，Bandcamp for Labels成立。几个流行的独立唱片公司如Sub Pop、Fat Wreck Chords、Relapse Records和 Epitaph Records推出了他们自己的Bandcamp页面。</p>
+<p>一切尽在，<a href="https://bandcamp.com/"><strong>Bandcamp</strong></a>。</p>
+<p><strong>关于Bandcamp的版权？</strong></p>
+<p>通常，消费者通过各种免费文件分发渠道下载受版权保护的音乐，却无需向艺术家付款。像Bandcamp这样的网站为消费者提供免费的流媒体内容，同时为艺术家提供设定从免费到付费的可变价格的能力，为潜在客户提供更多选择，并允许消费者无需支付即可在线收听音乐。</p>
+<p>这种利用灵活支付方法来平衡免费侵权内容的做法带来了极大的灵活性，允许艺术家通过提供数位发行的替代手段来与未经授权的内容竞争。在公司博客上，Bandcamp提供了谷歌搜索数据，显示用户被非法音乐搜索引导到该网站并进行购买。这样的数据可以让艺术家了解Bandcamp在打击侵权方面的成就，以及如何正确有效地应对侵权。</p>
+<p>艺术家和唱片公司可以将音乐上传到Bandcamp并控制购买方式、价格，并且允许粉丝支付更多的钱和出售他们自己的物品。</p>
+<p>在Bandcamp，粉丝可以下载已付费的音乐，如果没有付费，可以在线播放。他们还可以将以购买的音乐作为礼物发放，查看歌词，并将单曲或专辑保存到愿望清单中。Bandcamp允许任何人免费上传音乐，并将销售额除去15%用于支付处理费。如果艺术家的销售额超过5000美元，则降至10%。</p>
+<p>Bandcamp为用户提供访问艺术家主页的功能，该页面包含有关艺术家的信息、社交媒体链接、商品销售链接以及艺术家在售的音乐。艺术家可以在主页上切换和自定义这些选项、更改页面外观，并自定义功能。2010年，Bandcamp在其他社群平台网站（如Facebook、Twitter、WordPress、Google+和Tumblr）中启用了嵌入式/共享链接，并提供了电子邮件选项。2013年，Bandcamp推出了适用于iOS和Android设备的移动应用程序。</p>
+<p>截至2018年5月，艺术家们共在Bandcamp上创收2.96亿美元。</p>
+<hr>
+<h1 id="正题（Download）"><a href="#正题（Download）" class="headerlink" title="正题（Download）"></a><strong>正题</strong>（Download）</h1><p>今天一共向大家说明三种方法来免费下载Bandcamp上的<strong>所有</strong>音乐（付费的也可以）。</p>
+<h1 id="1，Chrome-插件方法"><a href="#1，Chrome-插件方法" class="headerlink" title="1，Chrome 插件方法"></a>1，Chrome 插件方法</h1><p>如果你的浏览器（电脑）是谷歌浏览器，那么一个插件就可以解决所有<strong>“播放过的”</strong>音乐的下载问题。（Bandcamp上有些歌曲不允许在线播放）</p>
+<p><a href="https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn">插件下载地址</a>在这里！</p>
+<p>下载完成后 我们播放任意一首Bandcamp上的音乐，打开插件，就能看见</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/4040yaoyd834v2ngwefoonyt.png?w=1024"></p>
+<p>在<strong>视频</strong>一栏，出现了刚刚播放的歌曲，我们点击下载即可。</p>
+<p><strong>2，F12开发者模式</strong></p>
+<p>如果没有谷歌浏览器，或者不想用的话，我们在音乐开始播放后，按下键盘上的F12，进入开发者模式</p>
+<p>此时右边有一大坨代码，我们翻到最底下（距离最底下还有几行的样子），会发现一个链接（如图阴影部分）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/ohcanucmhv3mvxmve1f2.png?w=1024"></p>
+<p>我们右键那一块，并点击 “Edit as HTML”</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/yxbrtj_csch0qgq.png?w=526"></p>
+<p>发现一个长长的链接，这个就是音频的直链。我们粘贴打开即可。</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/t60zx4bxib216j_yba2e.png?w=1024"></p>
+<p>下载！！</p>
+<p><strong>3，HTML插入方法</strong></p>
+<p>我们在听Bandcamp上的歌时，有可能会出现下面的情况</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/o400f1yu9ji2zrxd467.png?w=1024"></p>
+<p>有些歌，你不给钱人家不让你听啊咋办！再看看价格——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/go66z0d3tqbbatncf1wnb.png?w=259"></p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/40olyg18sp7_8tt9wvcl9.png?w=892"></p>
+<p>好家伙，16首歌将近70块钱，我可是白嫖怪啊怎么能花钱！但是没法播放，前两种方法也用不成啊！咋办？</p>
+<p>此时，我们再看一遍页面，发现有这一个小东西——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/kixv8q47_x40vgxbq.png?w=799"></p>
+<p>分享嵌入？emmm，点一下看看——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/6tt83lod0k8ec_xw8kdr.png?w=1024"></p>
+<p>我们把这段HTML代码复制一下····——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/y8ch33pxh_eedg5dxq1u.png?w=426"></p>
+<p>里面居然有串链接！用浏览器打开看看——</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/kc5z4k66f4s40pe_q9k.png?w=1024"></p>
+<p>居然可以播放了！此时我们用前面两种方法其中任意一种即可。</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/k08co_3l6rbdn5m1f.png?w=161"></p>
+<p>嘿嘿嘿，白嫖了70块钱的歌··· ٩(๑&gt;◡&lt;๑)۶ 虽然这么做<strong>有点不厚道</strong>···</p>
+<hr>
+<hr>
+<p>好了，本期的教程就到这里</p>
 <p>我是 <strong>听话的便当</strong>，</p>
-<p><strong>╰(*°▽°*)╯</strong></p>
+<p>订阅我，看更多！</p>
 ]]></content>
       <tags>
         <tag>教程</tag>
+        <tag>音乐</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何做一个可以回复指令的TG机器人？</title>
+    <url>/2021/07/20/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%9B%9E%E5%A4%8D%E6%8C%87%E4%BB%A4%E7%9A%84tg%E6%9C%BA%E5%99%A8%E4%BA%BA%EF%BC%9F/</url>
+    <content><![CDATA[<p>今天 便当教你如何<strong>快速自制</strong>一个简单的可以回复指令的TG机器人</p>
+<p>我们需要：</p>
+<p>1，一个Telegram</p>
+<p>2，一个谷歌浏览器（<strong>登陆</strong>过的）（<strong>强烈建议电脑端！！</strong>）</p>
+<p>3，一个稳定的VPN（搞着搞着掉线了就不好整了）</p>
+<p>接下来 我会以一个电脑端用户的视角进行讲解（结尾打脸）</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>第一步 整理</strong></p>
+<p>我们可以首先创建一个<strong>记事本文件</strong>（.txt）（这是一个好习惯）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/6yqjp08f4dppvizqo.png?w=917"></p>
+<p>像是这样</p>
+<p>看的一头雾水？没关系 我来跟你讲解</p>
+<hr>
+<p><strong>第二步 编辑</strong></p>
+<p>我们的目的是做一个可以回复指令的TG机器人 首要的事 应该是创建几条指令</p>
+<p>我们打开与 @BotFather 的对话 发送指令 /mybots 打开上一节创建的机器人 并点击 Edit Bot</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/utkf6v9_b3i1pmlkr.png?w=286"></p>
+<p>点击左下角 编辑指令 并发送几条编辑好的指令</p>
+<p>格式如下：</p>
+<p>command1（英语和数字都行 不能出现中文） - Description（这是描述）<br>command2 - Another description</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/oxkk7n3p40ijjwnbgq.png?w=569"></p>
+<p>像这样</p>
+<p>此时我们再和机器人聊天 就会发现多了这些指令</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/1r27aezjhk9t8wvn3.png?w=590"></p>
+<hr>
+<p><strong>第三步 脚本</strong></p>
+<p>打开 <a href="https://script.google.com/home/start">这个网址</a> （注意：本节<strong>所有的网址</strong>打开<strong>都需要翻墙</strong> 并强烈建议在<strong>电脑端</strong>使用<strong>谷歌浏览器</strong>打开）并新建一个项目 起一个好听的名字：001</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/fbguzv12gy1n8o2zlzc.png?w=1024"></p>
+<p>这时候你可能会说“啊 wc 我一点写代码的基础都没啊咋整”</p>
+<p>没有关系！ 我已经给你整理好了</p>
+<p>打开 <a href="https://shimo.im/docs/wVHJJrW9rtjtdp3p/">这个网址并复制全文</a> 全部粘贴进新建项目001（注意：原本新建项目的存在的代码（如上图）<strong>也要替换</strong>）</p>
+<p>接下来就可以自定义你的指令和回复啦！</p>
+<p>需要注意的几点<br>1，记得保存！！！<br>2，第二十四行记得更换成你机器人的Token<br>3，第三十七行及之后注意出现的中文“指令名称”“反馈”</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/fv40hjzg61h72gct_kw.png?w=618"></p>
+<p>如图 是我编辑的指令以及收到相应指令后机器人反馈的消息</p>
+<p>其他的代码无需改动 默认就好！</p>
+<hr>
+<p><strong>第四步 部署</strong></p>
+<p>在<strong>保存</strong>完项目之后 点击右上角的部署“新建部署” 选择类型为“Web应用” 执行身份为“我” 有访问权限的人员为“任何人”（如图）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/ked3d6h4a8nixgdhr_vo88.png?w=796"></p>
+<p>部署完后 会有下面的弹窗 我们复制一下web应用网址 并记录下（记事本的优越性体现出来了）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image1033625411-1626757330959.jpg?w=996"></p>
+<p>之后 我们打开任意一个<a href="https://www.urlencoder.org/">url在线编码网站</a></p>
+<p>输入刚刚复制的web应用地址 并点击Encode 会得到这样一串东西（如下图）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image2099745317-1626757806775.jpg?w=905"></p>
+<p>我们复制一下这串链接 并将自己机器人的API Token和这串链接组合到一个新的超链接里（格式如下）</p>
+<p><strong><a href="https://api.telegram.org/bot%E8%BF%99%E9%87%8C%E6%94%BE%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84token/setWebhook?url=%E8%BF%99%E9%87%8C%E6%94%BEurlEncode%E8%BF%87%E7%9A%84%E9%82%A3%E4%B8%80%E4%B8%B2%E9%93%BE%E6%8E%A5">https://api.telegram.org/bot这里放机器人的token/setWebhook?url=这里放urlEncode过的那一串链接</a></strong></p>
+<p>随后 我们会得到一个超长的链接（如下图）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image1679726202-1626758101384.jpg?w=1024"></p>
+<p>我们复制得到的超长链接 并在浏览器打开 结果发现会出现下面的内容 这说明成功啦！（除非你没按照步骤来）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image648218213-1626758219786.jpg?w=1024"></p>
+<p>此时我们回到Telegram 再和机器人发送指令</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/screenshot_2021-07-20-13-17-51-232_org.thunderdog.challegram.jpg?w=512"></p>
+<p>它回复了！自动的！</p>
+<p><strong>大功告成！</strong></p>
+<p>本篇到这里就结束啦 前半段的时候还有电脑 现在由于在公交车上只能用手机编辑了</p>
+<p>本文为了方便编辑 一些地方没有打码 大家在做的时候注意不要泄露出机器人的Token</p>
+<p>感谢浏览！同时希望得到你的订阅</p>
+<p>我是 <strong>听话的便当</strong></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+        <tag>Telegram</tag>
       </tags>
   </entry>
   <entry>
@@ -646,420 +944,124 @@
       </tags>
   </entry>
   <entry>
-    <title>如何做一个可以回复指令的TG机器人？</title>
-    <url>/2021/07/20/%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%9B%9E%E5%A4%8D%E6%8C%87%E4%BB%A4%E7%9A%84tg%E6%9C%BA%E5%99%A8%E4%BA%BA%EF%BC%9F/</url>
-    <content><![CDATA[<p>今天 便当教你如何<strong>快速自制</strong>一个简单的可以回复指令的TG机器人</p>
-<p>我们需要：</p>
-<p>1，一个Telegram</p>
-<p>2，一个谷歌浏览器（<strong>登陆</strong>过的）（<strong>强烈建议电脑端！！</strong>）</p>
-<p>3，一个稳定的VPN（搞着搞着掉线了就不好整了）</p>
-<p>接下来 我会以一个电脑端用户的视角进行讲解（结尾打脸）</p>
-<span id="more"></span>
+    <title>多类型订阅（9.6更新）</title>
+    <url>/2021/07/11/clash-%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p><strong>配置文件：</strong></p>
+<p><strong><a href="https://wangzhuoke.lanzoui.com/iynaArafp5c">蓝奏云地址</a> 密码：66</strong>（大部分都失效了）</p>
+<hr>
+<p>注意：https型的为clash订阅，ss或ssr型的为SSR订阅，vmess或vless或trojan型的为V2Ray</p>
+<h2 id="URL地址：（前面有实心点的基本上失效）"><a href="#URL地址：（前面有实心点的基本上失效）" class="headerlink" title="URL地址：（前面有实心点的基本上失效）"></a><strong>URL地址：</strong>（前面有实心点的基本上失效）</h2><span id="more"></span>
 
-<hr>
-<p><strong>第一步 整理</strong></p>
-<p>我们可以首先创建一个<strong>记事本文件</strong>（.txt）（这是一个好习惯）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/6yqjp08f4dppvizqo.png?w=917"></p>
-<p>像是这样</p>
-<p>看的一头雾水？没关系 我来跟你讲解</p>
-<hr>
-<p><strong>第二步 编辑</strong></p>
-<p>我们的目的是做一个可以回复指令的TG机器人 首要的事 应该是创建几条指令</p>
-<p>我们打开与 @BotFather 的对话 发送指令 /mybots 打开上一节创建的机器人 并点击 Edit Bot</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/utkf6v9_b3i1pmlkr.png?w=286"></p>
-<p>点击左下角 编辑指令 并发送几条编辑好的指令</p>
-<p>格式如下：</p>
-<p>command1（英语和数字都行 不能出现中文） - Description（这是描述）<br>command2 - Another description</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/oxkk7n3p40ijjwnbgq.png?w=569"></p>
-<p>像这样</p>
-<p>此时我们再和机器人聊天 就会发现多了这些指令</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/1r27aezjhk9t8wvn3.png?w=590"></p>
-<hr>
-<p><strong>第三步 脚本</strong></p>
-<p>打开 <a href="https://script.google.com/home/start">这个网址</a> （注意：本节<strong>所有的网址</strong>打开<strong>都需要翻墙</strong> 并强烈建议在<strong>电脑端</strong>使用<strong>谷歌浏览器</strong>打开）并新建一个项目 起一个好听的名字：001</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/fbguzv12gy1n8o2zlzc.png?w=1024"></p>
-<p>这时候你可能会说“啊 wc 我一点写代码的基础都没啊咋整”</p>
-<p>没有关系！ 我已经给你整理好了</p>
-<p>打开 <a href="https://shimo.im/docs/wVHJJrW9rtjtdp3p/">这个网址并复制全文</a> 全部粘贴进新建项目001（注意：原本新建项目的存在的代码（如上图）<strong>也要替换</strong>）</p>
-<p>接下来就可以自定义你的指令和回复啦！</p>
-<p>需要注意的几点<br>1，记得保存！！！<br>2，第二十四行记得更换成你机器人的Token<br>3，第三十七行及之后注意出现的中文“指令名称”“反馈”</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/fv40hjzg61h72gct_kw.png?w=618"></p>
-<p>如图 是我编辑的指令以及收到相应指令后机器人反馈的消息</p>
-<p>其他的代码无需改动 默认就好！</p>
-<hr>
-<p><strong>第四步 部署</strong></p>
-<p>在<strong>保存</strong>完项目之后 点击右上角的部署“新建部署” 选择类型为“Web应用” 执行身份为“我” 有访问权限的人员为“任何人”（如图）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/ked3d6h4a8nixgdhr_vo88.png?w=796"></p>
-<p>部署完后 会有下面的弹窗 我们复制一下web应用网址 并记录下（记事本的优越性体现出来了）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image1033625411-1626757330959.jpg?w=996"></p>
-<p>之后 我们打开任意一个<a href="https://www.urlencoder.org/">url在线编码网站</a></p>
-<p>输入刚刚复制的web应用地址 并点击Encode 会得到这样一串东西（如下图）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image2099745317-1626757806775.jpg?w=905"></p>
-<p>我们复制一下这串链接 并将自己机器人的API Token和这串链接组合到一个新的超链接里（格式如下）</p>
-<p><strong><a href="https://api.telegram.org/bot%E8%BF%99%E9%87%8C%E6%94%BE%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84token/setWebhook?url=%E8%BF%99%E9%87%8C%E6%94%BEurlEncode%E8%BF%87%E7%9A%84%E9%82%A3%E4%B8%80%E4%B8%B2%E9%93%BE%E6%8E%A5">https://api.telegram.org/bot这里放机器人的token/setWebhook?url=这里放urlEncode过的那一串链接</a></strong></p>
-<p>随后 我们会得到一个超长的链接（如下图）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image1679726202-1626758101384.jpg?w=1024"></p>
-<p>我们复制得到的超长链接 并在浏览器打开 结果发现会出现下面的内容 这说明成功啦！（除非你没按照步骤来）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image648218213-1626758219786.jpg?w=1024"></p>
-<p>此时我们回到Telegram 再和机器人发送指令</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/screenshot_2021-07-20-13-17-51-232_org.thunderdog.challegram.jpg?w=512"></p>
-<p>它回复了！自动的！</p>
-<p><strong>大功告成！</strong></p>
-<p>本篇到这里就结束啦 前半段的时候还有电脑 现在由于在公交车上只能用手机编辑了</p>
-<p>本文为了方便编辑 一些地方没有打码 大家在做的时候注意不要泄露出机器人的Token</p>
-<p>感谢浏览！同时希望得到你的订阅</p>
-<p>我是 <strong>听话的便当</strong></p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-        <tag>Telegram</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何部署GitHub Pages？</title>
-    <url>/2021/08/21/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2github-pages%EF%BC%9F/</url>
-    <content><![CDATA[<p>如果你想拥有一个网站——</p>
-<p>必不可少的两样东西是：域名（网址）和空间（存放网站数据的主机）.</p>
-<p>只需要<strong>“简单四步”</strong>就可以——</p>
-<span id="more"></span>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">https://drive.google.com/uc?export=download&amp;id=1NT0556ny7vc0Y7xZVlNklRb1Ia96zWFz</span></span><br><span class="line"></span><br><span class="line"><span class="string">https://ifl520.xyz//link/aVZLeFL1fB22bp36?clash=1</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206UENubkg2U1FTbmZvUzI3QDExOC4xMDcuMjQ0LjExMjo4MDkw#Pool_%f0%9f%87%ad%f0%9f%87%b0HK_5585</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206ZW5jdGRLeUpmU3U3NlZxem5Ld1R0NkFwQDIuNTguMjQxLjM6Mzc0NzM=#Pool_%f0%9f%87%b9%f0%9f%87%bc</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YVlOZUtETXpZUVl3NEtiVWJKQThXc3pxQDY0LjQ0LjQyLjE2MjozMTk0NA==#Pool_%f0%9f%87%ba%f0%9f%87%b8US_56</span></span><br><span class="line"></span><br><span class="line"><span class="string">vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh6jwn4ezQ05fMzAiLA0KICAiYWRkIjogIjEzOS4xNTUuMjIuMjI3IiwNCiAgInBvcnQiOiAiNDkxMTAiLA0KICAiaWQiOiAiZjc2NzViN2UtNTliZi00MzVjLWFjMDMtZGMyNDgyZjI3ZTVkIiwNCiAgImFpZCI6ICI2NCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIi8iLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==</span></span><br><span class="line"></span><br><span class="line"><span class="string">ssr://Y3UubmV3aG9zdC5jYzoxMDY5MTphdXRoX2FlczEyOF9zaGExOmFlcy0yNTYtY2ZiOmh0dHBfc2ltcGxlOmRFWnNTVWxULz9yZW1hcmtzPVVtVnNZWGxmOEotSHFQQ2ZoN05EVGkzd240ZXU4Si1IczBsT1h6ZzBPU0I4TWpZdU5ESk5ZZyZwcm90b3BhcmFtPU1URTNOVEk2UTJKUmFHeDQmb2Jmc3BhcmFtPUxuZDNkeTVpYVc1bkxtTnZiUSZncm91cD0</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21nQDEzOC4xOTkuMTYuMTM3OjQ0NTM5#Pool_+%7c30.00Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206Q1VuZFNabllzUEtjdTZLajhUSFZNQkhEQDIuNTguMjQxLjM6Mzk3NzI=#Pool_+%7c+7.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4QDQ1LjI0OC43Ni4xNzE6NDM4OTM=#Pool_+%7c14.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206Q1RLOEdYRlFnS1lRRXJyZ2hQSmZaNnRrQDE5OC44LjkyLjg0OjQ3MTIx#Pool_+%7c12.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">vmess://eyJhZGQiOiJqcDIudXV2Mi5jby51ayIsImFpZCI6MSwiaG9zdCI6ImpwMi51dXYyLmNvLnVrIiwiaWQiOiIxZjRjNGUzZC1lNDRkLTQwYzQtOWFmOC1lNzBkYzM0YmYwMDciLCJuZXQiOiJ3cyIsInBhdGgiOiIvVEdAbWZ0aXppIiwicG9ydCI6MTAxNiwicHMiOiJcdTY1RTVcdTY3MkMiLCJ0bHMiOiJ0bHMiLCJ0eXBlIjoiIiwidiI6Mn0=</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4@2.58.242.54:43893#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206dEJLQmY0cFZ6TkNGS2RiUGd2d3JOWHEz@2.58.242.54:42816#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4@2.58.242.54:43893#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206dEJLQmY0cFZ6TkNGS2RiUGd2d3JOWHEz@2.58.242.54:42816#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21n@2.58.242.54:44539#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206RldyWGN4UFpqSnhBTjg5eExncVkzQWNw@2.58.242.54:44236#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21n@2.58.242.54:44539#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206RldyWGN4UFpqSnhBTjg5eExncVkzQWNw@2.58.242.54:44236#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">http://www.xrayvip.cf/clash.xml</span></span><br><span class="line"></span><br><span class="line"><span class="string">http://www.xrayvip.cf/v2ray.txt</span> <span class="string">（V2Ray）</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4QDIuNTguMjQxLjQ1OjQzODkz#</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4#ss-hk</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29t@119.28.71.43:2048</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4?tfo=1#Shadowsocks%20Rust%20%E8%8A%82%E7%82%B9%E5%85%B1%E4%BA%AB</span></span><br></pre></td></tr></table></figure>
 
-<p>1、购买域名；</p>
-<p>2、购买服务器；</p>
-<p>3、安装网站环境（虚拟主机的话不需要此步）；</p>
-<p>4、安装网站。</p>
-<p>但是实际上，真正要做好一个网站，远远不止这4步；</p>
-<p>更何况你可能会止步于空空如也的钱包或是没有深谋远虑的想法；</p>
-<p>这个时候如果一股脑花大价钱，最终却可能把行动付诸于东流。</p>
-<p>所以这篇文章将向你介绍<strong>GitHub Pages</strong>这一强大的功能，<strong>只需两步</strong>，就可完成。</p>
-<h4 id="什么是GitHub-Pages？"><a href="#什么是GitHub-Pages？" class="headerlink" title="什么是GitHub Pages？"></a><strong>什么是GitHub Pages？</strong></h4><p>GitHub Pages是GitHub提供的一个网页寄存服务，于2008年推出。可以用于存放静态网页，包括博客、项目文档甚至整本书。Jekyll软件可以用于将文档转换成静态网页，该软件提供了将网页上传到GitHub Pages的功能。一般GitHub Pages的网站使用github.io的子域名，但是用户也可以使用第三方域名。</p>
-<p>也就是说，当你部署完GitHub Pages后，会得到一个XXX.github.io的网站。这里举个例子</p>
-<p>我的GitHub Pages——thdbd.github.io</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-3.png?w=1024"></p>
-<p>除了域名之外跟其他网站没什么两样</p>
-<h4 id="如何部署GitHub-Pages"><a href="#如何部署GitHub-Pages" class="headerlink" title="如何部署GitHub Pages"></a>如何部署GitHub Pages</h4><h5 id="1-登录-注册一个GitHub账号-https-github-com"><a href="#1-登录-注册一个GitHub账号-https-github-com" class="headerlink" title="1.登录/注册一个GitHub账号 https://github.com/"></a>1.登录/注册一个GitHub账号 <a href="https://github.com/">https://github.com/</a></h5><p><img src="https://thdbd666666.files.wordpress.com/2021/08/404n4q7pct_vgpv20b2xw.png?w=643"></p>
-<p>第一行：输入邮箱；</p>
-<p>第二行：输入密码；</p>
-<p>第三行：输入用户名；（注意：这个用户名是什么，XXX.github.io 里的XXX就是什么。比如我的昵称为byn6，最终得到的就是byn6 .github.io ）（用户名为英文）</p>
-<p>第四行：是否允许广告（y为允许，n为不允许）；</p>
-<p>然后会让你人机验证啦，邮箱验证什么的；</p>
-<p>最终完成初始化——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/k658h_gnfi6ctq274iq.png?w=1024"></p>
-<p>（以上内容仅对非登录用户有用）</p>
-<h5 id="2-完成搭建-https-github-com-new"><a href="#2-完成搭建-https-github-com-new" class="headerlink" title="2.完成搭建 https://github.com/new"></a>2.完成搭建 <a href="https://github.com/new">https://github.com/new</a></h5><p><img src="https://thdbd666666.files.wordpress.com/2021/08/1m94j4b_05_400a073.png?w=354"></p>
-<p>点击绿色按钮新建一个库——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/l0xcpr4m6x7bet_lj3_0t0d.png?w=873"></p>
-<p>此处库的名字为 你的昵称.github.io；</p>
-<p>权限为Public（公共）。[ 注意：这个库的这个权限以后千万不能改为Private，否则会导致永久无法访问此网站 {除非删库重来} ]</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/5xbp4zxmdvd5ze95.png?w=1024"></p>
-<p>creating a new file为创建新的文件；</p>
-<p>uploading an existing file为上传文件；</p>
-<p>如果你手头有编写好的html文件的话就可以选择后者，如果没有也可以在GitHub上现编，这需要有一些html基础知识。</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/2lgwgauaz387o.png?w=1024"></p>
-<p>（注意：如果上传/编写的html文件中没有index.html，就会导致404。）</p>
-<p>于是我编写了一个index.html，在这之前我的网站是这样的——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/5e0_t7zkv2uk7a2qxvjc7a.png?w=1024"></p>
-<p>我们来上传一下——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/k_4xedu8bj61ukp44.png?w=1024"></p>
-<p>经过了一段时间之后，网站变成了——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/my940yn2uwpxdgyx41xu.png?w=1024"></p>
-<p>完成！</p>
-<p>在主页的基础上，你可以进行其他页面逻辑的联系；（其实不设置主页也是可以的）</p>
-<p>以后的文章我也会说明一些html，css，Java Script（网页三剑客）的相关内容；</p>
-<p>关于GitHub Pages，</p>
-<p>你也可以利用Hexo搭建为自己的博客；（使用Node.js） <a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
-<p>搭建为资源分发网站；（小型网盘）</p>
-<p>或是单纯的文件预览试调平台。</p>
-<hr>
-<p>我是 <strong>听话的便当</strong></p>
-<h5 id="ヾ-￣▽￣-ByeBye"><a href="#ヾ-￣▽￣-ByeBye" class="headerlink" title="ヾ(￣▽￣)ByeBye"></a>ヾ(￣▽￣)Bye<del>Bye</del></h5>]]></content>
-      <tags>
-        <tag>教程</tag>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建你的Gitbook（不使用Node.js）</title>
-    <url>/2021/08/21/%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84gitbook%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8node-js%EF%BC%89/</url>
-    <content><![CDATA[<p>一日更两篇！！&lt;(ˉ^ˉ)&gt;</p>
-<h5 id="·-了解Gitbook"><a href="#·-了解Gitbook" class="headerlink" title="· 了解Gitbook"></a>· 了解Gitbook</h5><p>Gitbook是一个…类似于“石墨文档”（或腾讯文档）的…功能（这里可以类比GitHub Pages，详见上一篇）</p>
-<p>我的Gitbook：thdbd.gitbook.io（注意：是gitbook而不是github）</p>
-<span id="more"></span>
-
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-5.png?w=1024"></p>
-<p>简洁大方，还添加了轻小说 Ψ(￣∀￣)Ψ</p>
-<h5 id="·-搭建Gitbook"><a href="#·-搭建Gitbook" class="headerlink" title="· 搭建Gitbook"></a>· 搭建Gitbook</h5><p>方法有三种</p>
-<ol>
-<li> 使用Gitbook Web端进行部署（缺点：自由度不高）</li>
-<li> 使用Git+Node.js+GitHub进行部署（缺点：上服务器后可修改度不高）</li>
-<li> 使用Git+Node.js+个人服务器进行部署（缺点：得花钱）</li>
-</ol>
-<p>这里是第一种和第二，三种的区别</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/rlc1krmj1i3b7zhb7h3mr.png"><img src="https://thdbd666666.files.wordpress.com/2021/08/62zgx5g52w_c1q49l.png"></p>
-<p>所以我来说一下第一种（我觉得还是前者比较好看的）</p>
-<h6 id="Step-1：搭建-https-www-gitbook-com"><a href="#Step-1：搭建-https-www-gitbook-com" class="headerlink" title="Step 1：搭建 https://www.gitbook.com/"></a>Step 1：搭建 <a href="https://www.gitbook.com/">https://www.gitbook.com/</a></h6><p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-6.png?w=1024"></p>
-<p>选择Sign Up With GitHub（使用GitHub登录）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-7.png?w=1024"></p>
-<p>邮箱会收到noreply发来的链接，点击即可</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-8.png?w=1024"></p>
-<p>点击后跳转到这个页面</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-9.png?w=1024"></p>
-<p>填写你的手机号，然后填入验证码</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-10.png?w=1024"></p>
-<p>进到工作台了，然后创建一个新空间</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-11.png?w=1024"></p>
-<p>之后最好改一下名字，不然域名会非常长</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/settings-gitbook.png"><img src="https://thdbd666666.files.wordpress.com/2021/08/settings-gitbook-1.png"></p>
-<p>此时你就拥有了一个Gitbook站点</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-12.png?w=1024"></p>
-<p><strong>Step 2：设计</strong></p>
-<p>我们以一本书来举例，假如这本书叫《三只小猪》，总共有三大章，每三大章都有三小节，并且要标注相关衍生作品，完成这个设计方案。</p>
-<p>首先明确这本书的结构——题目，简介，正文，其他信息</p>
-<p>先完成简介的设计。通常来说，简介应该是一打开书就能看见的，所以放在第一位。</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-13.png?w=1024"></p>
-<p>如图，完成对标题的修改</p>
-<p>随后，我们来添加正文——要求是三大章，每章有三小节，此时我们可以新建一个组，名为“正文”。</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/5yxlqp9d5ul4n44b7waw.png?w=1024"></p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/qqe688aae59bbe20210821222126.png?w=591"></p>
-<p>（注意：当光标在页面下方时，会出现这个快捷添加的蓝色加号按钮）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/3xzoevmtgal2owcj9yijs.png?w=789"></p>
-<p>（注意：下方的SLUG为固定链接的意思）</p>
-<p>三大章完成了，接下来要进行的是九小节；</p>
-<p>我们点击 “第一章” 的右边三个点的位置，并在如图所示位置添加子页面。</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/pxmu5t97kh1wufg01yw.png?w=776"></p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/wmm8difieq44kc403_lm.png?w=391"></p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/dj403n35rl405402e78.png?w=338"></p>
-<p>（注意：不要忘记保存，点击绿色按钮Save [保存] 后会变成紫色按钮Merge [上传] ）</p>
-<p>然后，添加其他信息。</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/qqe688aae59bbe20210821223318.png?w=1024"></p>
-<p>（注意：记得不要添加到“正文”组了）</p>
-<p>最后，标注衍生作品；既然是衍生作，就不应该用页面表示，而应该为一个链接；</p>
-<p>添加 “动画”，“电影” 两个链接；</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/dirm82m2u7hq15g3plz1e.png?w=1024"></p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/gnr_9z6_t4_jkyhne6d.png?w=1024"></p>
-<p>完成！</p>
-<p>来看一下刚刚的项目——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/08/image-14.png?w=1024"></p>
-<p>十分精美啊！！</p>
-<h5 id="੭-ˊᵕˋ-੭-ଘ"><a href="#੭-ˊᵕˋ-੭-ଘ" class="headerlink" title="*(੭*ˊᵕˋ)੭*ଘ"></a>*(੭*ˊᵕˋ)੭*ଘ</h5><hr>
-<p>我是 <strong>听话的便当</strong></p>
-<h5 id="ヾ-￣▽￣-ByeBye"><a href="#ヾ-￣▽￣-ByeBye" class="headerlink" title="ヾ(￣▽￣)ByeBye"></a>ヾ(￣▽￣)Bye<del>Bye</del></h5>]]></content>
-      <tags>
-        <tag>教程</tag>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>怎样获取Bandcamp上的所有音乐？</title>
-    <url>/2021/07/22/%E6%80%8E%E6%A0%B7%E8%8E%B7%E5%8F%96bandcamp%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E9%9F%B3%E4%B9%90%EF%BC%9F/</url>
-    <content><![CDATA[<p>今天 来一篇能白嫖很多专辑和歌曲的教程 ( • ̀ω•́ )✧</p>
-<hr>
-<p><strong>Bandcamp是啥？</strong></p>
-<p>**<a href="https://bandcamp.com/">Bandcamp</a>**是一家美国在线音乐公司， 由前Oddpost联合创始人Ethan Diamond与程序员Shawn Grunberger、Joe Holt和Neal Tucker于2008年创立，总部位于加利福尼亚。</p>
-<p>Bandcamp是一个全球音乐社区，在这里，粉丝可以发现音乐，并支持创作音乐的艺术家。</p>
-<span id="more"></span>
-
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/rb8m7hwqjwq65bcwec.png?w=1024"></p>
-<p>简洁美观的主页</p>
-<p><strong>Bandcamp有啥特点？</strong></p>
-<p>这是一个十分“小众”的音乐平台，但如果你恰恰是为小众而来，那么这样的小众又组合成了一个大众群体——Bandcamp。在这里，你并不能找到“周杰伦” “贾斯丁比伯”这样的名流歌手，但是你可以发现像“<a href="https://lofigirl.bandcamp.com/">lofi girl</a>” “<a href="https://geometriclullaby.bandcamp.com/">geometriclullaby</a>” 这样在大圈内不出名的著名小圈制作人；在这里，你也可以找到“<a href="https://troyesivan.bandcamp.com/">Troye Sivan</a>”这样有名歌手的早期作品</p>
-<p>同时，你也可以看到——</p>
-<p>Bandcamp在2010年7月获得了很多关注，当时Amanda Palmer、Low Places和Bedhed放弃了他们的唱片公司并开始在Bandcamp上销售专辑，使用Twitter进行推广。</p>
-<p>Bandcamp在2011年很受欢迎，当时有几位独立游戏开发者在Bandcamp上发布了他们的游戏配乐，包括“宝瓶”、“堡垒”、“幽闭圣地”、“机械迷城”、“泰拉瑞亚”、“植物大战僵尸”、“地狱边境”、“超级食肉男孩”、“去月球”、“Fez”、“我的世界”和“不眠之夜”。</p>
-<p>2014年12月，Bandcamp for Labels成立。几个流行的独立唱片公司如Sub Pop、Fat Wreck Chords、Relapse Records和 Epitaph Records推出了他们自己的Bandcamp页面。</p>
-<p>一切尽在，<a href="https://bandcamp.com/"><strong>Bandcamp</strong></a>。</p>
-<p><strong>关于Bandcamp的版权？</strong></p>
-<p>通常，消费者通过各种免费文件分发渠道下载受版权保护的音乐，却无需向艺术家付款。像Bandcamp这样的网站为消费者提供免费的流媒体内容，同时为艺术家提供设定从免费到付费的可变价格的能力，为潜在客户提供更多选择，并允许消费者无需支付即可在线收听音乐。</p>
-<p>这种利用灵活支付方法来平衡免费侵权内容的做法带来了极大的灵活性，允许艺术家通过提供数位发行的替代手段来与未经授权的内容竞争。在公司博客上，Bandcamp提供了谷歌搜索数据，显示用户被非法音乐搜索引导到该网站并进行购买。这样的数据可以让艺术家了解Bandcamp在打击侵权方面的成就，以及如何正确有效地应对侵权。</p>
-<p>艺术家和唱片公司可以将音乐上传到Bandcamp并控制购买方式、价格，并且允许粉丝支付更多的钱和出售他们自己的物品。</p>
-<p>在Bandcamp，粉丝可以下载已付费的音乐，如果没有付费，可以在线播放。他们还可以将以购买的音乐作为礼物发放，查看歌词，并将单曲或专辑保存到愿望清单中。Bandcamp允许任何人免费上传音乐，并将销售额除去15%用于支付处理费。如果艺术家的销售额超过5000美元，则降至10%。</p>
-<p>Bandcamp为用户提供访问艺术家主页的功能，该页面包含有关艺术家的信息、社交媒体链接、商品销售链接以及艺术家在售的音乐。艺术家可以在主页上切换和自定义这些选项、更改页面外观，并自定义功能。2010年，Bandcamp在其他社群平台网站（如Facebook、Twitter、WordPress、Google+和Tumblr）中启用了嵌入式/共享链接，并提供了电子邮件选项。2013年，Bandcamp推出了适用于iOS和Android设备的移动应用程序。</p>
-<p>截至2018年5月，艺术家们共在Bandcamp上创收2.96亿美元。</p>
-<hr>
-<h1 id="正题（Download）"><a href="#正题（Download）" class="headerlink" title="正题（Download）"></a><strong>正题</strong>（Download）</h1><p>今天一共向大家说明三种方法来免费下载Bandcamp上的<strong>所有</strong>音乐（付费的也可以）。</p>
-<h1 id="1，Chrome-插件方法"><a href="#1，Chrome-插件方法" class="headerlink" title="1，Chrome 插件方法"></a>1，Chrome 插件方法</h1><p>如果你的浏览器（电脑）是谷歌浏览器，那么一个插件就可以解决所有<strong>“播放过的”</strong>音乐的下载问题。（Bandcamp上有些歌曲不允许在线播放）</p>
-<p><a href="https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn">插件下载地址</a>在这里！</p>
-<p>下载完成后 我们播放任意一首Bandcamp上的音乐，打开插件，就能看见</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/4040yaoyd834v2ngwefoonyt.png?w=1024"></p>
-<p>在<strong>视频</strong>一栏，出现了刚刚播放的歌曲，我们点击下载即可。</p>
-<p><strong>2，F12开发者模式</strong></p>
-<p>如果没有谷歌浏览器，或者不想用的话，我们在音乐开始播放后，按下键盘上的F12，进入开发者模式</p>
-<p>此时右边有一大坨代码，我们翻到最底下（距离最底下还有几行的样子），会发现一个链接（如图阴影部分）</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/ohcanucmhv3mvxmve1f2.png?w=1024"></p>
-<p>我们右键那一块，并点击 “Edit as HTML”</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/yxbrtj_csch0qgq.png?w=526"></p>
-<p>发现一个长长的链接，这个就是音频的直链。我们粘贴打开即可。</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/t60zx4bxib216j_yba2e.png?w=1024"></p>
-<p>下载！！</p>
-<p><strong>3，HTML插入方法</strong></p>
-<p>我们在听Bandcamp上的歌时，有可能会出现下面的情况</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/o400f1yu9ji2zrxd467.png?w=1024"></p>
-<p>有些歌，你不给钱人家不让你听啊咋办！再看看价格——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/go66z0d3tqbbatncf1wnb.png?w=259"></p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/40olyg18sp7_8tt9wvcl9.png?w=892"></p>
-<p>好家伙，16首歌将近70块钱，我可是白嫖怪啊怎么能花钱！但是没法播放，前两种方法也用不成啊！咋办？</p>
-<p>此时，我们再看一遍页面，发现有这一个小东西——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/kixv8q47_x40vgxbq.png?w=799"></p>
-<p>分享嵌入？emmm，点一下看看——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/6tt83lod0k8ec_xw8kdr.png?w=1024"></p>
-<p>我们把这段HTML代码复制一下····——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/y8ch33pxh_eedg5dxq1u.png?w=426"></p>
-<p>里面居然有串链接！用浏览器打开看看——</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/kc5z4k66f4s40pe_q9k.png?w=1024"></p>
-<p>居然可以播放了！此时我们用前面两种方法其中任意一种即可。</p>
-<p><img src="https://thdbd666666.files.wordpress.com/2021/07/k08co_3l6rbdn5m1f.png?w=161"></p>
-<p>嘿嘿嘿，白嫖了70块钱的歌··· ٩(๑&gt;◡&lt;๑)۶ 虽然这么做<strong>有点不厚道</strong>···</p>
-<hr>
-<hr>
-<p>好了，本期的教程就到这里</p>
-<p>我是 <strong>听话的便当</strong>，</p>
-<p>订阅我，看更多！</p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-        <tag>音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python批量转换网易云为直链</title>
-    <url>/2021/09/06/Python/</url>
-    <content><![CDATA[<p>今天，完成了两件“大”事——</p>
 <ul>
-<li><p>把WordPress上的所有文章搬到Hexo了；（WordPress目前只为音乐服务）</p>
-</li>
-<li><p>发现了可以取代之前java那篇的更好的网易云直链转换方法。</p>
-</li>
+<li>  <strong><a href="https://drive.google.com/uc?export=download&amp;id=1-LGud64tCfrYwUKiXK0Ll8uJfwZaoP2T">https://drive.google.com/uc?export=download&amp;id=1-LGud64tCfrYwUKiXK0Ll8uJfwZaoP2T</a></strong></li>
+<li>  <strong><a href="https://sub.id9.cc/sub%EF%BC%9Ftarget=clash&amp;url=http%3A%2F%2F120.92.132.166%3A8888%2Fdown%2Fs18ZGtTXcpya&amp;insert=false">https://sub.id9.cc/sub？target=clash&amp;url=http%3A%2F%2F120.92.132.166%3A8888%2Fdown%2Fs18ZGtTXcpya&amp;insert=false</a></strong></li>
+<li>  <strong><a href="https://raw.githubusercontent.com/zyzmzyz/free-nodes/master/Clash.yml">https://raw.githubusercontent.com/zyzmzyz/free-nodes/master/Clash.yml</a></strong></li>
+<li>  <strong><a href="https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml">https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml</a></strong></li>
+<li>  <strong><a href="https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml">https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml</a></strong></li>
+<li>  <strong><a href="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml">https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml</a></strong></li>
+<li>  <strong><a href="https://suo.yt/ciD6eR4">https://suo.yt/ciD6eR4</a></strong></li>
+<li>  <strong><a href="https://wrq8888.xyz/api/v1/client/subscribe?token=8db3d7c">https://wrq8888.xyz/api/v1/client/subscribe?token=8db3d7c</a></strong></li>
+<li>  <strong><a href="https://yigedingyue.com/api/v1/client/subscribe?token=53143ed1ed41dab0474a96dc027d3ffb">https://yigedingyue.com/api/v1/client/subscribe?token=53143ed1ed41dab0474a96dc027d3ffb</a></strong></li>
+<li>  <strong><a href="https://biteb.club/link/6RJ0uo4VTbD6xjAZ?clash=1">https://biteb.club/link/6RJ0uo4VTbD6xjAZ?clash=1</a></strong></li>
+<li>  <strong><a href="https://gayv.gay/api/v1/client/subscribe?token=2e6d2418c7d6f9c55886d0560b4a09de">https://gayv.gay/api/v1/client/subscribe?token=2e6d2418c7d6f9c55886d0560b4a09de</a></strong></li>
+<li>  <strong><a href="https://bit.ly/2U6zz1n">https://bit.ly/2U6zz1n</a></strong></li>
+<li>  <strong><a href="https://srayx.com/api/v1/client/subscribe?token=f272b2f9c927953fe1f83636ef6cb8db">https://srayx.com/api/v1/client/subscribe?token=f272b2f9c927953fe1f83636ef6cb8db</a></strong></li>
+<li>  <strong><a href="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml">https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml</a></strong></li>
+<li>  <strong><a href="https://suo.yt/OWdKnXp">https://suo.yt/OWdKnXp</a></strong></li>
+<li>  <strong><a href="https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml">https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml</a></strong></li>
+<li>  <strong><a href="https://suo.yt/Shm0Y0X">https://suo.yt/Shm0Y0X</a></strong></li>
+<li>  <strong><a href="https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml">https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml</a></strong></li>
+<li>  <strong><a href="https://suo.yt/HDe8WhU">https://suo.yt/HDe8WhU</a></strong></li>
+<li>  <strong><a href="https://newhua99.com/api/v1/client/subscribe?token=bfe9e64492e66202b2f726a2262ce599">https://newhua99.com/api/v1/client/subscribe?token=bfe9e64492e66202b2f726a2262ce599</a></strong></li>
+<li>  <strong><a href="https://drive.google.com/uc?export=download&amp;id=1Oi0xb22FIGt7DxNBMB5bKB9%5C_-aH5VcTg">https://drive.google.com/uc?export=download&amp;id=1Oi0xb22FIGt7DxNBMB5bKB9\_-aH5VcTg</a></strong></li>
+<li>  <strong><a href="https://drive.google.com/uc?export=download&amp;id=1kjCP7cKKQ7lU6amA5lSWoN-1PL8hc2Zp">https://drive.google.com/uc?export=download&amp;id=1kjCP7cKKQ7lU6amA5lSWoN-1PL8hc2Zp</a></strong></li>
 </ul>
-<p>本篇来稍微谈一下第二件：</p>
-<hr>
-
-<h2>起因</h2>
-
-<p>晚饭后，我在用pot player听歌的时候，突然发现播放列表空了——</p>
-<span id="more"></span>
-
-<p>于是，像往常一样，我打开了java链接转换文件；</p>
-<p>但是不一会，列表又空了。</p>
-<p>我不禁感到自己的能力上的深深不足——转换的效率实在是太低了，</p>
-<p>一首歌——&gt;一个链接——&gt;转换链接——&gt;打开链接——&gt;下载音频，</p>
-<p>总共经过了五个步骤，最终也只得出来一首歌。</p>
-<p>因此，我便Google了“网易云Python”；</p>
-<h2>经过</h2>
-
-<p><strong>果不其然</strong>，我找到了不少网易云py的实例，</p>
-<p>但最终发现——要不然是少了什么环境，要不然就是没法使用；</p>
-<p>就在这时，我发现了一个能<strong>引起我共鸣</strong>的py：</p>
-<p>它的大概思路就是在一个页面（歌单或者歌手页）request一下所有的歌曲，</p>
-<p>(可能是吧 或者是ping?post?Python太复杂了我不了解)</p>
-<p>获取URL和歌曲名称之后截断ID部分，并重新组成网易云官方API提供的直链格式，</p>
-<p>然后再输出直链与歌曲名（这部分自己可以调整，artist_name为歌手参数，可以在输出的时候加上。</p>
-<p>（所以我说<strong>有共鸣</strong>，跟前面的java有异曲同工之妙）</p>
-<p>最后，我稍微改了一下输出的地方，本来是输出“xxx已下载”，现在的输出为“xxx”+“音乐直链”。（src）</p>
-<p>哔哩哔哩演示：</p>
-<iframe src="//player.bilibili.com/player.html?aid=717870475&bvid=BV1oQ4y1C7QS&cid=403998016&page=1" scrolling="no" width="800" height="600" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<h2>结果</h2>
-
-<p>直接上源码：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download_songs</span>(<span class="params">url=<span class="literal">None</span></span>):</span></span><br><span class="line">    <span class="keyword">if</span> url <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        url = <span class="string">&#x27;https://music.163.com/#/playlist?id=6704027713&#x27;</span>  </span><br><span class="line">    url = url.replace(<span class="string">&#x27;/#&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;https&#x27;</span>, <span class="string">&#x27;http&#x27;</span>)</span><br><span class="line">    out_link = <span class="string">&#x27;http://music.163.com/song/media/outer/url?id=&#x27;</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Chrome/68.0.3440.106&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;https://music.163.com/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;music.163.com&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 可以使用的参数如下</span></span><br><span class="line"></span><br><span class="line">    res = requests.get(url=url, headers=headers).text</span><br><span class="line">    tree = etree.HTML(res)</span><br><span class="line">    song_list = tree.xpath(<span class="string">&#x27;//ul[@class=&quot;f-hide&quot;]/li/a&#x27;</span>)</span><br><span class="line">    artist_name_tree = tree.xpath(<span class="string">&#x27;//h2[@id=&quot;artist-name&quot;]/text()&#x27;</span>)</span><br><span class="line">    artist_name = <span class="built_in">str</span>(artist_name_tree[<span class="number">0</span>]) <span class="keyword">if</span> artist_name_tree <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">    song_list_name_tree = tree.xpath(<span class="string">&#x27;//h2[contains(@class,&quot;f-ff2&quot;)]/text()&#x27;</span>)</span><br><span class="line">    song_list_name = <span class="built_in">str</span>(song_list_name_tree[<span class="number">0</span>]) <span class="keyword">if</span> song_list_name_tree <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">    folder = <span class="string">&#x27;./&#x27;</span> + artist_name <span class="keyword">if</span> artist_name <span class="keyword">else</span> <span class="string">&#x27;./&#x27;</span> + song_list_name</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(folder):</span><br><span class="line">        os.mkdir(folder)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 可以使用的变量如下</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i, s <span class="keyword">in</span> <span class="built_in">enumerate</span>(song_list):</span><br><span class="line">        href = <span class="built_in">str</span>(s.xpath(<span class="string">&#x27;./@href&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line">        song_id = href.split(<span class="string">&#x27;=&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">        src = out_link + song_id </span><br><span class="line">        title = <span class="built_in">str</span>(s.xpath(<span class="string">&#x27;./text()&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line">        filename = title + <span class="string">&#x27;\n&#x27;</span><span class="string">&#x27;音频直链地址：&#x27;</span> + src   <span class="comment"># 可以只保留src 这样输出的只有直链</span></span><br><span class="line">        filepath = folder + <span class="string">&#x27;/&#x27;</span> + filename</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;正在获取第&#123;&#125;首歌曲名及音频直链：&#123;&#125;\n\n&#x27;</span>.<span class="built_in">format</span>(i + <span class="number">1</span>, filename))</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = requests.get(src).content</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(data)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">    </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&#123;&#125;首歌曲已经获取完啦！&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(song_list)))</span><br><span class="line"></span><br><span class="line">     <span class="comment"># 原先下载歌词的功能，没有用但是最好别删</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download_lyric</span>(<span class="params">song_name, song_id</span>):</span></span><br><span class="line">    url = <span class="string">&#x27;http://music.163.com/api/song/lyric?id=&#123;&#125;&amp;lv=-1&amp;kv=-1&amp;tv=-1&#x27;</span>.<span class="built_in">format</span>(song_id)</span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;https://music.163.com/&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Host&#x27;</span>: <span class="string">&#x27;music.163.com&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    res = requests.get(url=url, headers=headers).text</span><br><span class="line">    json_obj = json.loads(res)</span><br><span class="line">    lyric = json_obj[<span class="string">&#x27;lrc&#x27;</span>][<span class="string">&#x27;lyric&#x27;</span>]</span><br><span class="line">    reg = re.<span class="built_in">compile</span>(<span class="string">r&#x27;\[.*\]&#x27;</span>)</span><br><span class="line">    lrc_text = re.sub(reg, <span class="string">&#x27;&#x27;</span>, lyric).strip()</span><br><span class="line">    <span class="built_in">print</span>(song_name, lrc_text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    music_list = <span class="string">&#x27;https://music.163.com/#/playlist?id=2199699508&#x27;</span>  <span class="comment"># 在此输入URL 歌单或歌手都可以</span></span><br><span class="line">    download_songs(music_list)</span><br></pre></td></tr></table></figure>
-<h2>发现</h2>
-
-<p>原本作者（非我）的想法应该是（我也不太清楚）获取网易云的二进制文件，加上<code>.mp3</code>以生成音频文件；</p>
-<p>但是（可能ta那个时代可以）获取的文件打开发现都是网易云反爬虫返回的“网络繁忙（错误）”文件；</p>
-<p>于是后来我去搜索了一下网易云（缓存）的加密方式——</p>
-<p>参考：<a href="https://www.xuenixiang.com/thread-2413-1-1.html">https://www.xuenixiang.com/thread-2413-1-1.html</a></p>
-<p>解密的大概做法：</p>
-<p>打开缓存目录——&gt;找到.uc的最大的文件——&gt;使用010Edit全选后处理为无符号 十六进制——&gt;二进制异或<strong>“A3”</strong></p>
-<p>然后改后缀mp3播放即可。</p>
-<p>（还是比较麻烦的，最终得到的也是使用爬虫一键得到的结果）</p>
-<p>嗯，同时也发现了一个Python来解密缓存文件：</p>
-<h2>延伸：缓存解密</h2>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Author: C0n5t4ntK</span></span><br><span class="line"><span class="comment"># Personal Blog: www.elapse.life</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># Decrypt file using nor 0xa3 for each byte</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span>(<span class="params">cache_path, export_path, password = <span class="number">0xa3</span></span>):</span></span><br><span class="line">    f_read = <span class="built_in">open</span>(cache_path, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">    f_write = <span class="built_in">open</span>(export_path, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> obj <span class="keyword">in</span> f_read:</span><br><span class="line">        <span class="keyword">for</span> byte <span class="keyword">in</span> obj:</span><br><span class="line">            new_byte = byte ^ password</span><br><span class="line">            f_write.write(<span class="built_in">bytes</span>([new_byte]))</span><br><span class="line">    f_read.close()</span><br><span class="line">    f_write.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mode 1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt_file</span>():</span></span><br><span class="line">    cache_path = <span class="built_in">input</span>(<span class="string">&#x27;Pls input the path of the file!\n&#x27;</span>)</span><br><span class="line">    export_path = <span class="built_in">input</span>(<span class="string">&#x27;Where do you want to export? Pls input the specific file\&#x27;s path,(including file name and extension). Or press ENTER to use the default directory.\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> export_path == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;You didn\&#x27;t write down the path to export, the default path is D:\\\\decrypt_Export_From_Netease_Music\\decrypted.mp3.&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>):</span><br><span class="line">            os.makedirs(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>)</span><br><span class="line">        export_path = <span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music\\decrypted.mp3&#x27;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Wait a second pls...&#x27;</span>)</span><br><span class="line">        time_start = time.time()</span><br><span class="line">        decrypt(cache_path, export_path)</span><br><span class="line">        time_end = time.time()</span><br><span class="line">        time_used = time_end - time_start</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;The path is wrong!&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Done! It took &#x27;</span> + <span class="string">&quot;&#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(time_used) + <span class="string">&#x27;s. Enjoy!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mode 2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt_files</span>():</span></span><br><span class="line">    cache_path = <span class="built_in">input</span>(<span class="string">&#x27;Pls input the path of cache directory!\n&#x27;</span>)</span><br><span class="line">    export_path = <span class="built_in">input</span>(<span class="string">&#x27;Where do you want to export? Input a directory path! Or press ENTER to use the default directory.\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> export_path == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;You didn\&#x27;t write down the path to export, the default path is D:\\\\decrypt_Export_From_Netease_Music.&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>):</span><br><span class="line">            os.makedirs(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>)</span><br><span class="line">        export_path = <span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Wait a second pls...&#x27;</span>)</span><br><span class="line">        time_start = time.time()</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(cache_path):</span><br><span class="line">            <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">                (filename, extension) = os.path.splitext(file)</span><br><span class="line">                <span class="keyword">if</span> (extension == <span class="string">&#x27;.uc&#x27;</span>):</span><br><span class="line">                    decrypt(cache_path + <span class="string">&#x27;\\&#x27;</span> + file, export_path + <span class="string">&#x27;\\&#x27;</span> + filename + <span class="string">&#x27;.mp3&#x27;</span>)</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&#x27;Already converted &#x27;</span> + <span class="built_in">str</span>(count) + <span class="string">&#x27; file(s)...&#x27;</span>)</span><br><span class="line">        time_end = time.time()</span><br><span class="line">        time_used = time_end - time_start</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Wrong path! Pls try again later.&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Done! It took &#x27;</span> + <span class="string">&quot;&#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(time_used) + <span class="string">&#x27;s. Enjoy!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mode 3</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt_recent_files</span>():</span></span><br><span class="line">    num = <span class="built_in">input</span>(<span class="string">&#x27;How many files do you want to convert? Input a number.\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        num = <span class="built_in">int</span>(num)</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;The number is invalid...&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    cache_path = <span class="built_in">input</span>(<span class="string">&#x27;Pls input the path of cache directory!\n&#x27;</span>)</span><br><span class="line">    export_path = <span class="built_in">input</span>(<span class="string">&#x27;Where do you want to export? Input a directory path! Or press ENTER to use the default directory.\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> export_path == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;You didn\&#x27;t write down the path to export, the default path is D:\\\\decrypt_Export_From_Netease_Music.&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>):</span><br><span class="line">            os.makedirs(<span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span>)</span><br><span class="line">        export_path = <span class="string">&#x27;D:\\decrypt_Export_From_Netease_Music&#x27;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Wait a second pls...&#x27;</span>)</span><br><span class="line">        time_start = time.time()</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        files_list = []</span><br><span class="line">        files = os.listdir(cache_path)</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            (filename, extension) = os.path.splitext(file)</span><br><span class="line">            <span class="keyword">if</span> (extension == <span class="string">&#x27;.uc&#x27;</span>):</span><br><span class="line">                files_list.append(file)</span><br><span class="line">        files_list.sort(key=<span class="keyword">lambda</span> file: os.path.getmtime(cache_path + <span class="string">&#x27;\\&#x27;</span>+ file) <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(cache_path + <span class="string">&#x27;\\&#x27;</span>+ file) <span class="keyword">else</span> <span class="number">0</span>)</span><br><span class="line">        lens = <span class="built_in">len</span>(files_list)</span><br><span class="line">        <span class="keyword">if</span> num &lt;= lens:</span><br><span class="line">            <span class="keyword">for</span> file <span class="keyword">in</span> files_list[-<span class="number">1</span>:-(num + <span class="number">1</span>):-<span class="number">1</span>]:</span><br><span class="line">                (filename, extension) = os.path.splitext(file)</span><br><span class="line">                decrypt(cache_path + <span class="string">&#x27;\\&#x27;</span> + file, export_path + <span class="string">&#x27;\\&#x27;</span> + filename + <span class="string">&#x27;.mp3&#x27;</span>)</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;Already converted &#x27;</span> + <span class="built_in">str</span>(count) + <span class="string">&#x27; file(s)...&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;There\&#x27;re not enough files to convert, try to input smaller.&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        time_end = time.time()</span><br><span class="line">        time_used = time_end - time_start</span><br><span class="line">    <span class="keyword">except</span> Exception:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Sorry the path is wrong, pls try again later.&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Done! It took &#x27;</span> + <span class="string">&quot;&#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(time_used) + <span class="string">&#x27;s. Enjoy!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------------------------&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;This is a small python script(on windows) which can decrypt music files with \&quot;.uc\&quot; extension from Netease Cloud Music\&#x27;s cache.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;It has three simple modes, which are: convert single file, convert all files in a directory or convert the most recently used files. You can follow the coming hints.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------------------------&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Attention: You can find the cache directory in the settings of Netease Cloud Music.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;And the default directory is C:\\\\Users\\$your_username\\AppData\\Local\\Netease\\CloudMusic\\Cache\\Cache.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Type \&#x27;CTRL + C\&#x27; to stop.&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;And sorry Netease Cloud Music didn\&#x27;t cache files by song\&#x27;s name, so I cannot name the files by the song.^_^&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;------------------------------&#x27;</span>)</span><br><span class="line">    choose = <span class="built_in">input</span>(<span class="string">&#x27;Please pick a number to choose a mode you want to use.\n1. Single file\n2. All files in directory\n3. Most recently used file\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> choose == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;You chose single file mode, of course.&#x27;</span>)</span><br><span class="line">        decrypt_file()</span><br><span class="line">    <span class="keyword">elif</span> choose == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Here\&#x27;s the directory mode.&#x27;</span>)</span><br><span class="line">        decrypt_files()</span><br><span class="line">    <span class="keyword">elif</span> choose == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Seems like you want to convert recent files.&#x27;</span>)</span><br><span class="line">        decrypt_recent_files()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Invalid number! Please try again later!&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>参考：<a href="https://www.elapse.life/article/python-script-to-decrypt-netease-music-cache-file">https://www.elapse.life/article/python-script-to-decrypt-netease-music-cache-file</a></p>
+<p>不一定能用</p>
+<p>但希望能帮到你！</p>
+<blockquote>
+<p><strong><em>愿订阅与你同在。</em></strong></p>
+<p><strong><em>——Collected by 听话的便当</em></strong></p>
+</blockquote>
 ]]></content>
       <tags>
-        <tag>Python</tag>
-        <tag>网易云</tag>
+        <tag>clash</tag>
+        <tag>资源</tag>
+        <tag>常更新</tag>
       </tags>
   </entry>
   <entry>
-    <title>在Railway上部署PagerMaid-Modify</title>
-    <url>/2021/09/07/railway/</url>
-    <content><![CDATA[<h2>什么是PagerMaid-Modify？</h2>
-
-<p>PagerMaid-Modify是Telegram的一个可玩度极高的“插件型”功能，它能做的事情很多——</p>
-<ul>
-<li><p>开启自动已读（-ghost true）</p>
-</li>
-<li><p>图片OCR（-ocr）</p>
-</li>
-<li><p>翻译回复的消息（-translate）</p>
-</li>
-<li><p>转换文本为语音（-tts）</p>
-</li>
-<li><p>搜索回复的消息（-google）</p>
-</li>
-<li><p>将消息以动态的形式展示出来（-animate）</p>
-</li>
-<li><p>使用owo来美化消息（-owo）</p>
-</li>
-<li><p>……</p>
-</li>
-</ul>
+    <title>clash for Android 的用法（小白级）</title>
+    <url>/2021/07/11/android-clash%E7%9A%84%E7%94%A8%E6%B3%95%EF%BC%88%E5%B0%8F%E7%99%BD%E7%BA%A7%EF%BC%89/</url>
+    <content><![CDATA[<p>clash是一款很强大的<strong>翻墙软件</strong>（当然，你也可以选择V2RayNG或者SSR）</p>
+<p>首先，这是<strong>Android</strong>端<strong>clash</strong>的<a href="https://github.com/Kr328/ClashForAndroid"><strong>GitHub下载地址</strong></a>，可以按照自己的Android系统选择<strong>合适</strong>的版本。</p>
+<p>下载完之后，进入软件，我们可以看到如下页面（一级页面）：</p>
 <span id="more"></span>
 
-<p>详情见：<a href="https://thdbd.github.io/pagermaid">https://thdbd.github.io/pagermaid</a></p>
-<p>示例：</p>
-<iframe src="https://streamja.com/wkyJ1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=400 width=500> </iframe>
-
-
-<h2>如何部署PagerMaid-Modify</h2>
-
-<p>这里是<a href="https://github.com/Xtao-Labs/PagerMaid-Modify">PagerMaid-Modify的官方GitHub地址</a>；</p>
-<p><a href="https://github.com/Xtao-Labs/PagerMaid-Modify/wiki/Ubuntu-16.04-%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3">Ubuntu 16.04安装教程</a>；</p>
-<p><a href="https://github.com/Xtao-Labs/PagerMaid-Modify/blob/master/utils/docker.md">Docker安装教程</a>；</p>
-<p>以及<a href="https://t.me/PagerMaid_Modify/58">一键安装脚本</a>。（在Telegram里）</p>
-<p>但是，上面的步骤多多少少都比较复杂（或者要支出），</p>
-<p>所以，今天来说一下0开销的Railway部署方法。(官方也给出了这种方法)</p>
-<h3>第一步 在Telegram官网申请</h3>
-
-<p>要申请的东西有<code>API_ID</code>和<code>API_HASH</code>；</p>
-<p>我们打开网址：<a href="https://my.telegram.org/auth">https://my.telegram.org/auth</a> ；(Telegram的注销也是在此处)</p>
-<p>登录完成后可以看到下图的界面：</p>
-<p><img src="/images/%E6%88%90%E5%8A%9F.jpg" alt="1" title="点击第一个"></p>
-<p>点击API development tools</p>
-<p>填写一下名字什么的消息（随便都可以）</p>
-<p>（ps：账号需要注册三个月以上才能申请）</p>
-<p>最终得到下面这个页面：</p>
-<p><img src="/images/%E9%83%A8%E7%BD%B2.jpg" alt="2"></p>
-<p>我们复制一下<code>API_ID</code>和<code>API_HASH</code>，保存到某个地方；</p>
-<p>随后，我们打开这个页面 <a href="https://replit.com/@mrwangzhe/gensession">https://replit.com/@mrwangzhe/gensession</a> 获取要获取的第三个信息——session；</p>
-<p>打开之后会看见页面中间有个大绿色的开始按钮，点击；</p>
-<p>刚开始加载的比较慢，后来会加载到一个状态不动：</p>
-<p>这时候你要粘贴进去刚刚获取的<code>API_ID</code>；</p>
-<p><img src="/images/%E8%BE%93%E5%85%A5id.jpg" alt="3"></p>
-<p><img src="/images/success.jpg" alt="4"></p>
-<p>如图，此时如果全部输入正确的数字(我是故意输错的啊），就会收到一个session（在收藏夹里面！！）</p>
-<p>随后我们<a href="https://railway.app/new/template?template=https://github.com/Xtao-Labs/PagerMaid-Modify/tree/master&envs=session,api_key,api_hash&sessionDesc=Your+telethon+session+string.&api_keyDesc=api_id,+from+my.telegram.org&api_hashDesc=api_hash,+from+my.telegram.org&referralCode=xtaolabs">点击这个网址</a>，输入刚刚的三个信息（<code>API_ID</code>，<code>session</code>和<code>API_HASH</code>）</p>
-<p><img src="/images/loss.jpg" alt="5"></p>
-<p>啊，可以看到，我失败了，因为我的这个账号是个新号；</p>
-<p>拿我们的老号试一下；</p>
-<p><img src="/images/%E6%9C%80%E7%BB%88.jpg" alt="6"></p>
-<p>成功了！此时我们输入<code>API_ID</code>，<code>session</code>和<code>API_HASH</code>，勾选那个private repo，</p>
-<p>随后会跳转到这个页面：</p>
-<p><img src="/images/pm.jpg" alt="7"></p>
-<p>好！我们现在已经成功了！到Telegram输入指令“-help”试一下吧！</p>
-<p>此外，每个月Railway免费给我们5美元使用（只用来运行PagerMaid-Modify撑死也花不完）；</p>
-<p>如果超出5美元，还有5美元保命：</p>
-<p><img src="/images/money.jpg" alt="8"></p>
-<p>（紫色的每个月不用会延续到下个月，但是用完就没了）</p>
-<p>这里是内置模块的功能介绍：<a href="https://thdbd.github.io/pagermaid">https://thdbd.github.io/pagermaid</a></p>
-<p>这里有其他更多好玩的模块：<a href="https://index.xtaolabs.com/">https://index.xtaolabs.com/</a></p>
-<p>如果另有疑问，请私聊<a href="t.me/thd_bd">听话的便当</a></p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image.png?w=482"></p>
+<p>（当然初次打开看到的界面是亮色的 在设置/应用里面可以调整）</p>
+<p>这个时候 我们点击<strong>配置</strong>（二级页面）</p>
+<p>发现右上角有一个<strong>小加号</strong>，点击加号后，会有下面的页面（三级页面）：</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-1.png?w=482"></p>
+<p>接下来，我会先讲解<strong>URL</strong>（统一资源定位符）导入的方法：</p>
+<p>点击<strong>URL</strong>，出现下面的页面 ：</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-2.png?w=482"></p>
+<p>我们可以给刚刚嫖（买）到的订阅起一个好听的名字，例如：001</p>
+<p>随后在<strong>URL框</strong>粘贴进你刚刚复制的嫖（买）到的订阅链接</p>
+<p>然后点击右上角<strong>保存</strong>（如果失败，下方会有弹窗提示，说明这个URL无效，或者机场主关闭了新的订阅允许，此时你要再去找（换）一个新的URL）成功后，会回到<strong>配置</strong>（二级页面）页面，如下：</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-3.png?w=482"></p>
+<p>（我是导入了<strong>很多</strong>订阅之后才这么多的）</p>
+<p>我们点击刚刚添加或者能用的订阅，然后点击左上角返回到一级页面，点击<strong>已停止（点击启动）</strong>，如下，出现字节跳动说明成功连上啦！</p>
+<hr>
+<p>接下来，介绍<strong>文件导入</strong>方法：</p>
+<p>我们点击<strong>文件（从文件导入）</strong>，会出现以下界面：</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-4.png?w=482"></p>
+<p>点击<strong>浏览文件</strong>，并点击<strong>配置文件</strong>右边的<strong>三个点</strong></p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-5.png?w=482"></p>
+<p>点击下面的<strong>导入</strong>，并搜索你刚刚下载的后缀为yaml或者yml的文件</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-6.png?w=482"></p>
+<p>长按后，点击打开并导入（这个界面会因为手机类型不同而不同）</p>
+<p>此时原本为0kib的<strong>配置文件</strong>显示数据大小</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image-7.png?w=482"></p>
+<p>左上角返回，然后还是给配置起一个好听的名字，例如：002<strong>（记得保存）</strong></p>
+<p>之后就像URL导入最后的步骤一样啦！</p>
+<hr>
+<p>关于订阅URL和配置文件的获取可私聊我，或自行购买机场</p>
+<p>我的Telegram：<a href="https://t.me/bdbth">@thdbd</a></p>
 ]]></content>
       <tags>
+        <tag>clash</tag>
+        <tag>安卓</tag>
         <tag>教程</tag>
-        <tag>Telegram</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Note 1.   原谅和忘记</title>
+    <url>/2021/07/10/note-1/</url>
+    <content><![CDATA[<p><strong>“我能识别感觉吗？<br>我能感觉到它们的存在吗？<br>一切都变得麻木了吗？<br>代替绝望？</strong></p>
+<span id="more"></span>
+
+<p><strong>我可以请求原谅<br>但我知道它永远不会到来<br>我可以等到你忘记<br>但是没有做过什么事情，</strong></p>
+<p><strong>当我脖子被挂起来时，也许你会原谅我。”</strong></p>
+<p><strong>罗尔斯表示，你自己在一个无知的面纱背后的原始位置。在这面纱的背后，你不知道和你自己的自然能力，或你在社会中的地位。你知道你的性别，种族，国籍或个人的喜好。</strong></p>
+<p><strong>认为，如果现在和过去都想要一个这样的概念，就可以产生巨大的影响。再一次讲故事的奴隶制的例子，如果奴隶主被迫通过无知的面纱来自己演戏，可能是自己的奴隶，那么自己的奴隶制可能就不再是合理的了。也许在没有战争需要解决的情况下，整个事情都会发生。被是。如果是。如果一个例子的例子，他们都将自己的一个例子作为自己的一个例子，也就是说可能是社会社会最不利的成员。在这种情况下，自由与平等可能会以哲学为例家的理想方式共存。</strong></p>
+<p><strong><em>From <a href="https://begottensuicide.bandcamp.com/album/forgive-and-forget-3">Bandcamp</a>.</em></strong></p>
+]]></content>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World!</title>
+    <url>/2021/07/10/%E5%97%A8%EF%BC%81/</url>
+    <content><![CDATA[<p><strong>能看见此文章说明网站正在正常运行</strong></p>
+<p><strong>欢迎</strong></p>
+<p><strong>每一个人的到来</strong></p>
+<p><strong><em>——</em></strong><em><strong>听话的便当 2021.7.10</strong></em></p>
+]]></content>
+      <tags>
+        <tag>测试</tag>
       </tags>
   </entry>
 </search>
