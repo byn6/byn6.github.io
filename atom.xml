@@ -6,7 +6,7 @@
   <link href="https://byn6.github.io/atom.xml" rel="self"/>
   
   <link href="https://byn6.github.io/"/>
-  <updated>2021-09-07T07:44:53.908Z</updated>
+  <updated>2021-09-07T12:08:32.204Z</updated>
   <id>https://byn6.github.io/</id>
   
   <author>
@@ -17,11 +17,50 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>在Railway上部署PagerMaid-Modify</title>
+    <link href="https://byn6.github.io/2021/09/07/railway/"/>
+    <id>https://byn6.github.io/2021/09/07/railway/</id>
+    <published>2021-09-07T08:07:12.000Z</published>
+    <updated>2021-09-07T12:08:32.204Z</updated>
+    
+    
+    <summary type="html">&lt;h2&gt;什么是PagerMaid-Modify？&lt;/h2&gt;
+
+&lt;p&gt;PagerMaid-Modify是Telegram的一个可玩度极高的“插件型”功能，它能做的事情很多——&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;开启自动已读（-ghost true）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;图片OCR（-ocr）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;翻译回复的消息（-translate）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;转换文本为语音（-tts）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;搜索回复的消息（-google）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;将消息以动态的形式展示出来（-animate）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用owo来美化消息（-owo）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;……&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Telegram" scheme="https://byn6.github.io/tags/Telegram/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python批量转换网易云为直链</title>
     <link href="https://byn6.github.io/2021/09/06/Python/"/>
     <id>https://byn6.github.io/2021/09/06/Python/</id>
     <published>2021-09-06T15:05:10.000Z</published>
-    <updated>2021-09-07T07:44:53.908Z</updated>
+    <updated>2021-09-07T08:14:32.887Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天，完成了两件“大”事——&lt;/p&gt;
@@ -77,18 +116,19 @@
   </entry>
   
   <entry>
-    <title>Hello Hexo</title>
+    <title>Hello Hexo！</title>
     <link href="https://byn6.github.io/2021/08/31/%E6%B5%8B%E8%AF%95/"/>
     <id>https://byn6.github.io/2021/08/31/%E6%B5%8B%E8%AF%95/</id>
     <published>2021-08-31T10:04:05.000Z</published>
-    <updated>2021-09-01T10:23:05.915Z</updated>
+    <updated>2021-09-07T08:19:28.763Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://hexo.io/zh-cn/&quot;&gt;Hexo官网&lt;/a&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;此网站由Hexo强力驱动，主题&lt;a href=&quot;https://shen-yu.gitee.io/2019/ayer/&quot;&gt;Ayer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://hexo.io/zh-cn/&quot;&gt;Hexo官网&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a</summary>
         
       

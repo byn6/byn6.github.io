@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>在Railway上部署PagerMaid-Modify</title>
+    <url>/2021/09/07/railway/</url>
+    <content><![CDATA[<h2>什么是PagerMaid-Modify？</h2>
+
+<p>PagerMaid-Modify是Telegram的一个可玩度极高的“插件型”功能，它能做的事情很多——</p>
+<ul>
+<li><p>开启自动已读（-ghost true）</p>
+</li>
+<li><p>图片OCR（-ocr）</p>
+</li>
+<li><p>翻译回复的消息（-translate）</p>
+</li>
+<li><p>转换文本为语音（-tts）</p>
+</li>
+<li><p>搜索回复的消息（-google）</p>
+</li>
+<li><p>将消息以动态的形式展示出来（-animate）</p>
+</li>
+<li><p>使用owo来美化消息（-owo）</p>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<p>详情见：<a href="https://thdbd.github.io/pagermaid">https://thdbd.github.io/pagermaid</a></p>
+<p>示例：</p>
+<iframe src="https://streamja.com/wkyJ1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=400 width=500> </iframe>
+
+
+<h2>如何部署PagerMaid-Modify</h2>
+
+<p>这里是<a href="https://github.com/Xtao-Labs/PagerMaid-Modify">PagerMaid-Modify的官方GitHub地址</a>；</p>
+<p><a href="https://github.com/Xtao-Labs/PagerMaid-Modify/wiki/Ubuntu-16.04-%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3">Ubuntu 16.04安装教程</a>；</p>
+<p><a href="https://github.com/Xtao-Labs/PagerMaid-Modify/blob/master/utils/docker.md">Docker安装教程</a>；</p>
+<p>以及<a href="https://t.me/PagerMaid_Modify/58">一键安装脚本</a>。（在Telegram里）</p>
+<p>但是，上面的步骤多多少少都比较复杂（或者要支出），</p>
+<p>所以，今天来说一下0开销的Railway部署方法。(官方也给出了这种方法)</p>
+<h3>第一步 在Telegram官网申请</h3>
+
+<p>要申请的东西有<code>API_ID</code>和<code>API_HASH</code>；</p>
+<p>我们打开网址：<a href="https://my.telegram.org/auth">https://my.telegram.org/auth</a> ；(Telegram的注销也是在此处)</p>
+<p>登录完成后可以看到下图的界面：</p>
+<p><img src="/images/%E6%88%90%E5%8A%9F.jpg" alt="1" title="点击第一个"></p>
+<p>点击API development tools</p>
+<p>填写一下名字什么的消息（随便都可以）</p>
+<p>（ps：账号需要注册三个月以上才能申请）</p>
+<p>最终得到下面这个页面：</p>
+<p><img src="/images/%E9%83%A8%E7%BD%B2.jpg" alt="2"></p>
+<p>我们复制一下<code>API_ID</code>和<code>API_HASH</code>，保存到某个地方；</p>
+<p>随后，我们打开这个页面 <a href="https://replit.com/@mrwangzhe/gensession">https://replit.com/@mrwangzhe/gensession</a> 获取要获取的第三个信息——session；</p>
+<p>打开之后会看见页面中间有个大绿色的开始按钮，点击；</p>
+<p>刚开始加载的比较慢，后来会加载到一个状态不动：</p>
+<p>这时候你要粘贴进去刚刚获取的<code>API_ID</code>；</p>
+<p><img src="/images/%E8%BE%93%E5%85%A5id.jpg" alt="3"></p>
+<p><img src="/images/success.jpg" alt="4"></p>
+<p>如图，此时如果全部输入正确的数字(我是故意输错的啊），就会收到一个session（在收藏夹里面！！）</p>
+<p>随后我们<a href="https://railway.app/new/template?template=https://github.com/Xtao-Labs/PagerMaid-Modify/tree/master&envs=session,api_key,api_hash&sessionDesc=Your+telethon+session+string.&api_keyDesc=api_id,+from+my.telegram.org&api_hashDesc=api_hash,+from+my.telegram.org&referralCode=xtaolabs">点击这个网址</a>，输入刚刚的三个信息（<code>API_ID</code>，<code>session</code>和<code>API_HASH</code>）</p>
+<p><img src="/images/loss.jpg" alt="5"></p>
+<p>啊，可以看到，我失败了，因为我的这个账号是个新号；</p>
+<p>拿我们的老号试一下；</p>
+<p><img src="/images/%E6%9C%80%E7%BB%88.jpg" alt="6"></p>
+<p>成功了！此时我们输入<code>API_ID</code>，<code>session</code>和<code>API_HASH</code>，勾选那个private repo，</p>
+<p>随后会跳转到这个页面：</p>
+<p><img src="/images/pm.jpg" alt="7"></p>
+<p>好！我们现在已经成功了！到Telegram输入指令“-help”试一下吧！</p>
+<p>此外，每个月Railway免费给我们5美元使用（只用来运行PagerMaid-Modify撑死也花不完）；</p>
+<p>如果超出5美元，还有5美元保命：</p>
+<p><img src="/images/money.jpg" alt="8"></p>
+<p>（紫色的每个月不用会延续到下个月，但是用完就没了）</p>
+<p>这里是内置模块的功能介绍：<a href="https://thdbd.github.io/pagermaid">https://thdbd.github.io/pagermaid</a></p>
+<p>这里有其他更多好玩的模块：<a href="https://index.xtaolabs.com/">https://index.xtaolabs.com/</a></p>
+<p>如果另有疑问，请私聊<a href="t.me/thd_bd">听话的便当</a></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+        <tag>Telegram</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python批量转换网易云为直链</title>
     <url>/2021/09/06/Python/</url>
     <content><![CDATA[<p>今天，完成了两件“大”事——</p>
@@ -110,9 +190,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello Hexo</title>
+    <title>Hello Hexo！</title>
     <url>/2021/08/31/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p><a href="https://hexo.io/zh-cn/">Hexo官网</a></p>
+    <content><![CDATA[<p>此网站由Hexo强力驱动，主题<a href="https://shen-yu.gitee.io/2019/ayer/">Ayer</a></p>
+<p><a href="https://hexo.io/zh-cn/">Hexo官网</a></p>
 <p><a href="https://thdbd666666.wordpress.com/2021/08/29/%e4%bd%bf%e7%94%a8github-pages%e9%83%a8%e7%bd%b2hexo%e5%88%b6%e4%bd%9c%e7%bd%91%e7%ab%99/">Hexo的安装与部署</a></p>
 <p><a href="https://github.com/search?q=hexo+theme">Hexo主题</a></p>
 <p><a href="https://easyhexo.com/">Hexo延伸使用</a></p>
