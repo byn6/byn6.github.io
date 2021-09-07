@@ -6,7 +6,7 @@
   <link href="https://byn6.github.io/atom.xml" rel="self"/>
   
   <link href="https://byn6.github.io/"/>
-  <updated>2021-09-06T10:54:43.145Z</updated>
+  <updated>2021-09-07T06:39:22.398Z</updated>
   <id>https://byn6.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python批量转换网易云为直链</title>
+    <link href="https://byn6.github.io/2021/09/06/Python/"/>
+    <id>https://byn6.github.io/2021/09/06/Python/</id>
+    <published>2021-09-06T15:05:10.000Z</published>
+    <updated>2021-09-07T06:39:22.398Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天，完成了两件“大”事——&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;把WordPress上的所有文章搬到Hexo了；（WordPress目前只为音乐服务）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;发现了可以取代之前java那篇的更好的网易云直链转换方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本篇来稍微谈一下第二件：&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;起因&lt;/h2&gt;
+
+&lt;p&gt;晚饭后，我在用pot player听歌的时候，突然发现播放列表空了——&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Python" scheme="https://byn6.github.io/tags/Python/"/>
+    
+    <category term="网易云" scheme="https://byn6.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91/"/>
+    
+  </entry>
   
   <entry>
     <title>网页侧边栏的实现</title>
