@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="来看看吧🍱！" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>多类型订阅（9.6更新） |  Thd_bd</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/google-photos.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-9G9B0DF7R0', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Thd_bd" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-c-pf"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  多类型订阅（9.6更新）
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/11/c-pf/" class="article-date">
+  <time datetime="2021-07-11T13:14:10.000Z" itemprop="datePublished">2021-07-11</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">562</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">3 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><strong>配置文件：</strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://wangzhuoke.lanzoui.com/iynaArafp5c">蓝奏云地址</a> 密码：66</strong>（大部分都失效了）</p>
+<hr>
+<p>注意：https型的为clash订阅，ss或ssr型的为SSR订阅，vmess或vless或trojan型的为V2Ray</p>
+<h2 id="URL地址：（前面有实心点的基本上失效）"><a href="#URL地址：（前面有实心点的基本上失效）" class="headerlink" title="URL地址：（前面有实心点的基本上失效）"></a><strong>URL地址：</strong>（前面有实心点的基本上失效）</h2><span id="more"></span>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://suo.yt/gbBH3VV</span></span><br><span class="line"></span><br><span class="line"><span class="string">https://drive.google.com/uc?export=download&amp;id=1NT0556ny7vc0Y7xZVlNklRb1Ia96zWFz</span></span><br><span class="line"></span><br><span class="line"><span class="string">https://ifl520.xyz//link/aVZLeFL1fB22bp36?clash=1</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206UENubkg2U1FTbmZvUzI3QDExOC4xMDcuMjQ0LjExMjo4MDkw#Pool_%f0%9f%87%ad%f0%9f%87%b0HK_5585</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206ZW5jdGRLeUpmU3U3NlZxem5Ld1R0NkFwQDIuNTguMjQxLjM6Mzc0NzM=#Pool_%f0%9f%87%b9%f0%9f%87%bc</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YVlOZUtETXpZUVl3NEtiVWJKQThXc3pxQDY0LjQ0LjQyLjE2MjozMTk0NA==#Pool_%f0%9f%87%ba%f0%9f%87%b8US_56</span></span><br><span class="line"></span><br><span class="line"><span class="string">vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIvCfh6jwn4ezQ05fMzAiLA0KICAiYWRkIjogIjEzOS4xNTUuMjIuMjI3IiwNCiAgInBvcnQiOiAiNDkxMTAiLA0KICAiaWQiOiAiZjc2NzViN2UtNTliZi00MzVjLWFjMDMtZGMyNDgyZjI3ZTVkIiwNCiAgImFpZCI6ICI2NCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIi8iLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIg0KfQ==</span></span><br><span class="line"></span><br><span class="line"><span class="string">ssr://Y3UubmV3aG9zdC5jYzoxMDY5MTphdXRoX2FlczEyOF9zaGExOmFlcy0yNTYtY2ZiOmh0dHBfc2ltcGxlOmRFWnNTVWxULz9yZW1hcmtzPVVtVnNZWGxmOEotSHFQQ2ZoN05EVGkzd240ZXU4Si1IczBsT1h6ZzBPU0I4TWpZdU5ESk5ZZyZwcm90b3BhcmFtPU1URTNOVEk2UTJKUmFHeDQmb2Jmc3BhcmFtPUxuZDNkeTVpYVc1bkxtTnZiUSZncm91cD0</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21nQDEzOC4xOTkuMTYuMTM3OjQ0NTM5#Pool_+%7c30.00Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206Q1VuZFNabllzUEtjdTZLajhUSFZNQkhEQDIuNTguMjQxLjM6Mzk3NzI=#Pool_+%7c+7.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4QDQ1LjI0OC43Ni4xNzE6NDM4OTM=#Pool_+%7c14.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206Q1RLOEdYRlFnS1lRRXJyZ2hQSmZaNnRrQDE5OC44LjkyLjg0OjQ3MTIx#Pool_+%7c12.30Mb</span></span><br><span class="line"></span><br><span class="line"><span class="string">vmess://eyJhZGQiOiJqcDIudXV2Mi5jby51ayIsImFpZCI6MSwiaG9zdCI6ImpwMi51dXYyLmNvLnVrIiwiaWQiOiIxZjRjNGUzZC1lNDRkLTQwYzQtOWFmOC1lNzBkYzM0YmYwMDciLCJuZXQiOiJ3cyIsInBhdGgiOiIvVEdAbWZ0aXppIiwicG9ydCI6MTAxNiwicHMiOiJcdTY1RTVcdTY3MkMiLCJ0bHMiOiJ0bHMiLCJ0eXBlIjoiIiwidiI6Mn0=</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4@2.58.242.54:43893#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206dEJLQmY0cFZ6TkNGS2RiUGd2d3JOWHEz@2.58.242.54:42816#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4@2.58.242.54:43893#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206dEJLQmY0cFZ6TkNGS2RiUGd2d3JOWHEz@2.58.242.54:42816#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21n@2.58.242.54:44539#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206RldyWGN4UFpqSnhBTjg5eExncVkzQWNw@2.58.242.54:44236#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206cjZoRHJrUDRFdDZFRU5UUzhReTdUY21n@2.58.242.54:44539#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206RldyWGN4UFpqSnhBTjg5eExncVkzQWNw@2.58.242.54:44236#%E5%86%B2%E6%B5%AA%E9%B2%A8%E5%8F%B0%E6%B9%BE</span></span><br><span class="line"></span><br><span class="line"><span class="string">http://www.xrayvip.cf/clash.xml</span></span><br><span class="line"></span><br><span class="line"><span class="string">http://www.xrayvip.cf/v2ray.txt</span> <span class="string">（V2Ray）</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206WXlDQmVEZFlYNGNhZEhwQ2trbWRKTHE4QDIuNTguMjQxLjQ1OjQzODkz#</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4#ss-hk</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29t@119.28.71.43:2048</span></span><br><span class="line"></span><br><span class="line"><span class="string">ss://YWVzLTI1Ni1nY206YmFpZHUuY29tQDExOS4yOC43MS40MzoyMDQ4?tfo=1#Shadowsocks%20Rust%20%E8%8A%82%E7%82%B9%E5%85%B1%E4%BA%AB</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>  <strong><a target="_blank" rel="noopener" href="https://drive.google.com/uc?export=download&amp;id=1-LGud64tCfrYwUKiXK0Ll8uJfwZaoP2T">https://drive.google.com/uc?export=download&amp;id=1-LGud64tCfrYwUKiXK0Ll8uJfwZaoP2T</a></strong></li>
+<li>  <strong><a href="https://sub.id9.cc/sub%EF%BC%9Ftarget=clash&amp;url=http%3A%2F%2F120.92.132.166%3A8888%2Fdown%2Fs18ZGtTXcpya&amp;insert=false">https://sub.id9.cc/sub？target=clash&amp;url=http%3A%2F%2F120.92.132.166%3A8888%2Fdown%2Fs18ZGtTXcpya&amp;insert=false</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/zyzmzyz/free-nodes/master/Clash.yml">https://raw.githubusercontent.com/zyzmzyz/free-nodes/master/Clash.yml</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml">https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml">https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml">https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://suo.yt/ciD6eR4">https://suo.yt/ciD6eR4</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://wrq8888.xyz/api/v1/client/subscribe?token=8db3d7c">https://wrq8888.xyz/api/v1/client/subscribe?token=8db3d7c</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://yigedingyue.com/api/v1/client/subscribe?token=53143ed1ed41dab0474a96dc027d3ffb">https://yigedingyue.com/api/v1/client/subscribe?token=53143ed1ed41dab0474a96dc027d3ffb</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://biteb.club/link/6RJ0uo4VTbD6xjAZ?clash=1">https://biteb.club/link/6RJ0uo4VTbD6xjAZ?clash=1</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://gayv.gay/api/v1/client/subscribe?token=2e6d2418c7d6f9c55886d0560b4a09de">https://gayv.gay/api/v1/client/subscribe?token=2e6d2418c7d6f9c55886d0560b4a09de</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://bit.ly/2U6zz1n">https://bit.ly/2U6zz1n</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://srayx.com/api/v1/client/subscribe?token=f272b2f9c927953fe1f83636ef6cb8db">https://srayx.com/api/v1/client/subscribe?token=f272b2f9c927953fe1f83636ef6cb8db</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml">https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://suo.yt/OWdKnXp">https://suo.yt/OWdKnXp</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml">https://raw.githubusercontent.com/freebaipiao/freebaipiao/main/freebaipiao.yaml</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://suo.yt/Shm0Y0X">https://suo.yt/Shm0Y0X</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml">https://raw.githubusercontent.com/HEU-F8-PRACTICE/stor/master/20210708/1018b4e4cc1344959aa9da99c34cf9ca/1018b4e4cc1344959aa9da99c34cf9ca.yaml</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://suo.yt/HDe8WhU">https://suo.yt/HDe8WhU</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://newhua99.com/api/v1/client/subscribe?token=bfe9e64492e66202b2f726a2262ce599">https://newhua99.com/api/v1/client/subscribe?token=bfe9e64492e66202b2f726a2262ce599</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://drive.google.com/uc?export=download&amp;id=1Oi0xb22FIGt7DxNBMB5bKB9%5C_-aH5VcTg">https://drive.google.com/uc?export=download&amp;id=1Oi0xb22FIGt7DxNBMB5bKB9\_-aH5VcTg</a></strong></li>
+<li>  <strong><a target="_blank" rel="noopener" href="https://drive.google.com/uc?export=download&amp;id=1kjCP7cKKQ7lU6amA5lSWoN-1PL8hc2Zp">https://drive.google.com/uc?export=download&amp;id=1kjCP7cKKQ7lU6amA5lSWoN-1PL8hc2Zp</a></strong></li>
+</ul>
+<p>不一定能用</p>
+<p>但希望能帮到你！</p>
+<blockquote>
+<p><strong><em>愿订阅与你同在。</em></strong></p>
+<p><strong><em>——Collected by 听话的便当</em></strong></p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://byn6.github.io/2021/07/11/c-pf/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/clash/" rel="tag">clash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E6%9B%B4%E6%96%B0/" rel="tag">常更新</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B5%84%E6%BA%90/" rel="tag">资源</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/07/19/tg-bt/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            如何做一个TG私聊机器人？
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/07/11/cfa/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">clash for Android 的用法（小白级）</div>
+      </a>
+    
+  </nav>
+
+  
+   
+   
+<!-- minivaline评论 -->
+<div id="mvcomments-box">
+  <div id="mvcomments"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/minivaline@6"></script>
+<script>
+  new MiniValine(Object.assign({"enable":true,"serverURL":null,"ad_1":{"title":"云服务器限时秒杀","img":null,"url":null,"width":300},"ad_2":{"title":"vultr优惠vps","img":null,"url":null,"width":300}}, {
+    el: '#mvcomments',
+  }));
+  const infoEle = document.querySelector('#mvcomments .info');
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #mvcomments-box {
+    padding: 5px 30px;
+  }
+  @media screen and (max-width: 800px) {
+    #mvcomments-box {
+      padding: 5px 0px;
+    }
+  }
+  :root .darkmode {
+    --ohhho-color-p: #bbb;
+    --ohhho-color-text: #fff;
+    --ohhho-color-card: #252d38;
+    --ohhho-color-block: rgba(68, 68, 68, 0.65);
+    --ohhho-expand-before-background: linear-gradient(
+      180deg,
+      rgba(246, 246, 246, 0),
+      rgba(0, 0, 0, 0.9)
+    );
+    --ohhho-expand-after-background: rgba(0, 0, 0, 0.9);
+  }
+  .darkmode .ohhho pre {
+    background: #888;
+    border: 1px solid var(--ohhho-color-block);
+  }
+  .darkmode .ohhho .vlist .vcard .vcomment-body .vhead {
+    filter: brightness(85%);
+  }
+</style>
+
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2005-2021
+        <i class="ri-heart-fill heart_icon"></i> 听话的便当
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/0025443573_41.jpg" alt="Thd_bd"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>Thanks♪(･ω･)ﾉ 都是微信</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/zfb.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wx.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

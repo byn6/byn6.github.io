@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="来看看吧🍱！" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>如何做一个可以回复指令的TG机器人？ |  Thd_bd</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/google-photos.png" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-9G9B0DF7R0', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Thd_bd" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-tg-bc"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  如何做一个可以回复指令的TG机器人？
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/07/20/tg-bc/" class="article-date">
+  <time datetime="2021-07-20T05:20:24.000Z" itemprop="datePublished">2021-07-20</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">911</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">3 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>今天 便当教你如何<strong>快速自制</strong>一个简单的可以回复指令的TG机器人</p>
+<p>我们需要：</p>
+<p>1，一个Telegram</p>
+<p>2，一个谷歌浏览器（<strong>登陆</strong>过的）（<strong>强烈建议电脑端！！</strong>）</p>
+<p>3，一个稳定的VPN（搞着搞着掉线了就不好整了）</p>
+<p>接下来 我会以一个电脑端用户的视角进行讲解（结尾打脸）</p>
+<span id="more"></span>
+
+<hr>
+<p><strong>第一步 整理</strong></p>
+<p>我们可以首先创建一个<strong>记事本文件</strong>（.txt）（这是一个好习惯）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/6yqjp08f4dppvizqo.png?w=917"></p>
+<p>像是这样</p>
+<p>看的一头雾水？没关系 我来跟你讲解</p>
+<hr>
+<p><strong>第二步 编辑</strong></p>
+<p>我们的目的是做一个可以回复指令的TG机器人 首要的事 应该是创建几条指令</p>
+<p>我们打开与 @BotFather 的对话 发送指令 /mybots 打开上一节创建的机器人 并点击 Edit Bot</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/utkf6v9_b3i1pmlkr.png?w=286"></p>
+<p>点击左下角 编辑指令 并发送几条编辑好的指令</p>
+<p>格式如下：</p>
+<p>command1（英语和数字都行 不能出现中文） - Description（这是描述）<br>command2 - Another description</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/oxkk7n3p40ijjwnbgq.png?w=569"></p>
+<p>像这样</p>
+<p>此时我们再和机器人聊天 就会发现多了这些指令</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/1r27aezjhk9t8wvn3.png?w=590"></p>
+<hr>
+<p><strong>第三步 脚本</strong></p>
+<p>打开 <a target="_blank" rel="noopener" href="https://script.google.com/home/start">这个网址</a> （注意：本节<strong>所有的网址</strong>打开<strong>都需要翻墙</strong> 并强烈建议在<strong>电脑端</strong>使用<strong>谷歌浏览器</strong>打开）并新建一个项目 起一个好听的名字：001</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/fbguzv12gy1n8o2zlzc.png?w=1024"></p>
+<p>这时候你可能会说“啊 wc 我一点写代码的基础都没啊咋整”</p>
+<p>没有关系！ 我已经给你整理好了</p>
+<p>打开 <a target="_blank" rel="noopener" href="https://shimo.im/docs/wVHJJrW9rtjtdp3p/">这个网址并复制全文</a> 全部粘贴进新建项目001（注意：原本新建项目的存在的代码（如上图）<strong>也要替换</strong>）</p>
+<p>接下来就可以自定义你的指令和回复啦！</p>
+<p>需要注意的几点<br>1，记得保存！！！<br>2，第二十四行记得更换成你机器人的Token<br>3，第三十七行及之后注意出现的中文“指令名称”“反馈”</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/fv40hjzg61h72gct_kw.png?w=618"></p>
+<p>如图 是我编辑的指令以及收到相应指令后机器人反馈的消息</p>
+<p>其他的代码无需改动 默认就好！</p>
+<hr>
+<p><strong>第四步 部署</strong></p>
+<p>在<strong>保存</strong>完项目之后 点击右上角的部署“新建部署” 选择类型为“Web应用” 执行身份为“我” 有访问权限的人员为“任何人”（如图）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/ked3d6h4a8nixgdhr_vo88.png?w=796"></p>
+<p>部署完后 会有下面的弹窗 我们复制一下web应用网址 并记录下（记事本的优越性体现出来了）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image1033625411-1626757330959.jpg?w=996"></p>
+<p>之后 我们打开任意一个<a target="_blank" rel="noopener" href="https://www.urlencoder.org/">url在线编码网站</a></p>
+<p>输入刚刚复制的web应用地址 并点击Encode 会得到这样一串东西（如下图）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image2099745317-1626757806775.jpg?w=905"></p>
+<p>我们复制一下这串链接 并将自己机器人的API Token和这串链接组合到一个新的超链接里（格式如下）</p>
+<p><strong><a target="_blank" rel="noopener" href="https://api.telegram.org/bot%E8%BF%99%E9%87%8C%E6%94%BE%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84token/setWebhook?url=%E8%BF%99%E9%87%8C%E6%94%BEurlEncode%E8%BF%87%E7%9A%84%E9%82%A3%E4%B8%80%E4%B8%B2%E9%93%BE%E6%8E%A5">https://api.telegram.org/bot这里放机器人的token/setWebhook?url=这里放urlEncode过的那一串链接</a></strong></p>
+<p>随后 我们会得到一个超长的链接（如下图）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image1679726202-1626758101384.jpg?w=1024"></p>
+<p>我们复制得到的超长链接 并在浏览器打开 结果发现会出现下面的内容 这说明成功啦！（除非你没按照步骤来）</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/image_editor_output_image648218213-1626758219786.jpg?w=1024"></p>
+<p>此时我们回到Telegram 再和机器人发送指令</p>
+<p><img src="https://thdbd666666.files.wordpress.com/2021/07/screenshot_2021-07-20-13-17-51-232_org.thunderdog.challegram.jpg?w=512"></p>
+<p>它回复了！自动的！</p>
+<p><strong>大功告成！</strong></p>
+<p>本篇到这里就结束啦 前半段的时候还有电脑 现在由于在公交车上只能用手机编辑了</p>
+<p>本文为了方便编辑 一些地方没有打码 大家在做的时候注意不要泄露出机器人的Token</p>
+<p>感谢浏览！同时希望得到你的订阅</p>
+<p>我是 <strong>听话的便当</strong></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://byn6.github.io/2021/07/20/tg-bc/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Telegram/" rel="tag">Telegram</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/07/22/dbc/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            怎样获取Bandcamp上的所有音乐？
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/07/19/tg-bt/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">如何做一个TG私聊机器人？</div>
+      </a>
+    
+  </nav>
+
+  
+   
+   
+<!-- minivaline评论 -->
+<div id="mvcomments-box">
+  <div id="mvcomments"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/minivaline@6"></script>
+<script>
+  new MiniValine(Object.assign({"enable":true,"serverURL":null,"ad_1":{"title":"云服务器限时秒杀","img":null,"url":null,"width":300},"ad_2":{"title":"vultr优惠vps","img":null,"url":null,"width":300}}, {
+    el: '#mvcomments',
+  }));
+  const infoEle = document.querySelector('#mvcomments .info');
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #mvcomments-box {
+    padding: 5px 30px;
+  }
+  @media screen and (max-width: 800px) {
+    #mvcomments-box {
+      padding: 5px 0px;
+    }
+  }
+  :root .darkmode {
+    --ohhho-color-p: #bbb;
+    --ohhho-color-text: #fff;
+    --ohhho-color-card: #252d38;
+    --ohhho-color-block: rgba(68, 68, 68, 0.65);
+    --ohhho-expand-before-background: linear-gradient(
+      180deg,
+      rgba(246, 246, 246, 0),
+      rgba(0, 0, 0, 0.9)
+    );
+    --ohhho-expand-after-background: rgba(0, 0, 0, 0.9);
+  }
+  .darkmode .ohhho pre {
+    background: #888;
+    border: 1px solid var(--ohhho-color-block);
+  }
+  .darkmode .ohhho .vlist .vcard .vcomment-body .vhead {
+    filter: brightness(85%);
+  }
+</style>
+
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2005-2021
+        <i class="ri-heart-fill heart_icon"></i> 听话的便当
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/0025443573_41.jpg" alt="Thd_bd"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>Thanks♪(･ω･)ﾉ 都是微信</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/zfb.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wx.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
