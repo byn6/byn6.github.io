@@ -698,34 +698,11 @@ ga('send', 'pageview');
 <p>不久便翻到了Java的输入，字符串的截取，</p>
 <p>又跟Java的输出以及其他无边无际的联想结合到一起后——</p>
 <p>“恩？网易云的API和这些在一起运用，不就省去了每次都要在网页端F12抓取的功夫了嘛！”</p>
-<p>于是有了以下的奇思妙想：</p>
-<p>主要包含Java的三项功能应用——</p>
-<p><strong>Java交互式输入；Java字符串截取；Java输出；</strong></p>
-<p>这里以网易云为例子：</p>
-<p>网易云官方API解析为：<a target="_blank" rel="noopener" href="https://music.163.com/song/media/outer/url?id=XXXXX.mp3">https://music.163.com/song/media/outer/url?id=XXXXX.mp3</a> ；</p>
-<p>ID为每首歌独有的字符串；</p>
-<p>如《老男孩》的网易云链接为：<a target="_blank" rel="noopener" href="https://music.163.com/#/song?id=362998%EF%BC%8C%E5%85%B6ID%E4%B8%BA362998">https://music.163.com/#/song?id=362998，其ID为362998</a> ；</p>
-<p>则其音频直链为：</p>
-<p><a target="_blank" rel="noopener" href="https://music.163.com/song/media/outer/url?id=362998.mp3">https://music.163.com/song/media/outer/url?id=362998.mp3</a> 。</p>
-<p>话不多说，实操——</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>完成对程序的字符串输入（导包：import java.util.Scanner;）；</p>
-<p>完成对程序输入字符串的截取（substring）；</p>
-<p>完成对新音频直链的组合并输出。</p>
-<h3 id="Java交互式输入"><a href="#Java交互式输入" class="headerlink" title="Java交互式输入"></a>Java交互式输入</h3><h4 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h4><p>交互的包</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br></pre></td></tr></table></figure>
-
-<h4 id="字符串类型的数据输入"><a href="#字符串类型的数据输入" class="headerlink" title="字符串类型的数据输入"></a>字符串类型的数据输入</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">String s = in.nextLine();</span><br></pre></td></tr></table></figure>
-
-<h3 id="Java字符串截取"><a href="#Java字符串截取" class="headerlink" title="Java字符串截取"></a>Java字符串截取</h3><p>“<a target="_blank" rel="noopener" href="https://music.163.com/#/song?id=%E2%80%9D">https://music.163.com/#/song?id=”</a> （共32个字符） </p>
-<p>此部分输入的字符串应该丢弃，只保留音频ID：</p>
-<p>所以我们使用<code>substr</code>处理</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String substr = str.substring(<span class="number">32</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Java输出"><a href="#Java输出" class="headerlink" title="Java输出"></a>Java输出</h3><p>输出部分应为 “<a target="_blank" rel="noopener" href="https://music.163.com/song/media/outer/url?id=%E2%80%9D">https://music.163.com/song/media/outer/url?id=”</a> + ID + “.mp3”：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;https://music.163.com/song/media/outer/url?id=&quot;</span> + substr + <span class="string">&quot;.mp3&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="程序源码"><a href="#程序源码" class="headerlink" title="程序源码"></a>程序源码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wyyyy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">        String s = in.nextLine();</span><br><span class="line">        String str = s;</span><br><span class="line">        String substr = str.substring(<span class="number">32</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;https://music.163.com/song/media/outer/url?id=&quot;</span> + substr + <span class="string">&quot;.mp3&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- 
+<p>于是有了以下的奇思妙想：</p> 
+      <a class="article-more-link" href="/2021/08/22/j-wy/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
