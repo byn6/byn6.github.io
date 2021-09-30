@@ -6,7 +6,7 @@
   <link href="https://byn6.github.io/atom.xml" rel="self"/>
   
   <link href="https://byn6.github.io/"/>
-  <updated>2021-09-13T02:34:27.892Z</updated>
+  <updated>2021-09-30T13:12:31.578Z</updated>
   <id>https://byn6.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在VMware上运行Windows11</title>
+    <link href="https://byn6.github.io/2021/09/30/win11/"/>
+    <id>https://byn6.github.io/2021/09/30/win11/</id>
+    <published>2021-09-30T11:48:16.000Z</published>
+    <updated>2021-09-30T13:12:31.578Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;由于开学所以会少更博客了,期待的人不要太期待了(可能根本就没有哈哈哈哈)&lt;/p&gt;
+&lt;p&gt;步入正题:&lt;/p&gt;
+&lt;p&gt;自从微软在6月24日公布了下一代Windows系统–Windows11后,我就很想尝鲜试试看看,&lt;/p&gt;
+&lt;p&gt;但一直困于系统配置不给力(其实强装也彳亍),以及不敢乱搞的原因,&lt;/p&gt;
+&lt;p&gt;我就寻思着用虚拟机运行一下应该可以;&lt;/p&gt;
+&lt;p&gt;于是,在尝试完甲骨文虚拟机和其他众多虚拟机后,&lt;/p&gt;
+&lt;p&gt;我选择了VMware,这个能完美运行Windows11的虚拟机.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>在Railway上部署PagerMaid-Modify</title>
@@ -412,7 +435,7 @@
     <link href="https://byn6.github.io/2021/07/11/c-pf/"/>
     <id>https://byn6.github.io/2021/07/11/c-pf/</id>
     <published>2021-07-11T13:14:10.000Z</published>
-    <updated>2021-09-14T03:25:37.425Z</updated>
+    <updated>2021-09-14T06:09:13.571Z</updated>
     
     
     <summary type="html">&lt;p&gt;注意：（如果没有特别标明的话）&lt;/p&gt;
@@ -467,32 +490,6 @@
     
     
     <category term="记录" scheme="https://byn6.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World!</title>
-    <link href="https://byn6.github.io/2021/07/10/hw/"/>
-    <id>https://byn6.github.io/2021/07/10/hw/</id>
-    <published>2021-07-10T11:52:43.000Z</published>
-    <updated>2021-09-06T10:38:26.688Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;strong&gt;能看见此文章说明网站正在正常运行&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;欢迎&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;每一个人的到来&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;——&lt;/em&gt;&lt;/strong&gt;&lt;em&gt;&lt;stro</summary>
-        
-      
-    
-    
-    
-    
-    <category term="测试" scheme="https://byn6.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
