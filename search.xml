@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何使用Node.js API版网易云</title>
+    <url>/2021/10/01/njs/</url>
+    <content><![CDATA[<p>各位国庆快乐!</p>
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>昨天又想听歌了,</p>
+<p>于是打开了网易云,正打开时—</p>
+<span id="more"></span>
+
+<p><img src="/images/njs/%E5%8D%A1.png" alt="卡..了.."></p>
+<p>等待了一会儿之后,</p>
+<p>终于打开了;但是很快,听歌时又遇到了问题—</p>
+<p>“好听啊..咋样能更快地下载呢”</p>
+<p>于是,我便去了GitHub,并且发现了这个很nb的项目—</p>
+<h3 id="NeteaseCloudMusicApi"><a href="#NeteaseCloudMusicApi" class="headerlink" title="NeteaseCloudMusicApi!!!"></a><a href="https://github.com/Binaryify/NeteaseCloudMusicApi">NeteaseCloudMusicApi!!!</a></h3><p><img src="/images/njs/200.png" alt="官网"></p>
+<p>200多个接口…好家伙,</p>
+<p>这直接整出了一个网易云私服版啊!</p>
+<p>话不多说,咱们开始—</p>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>其实官网的过程说得非常详细,</p>
+<p>这里只是做一点细节上的提醒和补充;</p>
+<p>那么,既然是Node.js版网易云,必不可少的就是Node.js了;</p>
+<p>点击这里进行下载:<a href="https://nodejs.org/zh-cn/download/">https://nodejs.org/zh-cn/download/</a> (安装默认的14.18.0版本即可)</p>
+<p>此外,我们还需要安装Git(以上详见<a href="https://byn6.github.io/2021/08/29/gp-h/">Hexo那一篇</a>)</p>
+<p>之后进行安装—</p>
+<p>win R cmd打开之后,运行命令:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Binaryify/NeteaseCloudMusicApi.git</span><br></pre></td></tr></table></figure>
+
+<p>之后我们可以发现多了一个名为NeteaseCloudMusicApi的文件夹,</p>
+<p>这里建议改一下文件夹的名字为几个字母;</p>
+<p>之后运行命令:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> xxx(文件夹的名字)</span><br><span class="line"></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>安装完成之后,返回上一级的xxx文件夹,运行命令:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+
+<p>默认的启动端口是3000,所以我们打开 <a href="http://localhost:3000/">http://localhost:3000/</a> 就可以看到如下的画面:</p>
+<p><img src="/images/njs/run.png" alt="成功了!"></p>
+<hr>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>安装并运行成功后,我们打开官网,查看一下API:<a href="https://neteasecloudmusicapi.vercel.app/#/">https://neteasecloudmusicapi.vercel.app/#/</a></p>
+<p>可以看到,它提供了三种登录方式:<br><img src="/images/njs/%E7%99%BB%E5%BD%95.png"></p>
+<p>这里建议使用第一种,因为非常地方便啊;</p>
+<p>在<code>http://localhost:3000</code>的后面加上<code>/login/cellphone?phone=xxx&amp;password=yyy</code>(xxx填写你的手机号,yyy填写你的密码)</p>
+<p>也就是说,如果我的手机号是10086,密码是12345,那么我只需要打开<code>http://localhost:3000/login/cellphone?phone=10086&amp;password=12345</code>这个网址就可以登录了!</p>
+<p>注意:在整个过程中,不要关闭cmd!</p>
+<p>之后,我们来验证一下是不是已经登录了—</p>
+<p><img src="/images/njs/%E7%8A%B6%E6%80%81.png"></p>
+<p>官方提供的接口地址是<code>/login/status</code>,那么我们只需要打开<code>http://localhost:3000/login/status</code>就可以调用这个接口了;</p>
+<p><img src="/images/njs/%E6%88%90%E5%8A%9F.png" alt="出现了昵称和IP,说明成功了"></p>
+<p>建议使用火狐浏览器,因为谷歌浏览器在浏览代码页面时没有排版,特别乱;</p>
+<hr>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>提供几个常用的接口地址:</p>
+<p>获取用户等级:<code>/user/level</code></p>
+<p>签到:<code>/daily_signin</code></p>
+<p>获取每日歌单:<code>/recommend/songs</code></p>
+<p>歌手热门50首:<code>/artist/top/song?id=(这里填歌手的id)</code></p>
+<p>收藏的歌手列表:<code>/artist/sublist</code></p>
+<p>获取音乐直链:<code>/song/url?id=(这里填歌曲的id)</code></p>
+<p>搜索:<code>/cloudsearch?keywords= (关键词,注意前面有个空格)</code></p>
+<p>(还可以加上type参数,详见官方文档)</p>
+<p>获取歌词:<code>/lyric?id=(这里填歌曲的id)</code></p>
+<p>当然,官方提供了<a href="https://neteasecloudmusicapi.vercel.app/#/">很多API</a>,我就不一一列举了;</p>
+<p>用法就是<code>http://localhost:3000</code>+<code>接口地址</code>.</p>
+<hr>
+<p>我是 <strong>听话的便当</strong></p>
+<p>Bye~</p>
+]]></content>
+      <tags>
+        <tag>网易云</tag>
+        <tag>教程</tag>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何在VMware上运行Windows11</title>
     <url>/2021/09/30/win11/</url>
     <content><![CDATA[<p>由于开学所以会少更博客了,期待的人不要太期待了(可能根本就没有哈哈哈哈)</p>
@@ -76,8 +148,9 @@
 
 <p>成功了!!享受你的Windows11吧!</p>
 <hr>
-<p>听说Ctrl D收藏本站就不会再找不到了~)</p>
+<p>听说Ctrl D收藏本站就再也不会找不到了)</p>
 <p>我是 <strong>听话的便当</strong></p>
+<p>Bye~</p>
 ]]></content>
       <tags>
         <tag>教程</tag>
@@ -263,10 +336,8 @@
 <p>当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。</p>
 ]]></content>
       <tags>
-        <tag>HTML</tag>
-        <tag>Java Script</tag>
         <tag>CSS</tag>
-        <tag>前端</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>
@@ -403,6 +474,7 @@
       <tags>
         <tag>教程</tag>
         <tag>网站</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>

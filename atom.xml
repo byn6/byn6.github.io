@@ -6,7 +6,7 @@
   <link href="https://byn6.github.io/atom.xml" rel="self"/>
   
   <link href="https://byn6.github.io/"/>
-  <updated>2021-09-30T13:38:51.382Z</updated>
+  <updated>2021-10-01T05:29:00.364Z</updated>
   <id>https://byn6.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如何使用Node.js API版网易云</title>
+    <link href="https://byn6.github.io/2021/10/01/njs/"/>
+    <id>https://byn6.github.io/2021/10/01/njs/</id>
+    <published>2021-10-01T03:56:25.000Z</published>
+    <updated>2021-10-01T05:29:00.364Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;各位国庆快乐!&lt;/p&gt;
+&lt;h2 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot; title=&quot;起因&quot;&gt;&lt;/a&gt;起因&lt;/h2&gt;&lt;p&gt;昨天又想听歌了,&lt;/p&gt;
+&lt;p&gt;于是打开了网易云,正打开时—&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="网易云" scheme="https://byn6.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91/"/>
+    
+    <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="JS" scheme="https://byn6.github.io/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何在VMware上运行Windows11</title>
     <link href="https://byn6.github.io/2021/09/30/win11/"/>
     <id>https://byn6.github.io/2021/09/30/win11/</id>
     <published>2021-09-30T11:48:16.000Z</published>
-    <updated>2021-09-30T13:38:51.382Z</updated>
+    <updated>2021-10-01T05:28:17.642Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于开学所以会少更博客了,期待的人不要太期待了(可能根本就没有哈哈哈哈)&lt;/p&gt;
@@ -114,7 +137,7 @@
     <link href="https://byn6.github.io/2021/08/31/h-lr/"/>
     <id>https://byn6.github.io/2021/08/31/h-lr/</id>
     <published>2021-08-31T10:07:03.000Z</published>
-    <updated>2021-09-07T08:11:07.584Z</updated>
+    <updated>2021-10-01T03:54:18.571Z</updated>
     
     
     <summary type="html">&lt;p&gt;既然是侧边栏，那么肯定分“左”和“右”了。&lt;/p&gt;
@@ -128,13 +151,9 @@
     
     
     
-    <category term="HTML" scheme="https://byn6.github.io/tags/HTML/"/>
-    
-    <category term="Java Script" scheme="https://byn6.github.io/tags/Java-Script/"/>
-    
     <category term="CSS" scheme="https://byn6.github.io/tags/CSS/"/>
     
-    <category term="前端" scheme="https://byn6.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="JS" scheme="https://byn6.github.io/tags/JS/"/>
     
   </entry>
   
@@ -170,7 +189,7 @@
     <link href="https://byn6.github.io/2021/08/29/gp-h/"/>
     <id>https://byn6.github.io/2021/08/29/gp-h/</id>
     <published>2021-08-29T02:18:27.000Z</published>
-    <updated>2021-09-13T05:15:20.139Z</updated>
+    <updated>2021-10-01T03:49:35.994Z</updated>
     
     
     <summary type="html">&lt;p&gt;首先可以看一个示例网站（还是上N节我说过的GitHub Pages那个示例站点）&lt;/p&gt;
@@ -182,6 +201,8 @@
     <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="网站" scheme="https://byn6.github.io/tags/%E7%BD%91%E7%AB%99/"/>
+    
+    <category term="Hexo" scheme="https://byn6.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -473,23 +494,6 @@
     <category term="安卓" scheme="https://byn6.github.io/tags/%E5%AE%89%E5%8D%93/"/>
     
     <category term="教程" scheme="https://byn6.github.io/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Note 1.   原谅和忘记</title>
-    <link href="https://byn6.github.io/2021/07/10/nt-1/"/>
-    <id>https://byn6.github.io/2021/07/10/nt-1/</id>
-    <published>2021-07-10T15:04:03.000Z</published>
-    <updated>2021-09-06T11:54:13.870Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;“我能识别感觉吗？&lt;br&gt;我能感觉到它们的存在吗？&lt;br&gt;一切都变得麻木了吗？&lt;br&gt;代替绝望？&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="记录" scheme="https://byn6.github.io/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
